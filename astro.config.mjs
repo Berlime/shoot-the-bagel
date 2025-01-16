@@ -11,9 +11,13 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://astro.saastemp.site",
+	site: "https://shoot-the-bagel.pages.dev",
+	output: "static",
 	adapter: cloudflare({
-		imageService: "compile",
+		imageService: 'compile',
+		platformProxy: {
+			enabled: true,
+		}
 	  }),
 	  // compatibility requirements for Cloudflare Pages
 	  vite: {
