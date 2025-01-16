@@ -1,0 +1,84 @@
+---
+/**
+ * * Logo cloud section marquee
+ *
+ * These are taken from the src/icons folder. You may desire to modify any SVGs you use to have the fill set to "currentColor"
+ * to use the current text color. That is how I have set up these icons for demo purposes
+ */
+
+import { Icon } from "astro-icon/components";
+---
+<!-- border-y border-base-200 for class -->
+<section
+	id="logo-cloud-marquee"
+	class="px-4 py-6 text-base-800 dark:border-base-800 dark:text-base-400" 
+></section>
+	<div class="relative mx-auto max-w-[1700px] overflow-hidden">
+		<!-- left fade-out -->
+		<div
+			class="absolute -left-px top-0 z-10 h-full w-[20%] bg-gradient-to-r from-base-50 from-20% to-transparent dark:from-dark-bg"
+		>
+		</div>
+		<!-- right fade-out -->
+		<div
+			class="absolute -right-px top-0 z-10 h-full w-[20%] bg-gradient-to-r from-transparent to-base-50 to-80% dark:to-dark-bg"
+		>
+		</div>
+
+		<div class="logo-marquee relative flex gap-20">
+			<!-- Each animate-marquee2 section needs to have the exact same icons. Just do one then copy / paste -->
+			<div class="flex min-w-full shrink-0 animate-marquee2 items-center justify-around gap-20">
+				<Icon name="logos/lash" class="logo py-2" aria-label="logo" />
+
+				<Icon name="logos/easywood" class="logo" aria-label="logo" />
+
+				<Icon name="logos/souldigest" class="logo" aria-label="logo" />
+
+				<Icon name="logos/tehmami" class="logo" aria-label="logo" />
+
+				<Icon name="logos/amsg" class="logo py-2" aria-label="logo" />
+
+				<Icon name="logos/angullia" class="logo" aria-label="logo" />
+
+				<Icon name="logos/heyya" class="logo" aria-label="logo" />
+
+				<Icon name="logos/annujaim" class="logo" aria-label="logo" />
+
+				<Icon name="logos/Kamilah-Logo5" class="logo" aria-label="logo" />
+
+				<Icon name="logos/path1" class="logo" aria-label="logo" />
+			</div>
+
+			<div
+				aria-hidden="true"
+				class="flex min-w-full shrink-0 animate-marquee2 items-center justify-around gap-20"
+			>
+				<Icon name="logos/lash" class="logo py-2" aria-label="logo" />
+
+				<Icon name="logos/easywood" class="logo" aria-label="logo" />
+
+				<Icon name="logos/souldigest" class="logo" aria-label="logo" />
+
+				<Icon name="logos/tehmami" class="logo" aria-label="logo" />
+
+				<Icon name="logos/amsg" class="logo py-2" aria-label="logo" />
+
+				<Icon name="logos/angullia" class="logo" aria-label="logo" />
+
+				<Icon name="logos/heyya" class="logo" aria-label="logo" />
+
+				<Icon name="logos/annujaim" class="logo" aria-label="logo" />
+
+				<Icon name="logos/Kamilah-Logo5" class="logo" aria-label="logo" />
+
+				<Icon name="logos/path1" class="logo" aria-label="logo" />
+			</div>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.logo {
+		@apply h-10 w-10/12 md:h-16;
+	}
+</style>
