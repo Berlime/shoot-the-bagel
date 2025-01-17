@@ -42,14 +42,8 @@ const {
 } = Astro.props as Props;
 
 const currLocale = getLocaleFromUrl(Astro.url);
----
 
-<!doctype html>
-<html lang={currLocale} transition:animate="fade">
-
-
-<!--
-
+const c = document.createComment( `
 ██████╗ ███████╗██████╗ ██╗     ██╗███╗   ███╗███████╗                   
 ██╔══██╗██╔════╝██╔══██╗██║     ██║████╗ ████║██╔════╝                   
 ██████╔╝█████╗  ██████╔╝██║     ██║██╔████╔██║█████╗                     
@@ -62,9 +56,14 @@ const currLocale = getLocaleFromUrl(Astro.url);
 ███████╗██║   ██║██║     ██║   ██║   ██║   ██║██║   ██║██╔██╗ ██║███████╗
 ╚════██║██║   ██║██║     ██║   ██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║
 ███████║╚██████╔╝███████╗╚██████╔╝   ██║   ██║╚██████╔╝██║ ╚████║███████║
-╚══════╝ ╚═════╝ ╚══════╝ ╚═════╝    ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝ 
+╚══════╝ ╚═════╝ ╚══════╝ ╚═════╝    ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+` );
+document.head.insertBefore( c, document.head.firstElementChild ); 
+---
 
--->
+<!doctype html>
+<html lang={currLocale} transition:animate="fade">
+
  	<head>
 		<BaseHead
 			type={type}
