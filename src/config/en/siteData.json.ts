@@ -4,9 +4,9 @@ import { type SiteDataProps } from "../types/configDataTypes";
 const siteData: SiteDataProps = {
 	name: "Berlime Solutions",
 	// Your website's title and description (meta fields)
-	title: "Amplify - an electric SaaS theme crafted with Astro and Tailwind CSS",
+	title: "Berlime - Web Design & Development with Breeze",
 	description:
-		"Create an amazing website for your SaaS clients with our beautiful website theme designed using Astro and Tailwind CSS. Perfect for freelancers, developers, startups, and personal use.",
+		"Done for you an amazing website for your business & projects. Perfect for small businesses, enterprise, developers, startups, and personal use.",
 
 	// used on contact page and footer
 	contact: {
@@ -18,8 +18,8 @@ const siteData: SiteDataProps = {
 
 	// Your information for blog post purposes
 	author: {
-		name: "Cosmic Themes",
-		email: "creator@cosmicthemes.com",
+		name: "Kevin VA",
+		email: "kevin@berlime.com",
 		twitter: "Cosmic_Themes",
 	},
 
