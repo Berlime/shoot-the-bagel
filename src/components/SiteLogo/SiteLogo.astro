@@ -12,21 +12,22 @@ const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
 
 // images (example, image doesn't actually exist)
-import logo from "@images/amplify-logo.png";
+import logo from "@images/berlime.png";
 ---
 
 <a
 	class="flex items-center gap-1 align-middle text-xl font-medium text-base-800 dark:text-base-200"
 	href={getRelativeLocaleUrl(currLocale)}
 >
-	<!-- <Image
+	<Image
     src={logo}
-    alt="Amplify logo"
+    alt="Berlime logo"
     loading="eager"
     height={90}
     class="h-12 w-auto"
     aria-label="Amplify logo"
-  /> -->
-	<Icon name="amplify/berlime-logo" class="size-8 text-primary-500" aria-hidden="true" />
+  />
+
+  <!-- <Icon name="amplify/path2" class="size-8 text-primary-500" aria-hidden="true" /> -->
 	<p class="pl-1">Berlime</p>
 </a>
