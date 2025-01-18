@@ -150,7 +150,7 @@ const navConfig: navItem[] = [
 		text: "Contact",
 		link: "/contact",
 		icon: "tabler/address-book",
-	},	
+	},
 ];
 
 export default navConfig;

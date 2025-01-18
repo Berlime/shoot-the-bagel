@@ -48,51 +48,50 @@ export const testimonialData: TestimonialItem[] = [
 	// 	name: "Kamilah",
 	// 	title: "Life Coach",
 	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
-    //   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
-    //   `,
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
 	// },
 	// {
 	// 	avatar: Surayya,
 	// 	name: "Surayya",
 	// 	title: "Tutor",
 	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
-    //   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
-    //   `,
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
 	// },
 	// {
 	// 	avatar: Angullia,
 	// 	name: "Angullia Mosque",
 	// 	title: "Mosque Manager",
 	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
-    //   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
-    //   `,
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
 	// },
 	// {
 	// 	avatar: Sakinah,
 	// 	name: "Sakinah",
 	// 	title: "Image Consultant",
 	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
-    //   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
-    //   `,
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
 	// },
 	// {
 	// 	avatar: Myra,
 	// 	name: "After Hours Halaqah",
 	// 	title: "Mosque Manager",
 	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
-    //   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
-    //   `,
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
 	// },
 	// {
 	// 	avatar: Faizul,
 	// 	name: "Faizul",
 	// 	title: "Education Center",
 	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
-    //   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
-    //   `,
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
 	// },
 	// {
-	
 ];
 
 export default testimonialData;

@@ -198,42 +198,40 @@ const t = useTranslations(currLocale);
 										</span>
 									</>
 								) : (
-									<>									
+									<>
 										<div class="pricing-plan__monthly-price">
 											<h3
-											class="mb-8 text-lg font-medium tracking-tight"
-											class:list={[
-											{
-											"text-primary-600 dark:text-primary-400": plan.featured === true,
-											},
-											{
-											"text-base-800 dark:text-base-300": plan.featured !== true,
-											},
-											]}
-										>
-											{plan.name.kickStart}
-								    		</h3>
-											<h4 class="text-4xl font-medium tracking-tight">
-												S${plan.price.kickStart}
-											</h4>
+												class="mb-8 text-lg font-medium tracking-tight"
+												class:list={[
+													{
+														"text-primary-600 dark:text-primary-400": plan.featured === true,
+													},
+													{
+														"text-base-800 dark:text-base-300": plan.featured !== true,
+													},
+												]}
+											>
+												{plan.name.kickStart}
+											</h3>
+											<h4 class="text-4xl font-medium tracking-tight">S${plan.price.kickStart}</h4>
 											<span class="description inline-block text-sm tracking-tight">
 												{plan.priceTerms.kickStart}
 											</span>
 										</div>
 										<div class="pricing-plan__yearly-price hidden">
 											<h3
-											class="mb-8 text-lg font-medium tracking-tight"
-											class:list={[
-											{
-											"text-primary-600 dark:text-primary-400": plan.featured === true,
-											},
-											{
-											"text-base-800 dark:text-base-300": plan.featured !== true,
-											},
-											]}
-								    	>
-											{plan.name.jumpStart}
-								    		</h3>
+												class="mb-8 text-lg font-medium tracking-tight"
+												class:list={[
+													{
+														"text-primary-600 dark:text-primary-400": plan.featured === true,
+													},
+													{
+														"text-base-800 dark:text-base-300": plan.featured !== true,
+													},
+												]}
+											>
+												{plan.name.jumpStart}
+											</h3>
 											<h4 class="text-4xl font-medium tracking-tight">S${plan.price.jumpStart}</h4>
 											<span class="description inline-block text-sm tracking-tight">
 												{plan.priceTerms.jumpStart}

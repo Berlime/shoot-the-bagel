@@ -21,7 +21,6 @@ export const dataTranslations = {
 		teamData: teamDataEn,
 		testimonialData: testimonialDataEn,
 	},
-	
 } as const;
 
 /**

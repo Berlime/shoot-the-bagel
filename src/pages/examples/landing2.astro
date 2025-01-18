@@ -46,48 +46,44 @@ const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
 ---
 
-<BaseLayout
-  title={siteData.title}
-  description={siteData.description}
-  navTheme="dark"
->
-  <!-- <HeroSideElectric /> -->
-  <HeroCentered />
-  <!-- <HeroSideImage /> -->
+<BaseLayout title={siteData.title} description={siteData.description} navTheme="dark">
+	<!-- <HeroSideElectric /> -->
+	<HeroCentered />
+	<!-- <HeroSideImage /> -->
 
-  <LogoCloudMarquee />
-  <!-- <LogoCloudStatic
+	<LogoCloudMarquee />
+	<!-- <LogoCloudStatic
     class="dark bg-dark-bg md:pb-20"
     data-aos="fade-up"
     data-aos-delay=".4"
   /> -->
-  <!-- <LogoCloudStatic /> -->
+	<!-- <LogoCloudStatic /> -->
 
-  <FeatureVideo />
-  <FeatureCardsMedium />
-  <FeatureSideImage />
-  <FeatureIntegrations />
+	<FeatureVideo />
+	<FeatureCardsMedium />
+	<FeatureSideImage />
+	<FeatureIntegrations />
 
-  <!-- <FeatureSteps /> -->
-  <!-- <FeatureCardsSmall /> -->
-  <!-- <FeatureNumbers /> -->
-  <!-- <FeatureCardsSmall2 /> -->
-  <!-- <FeatureCodeToggle /> -->
+	<!-- <FeatureSteps /> -->
+	<!-- <FeatureCardsSmall /> -->
+	<!-- <FeatureNumbers /> -->
+	<!-- <FeatureCardsSmall2 /> -->
+	<!-- <FeatureCodeToggle /> -->
 
-  <!-- <TestimonialsMarquee /> -->
-  <TestimonialsColumns />
-  <!-- <TestimonialsSwiperQuotes /> -->
+	<!-- <TestimonialsMarquee /> -->
+	<TestimonialsColumns />
+	<!-- <TestimonialsSwiperQuotes /> -->
 
-  <!-- <PricingTable /> -->
-  <PricingThreeCards />
-  <!-- <PricingOnePrice /> -->
-  <!-- <PricingFourCards /> -->
+	<!-- <PricingTable /> -->
+	<PricingThreeCards />
+	<!-- <PricingOnePrice /> -->
+	<!-- <PricingFourCards /> -->
 
-  <!-- <CtaSideImage /> -->
-  <!-- <CtaBgImage /> -->
-  <!-- <CtaCardBgImage /> -->
-  <CtaLightning />
+	<!-- <CtaSideImage /> -->
+	<!-- <CtaBgImage /> -->
+	<!-- <CtaCardBgImage /> -->
+	<CtaLightning />
 
-  <!-- <FaqAccordions /> -->
-  <FaqCards />
+	<!-- <FaqAccordions /> -->
+	<FaqCards />
 </BaseLayout>

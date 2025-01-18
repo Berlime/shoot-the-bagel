@@ -33,7 +33,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 	<div class="dark:bg-dark-bg">
 		<!-- bg neon arc -->
 		<div
-			class="md:top-120 absolute -inset-x-10 top-20 opacity-70 md:-inset-x-14 md:top-32 xl:-bottom-30"
+			class="md:top-120 xl:-bottom-30 absolute -inset-x-10 top-20 opacity-70 md:-inset-x-14 md:top-32"
 		>
 			<div class="mx-auto flex h-full w-full max-w-[1800px] items-end justify-center">
 				<Icon
@@ -81,30 +81,31 @@ const currLocale = getLocaleFromUrl(Astro.url);
 				>
 					<!-- Use this if translation is on and edit in translationData.json.ts -->
 					<!-- {t("hero_description")} -->
-					Boost sales & ROI. Propel Your Brand into the <b>Digital Stratosphere</b>. Discover new heights you never thought possible.
-					 
+					Boost sales & ROI. Propel Your Brand into the <b>Digital Stratosphere</b>. Discover new
+					heights you never thought possible.
 				</p>
 				<div class="flex flex-wrap justify-center gap-4">
 					<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center">
 						<Button
 							variant="primary"
-							href="https://cosmicthemes.com/themes/amplify/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>See Pricing</Button>
+							href="/#pricing"
+							target="_self"
+							rel="noopener norefferer"
+							type="submit">See Pricing</Button
+						>
 					</div>
 
-						<!-- link it to ce.berlime.com/quote -->
+					<!-- link it to ce.berlime.com/quote -->
 					<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center">
 						<Button
 							variant="secondary"
 							href="https://cosmicthemes.com/themes/amplify/"
 							target="_blank"
 							arrow="right"
-							rel="noopener noreferrer"
-						>Request Quote</Button>
+							rel="noopener noreferrer">Request Quote</Button
+						>
 					</div>
-					</div>
+				</div>
 
 				<!-- social proof -->
 				<div

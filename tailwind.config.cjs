@@ -21,17 +21,17 @@ module.exports = {
 				// use any standard tailwind colors from here https://tailwindcss.com/docs/customizing-colors
 				// or generate with https://uicolors.app/create
 				primary: {
-					'50': '#f0f3fe',
-					'100': '#dde4fc',
-					'200': '#c2d0fb',
-					'300': '#98b2f8',
-					'400': '#678bf3',
-					'500': '#4363ee',
-					'600': '#3b4fe4',
-					'700': '#2531d0',
-					'800': '#2429a9',
-					'900': '#232985',
-					'950': '#1a1b51',
+					50: "#f0f3fe",
+					100: "#dde4fc",
+					200: "#c2d0fb",
+					300: "#98b2f8",
+					400: "#678bf3",
+					500: "#4363ee",
+					600: "#3b4fe4",
+					700: "#2531d0",
+					800: "#2429a9",
+					900: "#232985",
+					950: "#1a1b51",
 				},
 				base: colors.neutral,
 

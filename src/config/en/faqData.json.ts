@@ -11,7 +11,7 @@ export const faqData: FaqItem[] = [
 		answer: `You will have access to the client dashboard. We will walkthrough with you how to navigate the dashboard.`,
 	},
 	{
-		question: 'How do I make simple changes later?',
+		question: "How do I make simple changes later?",
 		answer: `If you opted-in for back-end access, you will recieve tutorial videos on how to make changes, additionally you may also let us make the change for you.`,
 	},
 	{

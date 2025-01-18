@@ -30,7 +30,6 @@ export const teamData: teamMember[] = [
       I've been working in the paint industry ever since. I’m a huge fan of the outdoors and I love to travel.
       `,
 	},
-	
 ];
 
 export default teamData;

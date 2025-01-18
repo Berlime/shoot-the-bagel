@@ -1,10 +1,7 @@
 import { type CollectionEntry, getCollection, getEntries } from "astro:content";
 
 // utils
-import {
-  removeLocaleFromSlug,
-  filterCollectionByLanguage,
-} from "@js/localeUtils";
+import { removeLocaleFromSlug, filterCollectionByLanguage } from "@js/localeUtils";
 import { slugify } from "@js/textUtils";
 
 // data
@@ -34,33 +31,33 @@ import { locales, defaultLocale } from "@config/siteSettings.json";
  * ```
  */
 export async function getAllPosts(
-  lang?: (typeof locales)[number],
+	lang?: (typeof locales)[number],
 ): Promise<CollectionEntry<"blog">[]> {
-  const posts = await getCollection("blog", ({ data, id }) => {
-    // filter out draft posts
-    return data.draft !== true;
-  });
+	const posts = await getCollection("blog", ({ data, id }) => {
+		// filter out draft posts
+		return data.draft !== true;
+	});
 
-  // if a language is passed, filter the posts by that language
-  let filteredPosts: CollectionEntry<"blog">[];
-  if (lang) {
-    // console.log("filtering by language", lang);
-    filteredPosts = filterCollectionByLanguage(posts, lang);
-    // filteredPosts = posts;
-  } else {
-    // console.log("no language passed, returning all posts");
-    filteredPosts = posts;
-  }
+	// if a language is passed, filter the posts by that language
+	let filteredPosts: CollectionEntry<"blog">[];
+	if (lang) {
+		// console.log("filtering by language", lang);
+		filteredPosts = filterCollectionByLanguage(posts, lang);
+		// filteredPosts = posts;
+	} else {
+		// console.log("no language passed, returning all posts");
+		filteredPosts = posts;
+	}
 
-  // filter out future posts and sort by date
-  const formattedPosts = formatPosts(filteredPosts, {
-    filterOutFuturePosts: true,
-    sortByDate: true,
-    limit: undefined,
-    removeLocale: true,
-  });
+	// filter out future posts and sort by date
+	const formattedPosts = formatPosts(filteredPosts, {
+		filterOutFuturePosts: true,
+		sortByDate: true,
+		limit: undefined,
+		removeLocale: true,
+	});
 
-  return formattedPosts;
+	return formattedPosts;
 }
 
 // --------------------------------------------------------
@@ -74,59 +71,59 @@ export async function getAllPosts(
  * @returns formatted blog posts according to passed parameters
  */
 interface FormatPostsOptions {
-  filterOutFuturePosts?: boolean;
-  sortByDate?: boolean;
-  limit?: number;
-  removeLocale?: boolean;
+	filterOutFuturePosts?: boolean;
+	sortByDate?: boolean;
+	limit?: number;
+	removeLocale?: boolean;
 }
 
 export function formatPosts(
-  posts: CollectionEntry<"blog">[],
-  {
-    filterOutFuturePosts = true,
-    sortByDate = true,
-    limit = undefined,
-    removeLocale = true,
-  }: FormatPostsOptions = {},
+	posts: CollectionEntry<"blog">[],
+	{
+		filterOutFuturePosts = true,
+		sortByDate = true,
+		limit = undefined,
+		removeLocale = true,
+	}: FormatPostsOptions = {},
 ): CollectionEntry<"blog">[] {
-  const filteredPosts = posts.reduce((acc: CollectionEntry<"blog">[], post) => {
-    const { pubDate } = post.data;
+	const filteredPosts = posts.reduce((acc: CollectionEntry<"blog">[], post) => {
+		const { pubDate } = post.data;
 
-    // filterOutFuturePosts if true
-    if (filterOutFuturePosts && new Date(pubDate) > new Date()) return acc;
+		// filterOutFuturePosts if true
+		if (filterOutFuturePosts && new Date(pubDate) > new Date()) return acc;
 
-    // add post to acc
-    acc.push(post);
+		// add post to acc
+		acc.push(post);
 
-    return acc;
-  }, []);
+		return acc;
+	}, []);
 
-  // now we have filteredPosts
-  // sortByDate or randomize
-  if (sortByDate) {
-    filteredPosts.sort(
-      (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
-        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
-    );
-  } else {
-    filteredPosts.sort(() => Math.random() - 0.5);
-  }
+	// now we have filteredPosts
+	// sortByDate or randomize
+	if (sortByDate) {
+		filteredPosts.sort(
+			(a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+				new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+		);
+	} else {
+		filteredPosts.sort(() => Math.random() - 0.5);
+	}
 
-  // remove locale from URL
-  if (removeLocale) {
-    filteredPosts.forEach((post) => {
-      // console.log("removing locale from slug for post", post.id);
-      // @ts-ignore (it's fine, we're just removing the locale from the URL)
-      post.id = removeLocaleFromSlug(post.id);
-    });
-  }
+	// remove locale from URL
+	if (removeLocale) {
+		filteredPosts.forEach((post) => {
+			// console.log("removing locale from slug for post", post.id);
+			// @ts-ignore (it's fine, we're just removing the locale from the URL)
+			post.id = removeLocaleFromSlug(post.id);
+		});
+	}
 
-  // limit if number is passed
-  if (typeof limit === "number") {
-    return filteredPosts.slice(0, limit);
-  }
+	// limit if number is passed
+	if (typeof limit === "number") {
+		return filteredPosts.slice(0, limit);
+	}
 
-  return filteredPosts;
+	return filteredPosts;
 }
 
 // --------------------------------------------------------
@@ -142,26 +139,22 @@ export function formatPosts(
  * See example: https://blog.codybrunner.com/2024/adding-related-articles-with-astro-content-collections/
  */
 export function arePostsRelated(
-  postOne: CollectionEntry<"blog">,
-  postTwo: CollectionEntry<"blog">,
+	postOne: CollectionEntry<"blog">,
+	postTwo: CollectionEntry<"blog">,
 ): boolean {
-  // if titles are the same, then they are the same post. return false
-  if (postOne.id === postTwo.id) return false;
+	// if titles are the same, then they are the same post. return false
+	if (postOne.id === postTwo.id) return false;
 
-  const postOneCategories = postOne.data.categories.map((category) =>
-    slugify(category),
-  );
+	const postOneCategories = postOne.data.categories.map((category) => slugify(category));
 
-  const postTwoCategories = postTwo.data.categories.map((category) =>
-    slugify(category),
-  );
+	const postTwoCategories = postTwo.data.categories.map((category) => slugify(category));
 
-  // if any tags or categories match, return true
-  const categoriesMatch = postOneCategories.some((category) =>
-    postTwoCategories.includes(category),
-  );
+	// if any tags or categories match, return true
+	const categoriesMatch = postOneCategories.some((category) =>
+		postTwoCategories.includes(category),
+	);
 
-  return categoriesMatch;
+	return categoriesMatch;
 }
 
 // --------------------------------------------------------
@@ -174,17 +167,17 @@ export function arePostsRelated(
  */
 
 export function countItems(items: string[]): object {
-  // get counts of each item in the array
-  const countedItems = items.reduce((acc, item) => {
-    const val = acc[slugify(item)] || 0;
+	// get counts of each item in the array
+	const countedItems = items.reduce((acc, item) => {
+		const val = acc[slugify(item)] || 0;
 
-    return {
-      ...acc,
-      [slugify(item)]: val + 1,
-    };
-  }, {});
+		return {
+			...acc,
+			[slugify(item)]: val + 1,
+		};
+	}, {});
 
-  return countedItems;
+	return countedItems;
 }
 
 // --------------------------------------------------------
@@ -197,15 +190,15 @@ export function countItems(items: string[]): object {
  * note: this is used for tag and category cloud ordering
  */
 export function sortByValue(jsObj: object): any[] {
-  var array: any[] = [];
-  for (var i in jsObj) {
-    array.push([i, jsObj[i]]);
-  }
+	var array: any[] = [];
+	for (var i in jsObj) {
+		array.push([i, jsObj[i]]);
+	}
 
-  const sorted = array.sort((a, b) => {
-    return b[1] - a[1];
-  });
+	const sorted = array.sort((a, b) => {
+		return b[1] - a[1];
+	});
 
-  // looks like [ [ 'productivity', 2 ], [ 'cool-code', 1 ] ]
-  return sorted;
+	// looks like [ [ 'productivity', 2 ], [ 'cool-code', 1 ] ]
+	return sorted;
 }
