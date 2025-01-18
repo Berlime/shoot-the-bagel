@@ -4,7 +4,7 @@ import { type SiteDataProps } from "../types/configDataTypes";
 const siteData: SiteDataProps = {
 	name: "Berlime Solutions",
 	// Your website's title and description (meta fields)
-	title: "Berlime - Web Design & Development with Breeze",
+	title: "Berlime - A Web Design & Development Studio",
 	description:
 		"Done for you an amazing website for your business & projects. Perfect for small businesses, enterprise, developers, startups, and personal use.",
 

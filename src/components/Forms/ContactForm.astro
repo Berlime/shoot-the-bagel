@@ -13,14 +13,22 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 ---
 
 <section id="contact" class="ml-auto min-w-fit max-w-2xl md:max-w-md">
-	<iframe
+
+	<!-- <iframe
 		style="border:none;width:100%;"
 		id="my-form-pfx9fr"
 		src="https://opnform.com/forms/my-form-pfx9fr"></iframe><script
 		type="text/javascript"
 		onload="initEmbed('my-form-pfx9fr')"
-		src="https://opnform.com/widgets/iframe.min.js"></script>
-	<!-- <form id="contact-form" name="contact" class="flex flex-col gap-4">
+		src="https://opnform.com/widgets/iframe.min.js"></script> -->
+
+	<form
+		id="contact-form"
+		name="contact"
+		class="flex flex-col gap-4"
+		action="https://usebasin.com/f/98e1539db42c"
+		method="POST">
+
 		<input type="hidden" name="form-name" value="contact" />
 		<div>
 			<div class="flex flex-col">
@@ -30,7 +38,7 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 					class="form__input"
 					name="fname"
 					id="contact-fname"
-					placeholder="first name"
+					placeholder="First name"
 					required
 				/>
 			</div>
@@ -43,7 +51,7 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 				name="email"
 				id="contact-email"
 				inputmode="email"
-				placeholder="preferred contact email"
+				placeholder="Email"
 				required
 			/>
 		</div>
@@ -55,7 +63,7 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 				name="phone"
 				id="contact-phone"
 				inputmode="tel"
-				placeholder="phone number"
+				placeholder="Phone Number"
 				required
 			/>
 		</div>
@@ -65,17 +73,114 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 				name="services"
 				class="form__input"
 				id="contact-services"
-				rows="4"
-				placeholder="Reason for contacting us"
+				rows="5"
+				placeholder="Your enquiry here"
 				required></textarea>
 		</div>
-		<Button variant="primary" type="submit" class="rounded-md before:rounded-md">Submit</Button>
+		<div>
+			<label for="emai" class="sr-only">Real users skip this field</label>
+			<input id="emai" type="text" name="emai" class="sr-only" tabindex="-1" />
+		</div>
+		<Button variant="primary" type="submit" class="rounded-md before:rounded-md">
+			<svg
+			id="form-loading"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="icon icon-tabler icons-tabler-outline icon-tabler-loader-2 hidden size-5 animate-spin"
+			>
+			<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+			<path d="M12 3a9 9 0 1 0 9 9"></path>
+			</svg>
+			Submit</Button>
 	</form>
+
+	<!-- message send success feedback -->
+	<dialog
+		id="form-good-feedback"
+		class="invisible fixed bottom-4 z-10 mx-auto flex rounded-lg bg-green-200 p-0 text-green-800 opacity-0 transition duration-300"
+		>
+		<div class="p-4 text-center">
+			<p>Message sent successfully. I will get back to you.</p>
+		</div>
+		</dialog>
+
+		<!-- message send fail feedback -->
+		<dialog
+		id="form-bad-feedback"
+		class="invisible fixed bottom-4 z-10 mx-auto flex rounded-lg bg-red-200 p-0 text-red-800 opacity-0 transition duration-300"
+		>
+		<div class="p-4 text-center">
+			<p>Something went wrong. Please try again or e-mail to kevin@berlime.com.</p>
+		</div>
+	</dialog>
 
 	<style>
 		.form__input {
 		  @apply w-full rounded-md border border-transparent bg-gray-200 p-2.5 transition;
 		  @apply focus-visible:border-blue-600/70 focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-opacity-50;
 		}
-	</style> -->
+	</style>
+
+	<!-- form analytics tracking -->
+	<script type="text/javascript">
+		function configureAhoy() {
+		ahoy.configure({
+			visitsUrl: "https://usebasin.com/ahoy/visits",
+			eventsUrl: "https://usebasin.com/ahoy/events",
+			page: "98e1539db42c" /* Use your form id here */
+		});
+		ahoy.trackView();
+		ahoy.trackSubmits();
+		}
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/ahoy.js@0.3.9/dist/ahoy.min.js" async defer onload="configureAhoy()"></script>
+
+	<!-- Form AJAX Set-Up -->
+	<script>
+		// handle the form submission
+		var xhr = new XMLHttpRequest();
+	  
+		// only one contact form supported per page
+		const form = document.getElementById("contact-form") as HTMLFormElement;
+	  
+		const handleFormSubmission = (event) => {
+		  // prevent page from reloading
+		  event.preventDefault();
+	  
+		  // get form data
+		  const formData = new FormData(form);
+	  
+		  // create POST request to the form action attribute
+		  xhr.open("POST", form.action, true);
+	  
+		  // make sure we receive json back
+		  xhr.setRequestHeader("Accept", "application/json");
+	  
+		  // SEND IT!
+		  xhr.send(formData);
+	  
+		  // once we get a response...
+		  xhr.onload = function () {
+			const response = JSON.parse(xhr.response);
+	  
+			if (xhr.status === 200) {
+			  // The request was successful
+			  console.log("Form submitted successfully.");
+			  // reset form on successful email send
+			  form?.reset();
+			} else {
+			  const message = "Form submission failed with error: " + response.error;
+			  console.log(message);
+			}
+		  };
+		};
+	  
+		form?.addEventListener("submit", handleFormSubmission, true);
+	  </script>
+
 </section>
