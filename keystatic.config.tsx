@@ -23,7 +23,7 @@ export default config({
 	// create a Keystatic Cloud account here: https://keystatic.cloud/
 	cloud: { project: "berlime/shoot-the-bagel" },
 	ui: {
-		brand: { name: "Cosmic Theme" },
+		brand: { name: "Berlime" },
 	},
 	collections: {
 		blogEN: Collections.Blog("en"),

@@ -13,6 +13,12 @@ import { Icon } from "astro-icon/components";
 // components
 import FeatureCard from "@components/FeatureCard/FeatureCardSmall.astro";
 import Badge from "@components/Badge/Badge.astro";
+import Button from "@components/Button/Button.astro";
+
+// utils
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLocaleFromUrl } from "@js/localeUtils";
+const currLocale = getLocaleFromUrl(Astro.url);
 
 interface FeatureData {
 	icon: string;
@@ -78,5 +84,27 @@ const featureData: FeatureData[] = [
 				))
 			}
 		</div>
+		<div class="flex flex-wrap justify-center gap-4 mt-8">
+			<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center">
+				<Button
+					variant="primary"
+					href="/#pricing"
+					target="_self"
+					rel="noopener norefferer"
+					type="submit">See Pricing</Button
+				>
+			</div>
+
+			<!-- link it to ce.berlime.com/quote -->
+			<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center">
+				<Button
+				variant="secondary"
+				href={getRelativeLocaleUrl(currLocale, "/contact")}
+				target="_self"
+				arrow="right"
+				rel="noopener norefferer">Request Quote</Button				>
+			</div>
+		</div>
+
 	</div>
 </section>

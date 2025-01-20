@@ -12,7 +12,7 @@ const siteData: SiteDataProps = {
 	contact: {
 		address1: "2 Venture Drive",
 		address2: "#14-02 Vision Exchange, SG, 608526",
-		phone: "(65) 9894-4737",
+		phone: "+65 9894-4737",
 		email: "kevin@berlime.com",
 	},
 
