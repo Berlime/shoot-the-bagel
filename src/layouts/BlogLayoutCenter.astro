@@ -104,7 +104,7 @@ const authorsData = await getEntries(authors);
 						updatedDate && (
 							<div class="mb-6 italic">
 								<time datetime={updatedDate.toISOString()}>
-									{t("updated")}: {formatDate(updatedDate, currLocale)}
+									{t("updated")}: "{formatDate(updatedDate, currLocale)}"
 								</time>
 							</div>
 						)
