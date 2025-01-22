@@ -13,7 +13,7 @@ import icon from "astro-icon";
 export default defineConfig({
 	site: "https://shoot-the-bagel.pages.dev",
 	adapter: cloudflare({
-		imageService: 'compile',
+		imageService: "compile",
 		platformProxy: {
 			enabled: true,
 		},

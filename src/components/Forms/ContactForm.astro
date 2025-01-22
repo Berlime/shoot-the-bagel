@@ -128,80 +128,80 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 		}
 	</style>
 
-<script>
-	// handle the form submission
-	var xhr = new XMLHttpRequest();
-  
-	// only one contact form supported per page
-	const form = document.getElementById("contact-form") as HTMLFormElement;
-	const formLoadingIndicator = document.getElementById("form-loading");
-	const formGoodFeedback = document.getElementById("form-good-feedback");
-	const formBadFeedback = document.getElementById("form-bad-feedback");
-  
-	const handleFormSubmission = (event) => {
-	  // prevent page from reloading
-	  event.preventDefault();
-  
-	  // show loading indicator
-	  formLoadingIndicator?.classList.remove("hidden");
-  
-	  // get form data
-	  const formData = new FormData(form);
-  
-	  // create POST request to the form action attribute
-	  xhr.open("POST", form.action, true);
-  
-	  // make sure we receive json back
-	  xhr.setRequestHeader("Accept", "application/json");
-  
-	  // SEND IT!
-	  xhr.send(formData);
-  
-	  // once we get a response...
-	  xhr.onload = function () {
-		formLoadingIndicator?.classList.add("hidden");
-		const response = JSON.parse(xhr.response);
-  
-		if (xhr.status === 200) {
-		  // The request was successful
-		  console.log("Form submitted successfully.");
-		  // reset form on successful email send
-		  form?.reset();
-  
-		  if (formGoodFeedback) {
-			formGoodFeedback.classList.remove("invisible");
-			formGoodFeedback.classList.add("opacity-100");
-  
-			// reset form feedback after a few seconds
-			setTimeout(() => {
-			  formGoodFeedback.classList.remove("opacity-100");
-  
-			  setTimeout(() => {
-				formGoodFeedback.classList.add("invisible");
-			  }, 300);
-			}, 5000);
-		  }
-		} else {
-		  const message = "Form submission failed with error: " + response.error;
-		  console.log(message);
-		  // The request failed
-		  if (formBadFeedback) {
-			formBadFeedback.classList.remove("invisible");
-			formBadFeedback.classList.add("opacity-100");
-  
-			// reset form feedback after a few seconds
-			setTimeout(() => {
-			  formBadFeedback.classList.remove("opacity-100");
-  
-			  setTimeout(() => {
-				formBadFeedback.classList.add("invisible");
-			  }, 300);
-			}, 7000);
-		  }
-		}
-	  };
-	};
-  
-	form?.addEventListener("submit", handleFormSubmission, true);
-  </script>
+	<script>
+		// handle the form submission
+		var xhr = new XMLHttpRequest();
+
+		// only one contact form supported per page
+		const form = document.getElementById("contact-form") as HTMLFormElement;
+		const formLoadingIndicator = document.getElementById("form-loading");
+		const formGoodFeedback = document.getElementById("form-good-feedback");
+		const formBadFeedback = document.getElementById("form-bad-feedback");
+
+		const handleFormSubmission = (event) => {
+			// prevent page from reloading
+			event.preventDefault();
+
+			// show loading indicator
+			formLoadingIndicator?.classList.remove("hidden");
+
+			// get form data
+			const formData = new FormData(form);
+
+			// create POST request to the form action attribute
+			xhr.open("POST", form.action, true);
+
+			// make sure we receive json back
+			xhr.setRequestHeader("Accept", "application/json");
+
+			// SEND IT!
+			xhr.send(formData);
+
+			// once we get a response...
+			xhr.onload = function () {
+				formLoadingIndicator?.classList.add("hidden");
+				const response = JSON.parse(xhr.response);
+
+				if (xhr.status === 200) {
+					// The request was successful
+					console.log("Form submitted successfully.");
+					// reset form on successful email send
+					form?.reset();
+
+					if (formGoodFeedback) {
+						formGoodFeedback.classList.remove("invisible");
+						formGoodFeedback.classList.add("opacity-100");
+
+						// reset form feedback after a few seconds
+						setTimeout(() => {
+							formGoodFeedback.classList.remove("opacity-100");
+
+							setTimeout(() => {
+								formGoodFeedback.classList.add("invisible");
+							}, 300);
+						}, 5000);
+					}
+				} else {
+					const message = "Form submission failed with error: " + response.error;
+					console.log(message);
+					// The request failed
+					if (formBadFeedback) {
+						formBadFeedback.classList.remove("invisible");
+						formBadFeedback.classList.add("opacity-100");
+
+						// reset form feedback after a few seconds
+						setTimeout(() => {
+							formBadFeedback.classList.remove("opacity-100");
+
+							setTimeout(() => {
+								formBadFeedback.classList.add("invisible");
+							}, 300);
+						}, 7000);
+					}
+				}
+			};
+		};
+
+		form?.addEventListener("submit", handleFormSubmission, true);
+	</script>
 </section>
