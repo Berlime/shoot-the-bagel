@@ -13,6 +13,7 @@ import Button from "@components/Button/Button.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
+import CtaLightning from "@components/Cta/CtaLightning.astro";
 
 // data
 const currLocale = getLocaleFromUrl(Astro.url);
@@ -57,5 +58,6 @@ const email = "hello@berlime.com";
 			</div>
 		</section>
 	</div>
-	<CtaCardBgImage />
+	<!-- <CtaCardBgImage /> -->
+	 <CtaLightning />
 </BaseLayout>

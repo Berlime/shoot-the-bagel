@@ -67,6 +67,16 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 			/>
 		</div>
 		<div>
+			<label for="project-budget" class="form__label sr-only mb-1">Project Budget</label>
+			<select class="form__input" name="budget" id="project-budget" required>
+				<option value="" disabled selected>Select your budget</option>
+				<option value="500-2000">S$500 - S$2000</option>
+				<option value="2000-5000">S$2000 - S$5000</option>
+				<option value="5000-10000">S$5000 - S$10,000</option>
+			</select>
+		</div>
+		
+		<div>
 			<label for="contact-services" class="form__label sr-only mb-1">Message</label>
 			<textarea
 				name="services"
@@ -204,4 +214,17 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 
 		form?.addEventListener("submit", handleFormSubmission, true);
 	</script>
+
+<script type="text/javascript">
+	function configureAhoy() {
+	  ahoy.configure({
+		visitsUrl: "https://usebasin.com/ahoy/visits",
+		eventsUrl: "https://usebasin.com/ahoy/events",
+		page: "98e1539db42c" /* Use your form id here */
+	  });
+	  ahoy.trackView();
+	  ahoy.trackSubmits();
+	}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/ahoy.js@0.3.9/dist/ahoy.min.js" async defer onload="configureAhoy()"></script>
 </section>
