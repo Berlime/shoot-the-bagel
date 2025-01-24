@@ -1,12 +1,12 @@
 import { type teamMember } from "@config/types/configDataTypes";
 
-import Virginia from "@images/ashton_blackwell.jpg";
-import Victra from "@images/nicola_harris.jpg";
-import Darrow from "@images/nic_fassbender.jpg";
+import Razi from "@images/razi.jpg";
+import Baha from "@images/baha.jpg";
+import Kamil from "@images/kamil.jpg";
 
 export const teamData: teamMember[] = [
 	{
-		image: Darrow,
+		image: Kamil,
 		name: "Kamil Sharip",
 		title: "Front-End Developer",
 		bio: `I am a Chef de Partie turned into a front-end developer, based in Singapore. Created my first online-blog
@@ -14,16 +14,16 @@ export const teamData: teamMember[] = [
       `,
 	},
 	{
-		image: Virginia,
+		image: Razi,
 		name: "Razi Affandi",
-		title: "Software Engineer",
+		title: "Back-End Developer",
 		bio: `I am a software engineer, graduated from Singapore Polytechnic. I have a passion for VFX & Interactive Development.
     `,
 	},
 	{
-		image: Victra,
+		image: Baha,
 		name: "Baha Karim",
-		title: "Administration",
+		title: "Support & Sales",
 		bio: `I have a sharp eye for detail and a knack for organizing and managing various tasks, I ensure smooth and efficient operations.
       `,
 	},

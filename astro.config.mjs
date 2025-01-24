@@ -11,7 +11,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://shoot-the-bagel.pages.dev",
+	site: "https://berlime.com",
 	output: 'static',
 	adapter: cloudflare({
 		imageService: "compile",
