@@ -34,6 +34,7 @@ We leverage the latest technologies to build robust and scalable solutions:
 
 Here’s an overview of what you’ll find in this repository:
 
+```
 .
 ├── .tours/
 │   └── code-intro.tour
@@ -92,6 +93,7 @@ Here’s an overview of what you’ll find in this repository:
 ├── README.md
 ├── tailwind.config.cjs
 └── tsconfig.json
+```
 
 ---
 
@@ -100,9 +102,9 @@ Here’s an overview of what you’ll find in this repository:
 To explore our work or contribute to our projects, follow these steps:
 
 1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   ```
+ ```bash
+git clone https://github.com/your-username/your-repo-name.git
+```
 
 2. Navigate to the Project Directory:
 
