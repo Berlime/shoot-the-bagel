@@ -1,25 +1,39 @@
-# Welcome to Amplify!
+# 🚀 Berlime Solutions!
 
-1. To get started, first install all necessary packages with `npm install`, then run an initial build to make sure the setup works `npm run build`.
-2. Next, you'll want to configure your site i18n setup (one language, or multiple). Simply run the command `npm run config-i18n` and follow the script instructions to get setup! For further information, see the [i18n documentation](https://cosmicthemes.com/i18n/).
-3. Now you can setup the site to your liking!
-   - [Style customization](https://cosmicthemes.com/docs/styles/)
-   - [Content editing](https://cosmicthemes.com/docs/content/)
-   - [Animations](https://cosmicthemes.com/docs/animations/)
-   - [Keystatic CMS](https://cosmicthemes.com/docs/keystatic/) - if you don't want Keystatic you can run `npm run remove-keystatic`
-   - [Forms](https://cosmicthemes.com/docs/contact-form/)
+Welcome to the official GitHub repository of **Berlime Solutions**, where we craft stunning, high-performance websites and digital solutions tailored to your business needs. Whether you're a startup or an established enterprise, we're here to help you succeed online.
 
-Should you need any assistance, send me a message at support@cosmicthemes.com
+---
 
-## Code Intro
+## 🌟 **About Us**
 
-I have created a few code tours to help introduce you to the codebase. You will need the extension [Code Tour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) to view them in VSCode.
+At **Berlime Solutions**, we specialize in:
+- **Web Design & Development**: Beautiful, responsive, and user-friendly websites.
+- **E-Commerce Solutions**: Custom online stores to boost your sales.
+- **SEO & Digital Marketing**: Drive traffic and grow your online presence.
+- **UI/UX Design**: Intuitive and engaging user experiences.
+- **Custom Web Applications**: Tailored solutions for your unique business needs.
 
-## Code Structure
+We believe in delivering **quality, innovation, and results** to help your business thrive in the digital world.
 
-The source files have the following setup. Note that not all files are included - it is already long, no one wants it to be longer.
+---
 
-```
+## 🛠️ **Our Tech Stack**
+
+We leverage the latest technologies to build robust and scalable solutions:
+- **Frontend**: Astro, React, Jekyll, Hugo, Vue.
+- **Backend**: Node.js, Python (Django/Flask), PHP (Laravel)
+- **Databases**: MySQL, PostgreSQL, MongoDB
+- **DevOps**: Docker, Kubernetes, Digital Ocean, Contabo
+- **Tools**: Git, Octopus.do, Figma, Adobe Creatives
+
+& so much more!
+
+---
+
+## 📂 **Repository Structure**
+
+Here’s an overview of what you’ll find in this repository:
+
 .
 ├── .tours/
 │   └── code-intro.tour
@@ -73,44 +87,68 @@ The source files have the following setup. Note that not all files are included 
 ├── .gitignore
 ├── .prettierrc.mjs
 ├── astro.config.mjs
-├── netlify.toml
 ├── package.json
 ├── package-lock.json
 ├── README.md
 ├── tailwind.config.cjs
 └── tsconfig.json
+
+---
+
+## 🚀 **Getting Started**
+
+To explore our work or contribute to our projects, follow these steps:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   ```
+
+2. Navigate to the Project Directory:
+
+```bash
+cd your-repo-name
 ```
 
-For robots like Google to see the correct sitemap, you will want to edit the `public/robots.txt` file to use your website domain.
+3. Install Dependencies:
 
-## More Resources
+```bash
+npm install  # or yarn install
+```
 
-- See my blog post on [recommended Astro web development setup](https://cosmicthemes.com/blog/astro-web-development-setup/).
-- You can learn more information from the [theme docs](https://cosmicthemes.com/docs/) page on the [Cosmic Themes Website](https://cosmicthemes.com/).
-- For support, see the [support page](https://cosmicthemes.com/support/).
-- [License details](https://cosmicthemes.com/license/)
+4. Run the Project:
 
-## General Astro Info
+```bash
+npm start    # or yarn start
+```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 💡 Why Choose Us?
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Proven Expertise: Years of experience delivering successful projects.
 
-Any static assets, like images, can be placed in the `public/` directory. I also frequently use `src/assets` for images when using Astro asssets for image optimization.
+Client-Centric Approach: We listen, understand, and deliver exactly what you need.
 
-### 🧞 Commands
+Cutting-Edge Technology: Stay ahead with the latest tools and frameworks.
 
-All commands are run from the root of the project, from a terminal:
+Transparent Communication: Regular updates and clear timelines.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📈 Our Portfolio
+Check out some of our recent projects:
 
-### 👀 Want to learn more?
+Easywood - Am e-commerce platform for custom woodworking.
 
-Feel free to check out the [Astro documentation](https://docs.astro.build).
+Souldigest - A dynamic heavy content website.
+
+KahwinSG - A blogging website
+
+📞 Get in Touch
+Ready to take your business to the next level? Let’s talk!
+
+Email: hello@berlime.com
+
+Website: https://berlime.com
+
+📜 License
+This project is licensed under the MIT License. Feel free to use, modify, and distribute it as needed.
+
+Made with ❤️ by Berlime | © 2025 All Rights Reserved.
