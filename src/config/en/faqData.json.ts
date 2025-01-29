@@ -4,11 +4,11 @@ import { type FaqItem } from "../types/configDataTypes";
 export const faqData: FaqItem[] = [
 	{
 		question: "How much does the cheapest package cost?",
-		answer: `Our cheapest package is S$1500 (one-time) design and development fees. Then S$40 per month for a contract of 1 year.`,
+		answer: `Our cheapest package is S$2000 (one-time) design and development fees. Then S$100 per month for a contract of 1 year. Be sure to schedule a call with us and we will have a discount for you.`,
 	},
 	{
 		question: "How do I keep track of progress?",
-		answer: `You will have access to the client dashboard. We will walkthrough with you how to navigate the dashboard.`,
+		answer: `You will have access to the client dashboard. You can view the status of the tasks at your own convenience. We will walkthrough with you how to navigate the dashboard.`,
 	},
 	{
 		question: "How do I make simple changes later?",
@@ -27,6 +27,10 @@ export const faqData: FaqItem[] = [
 	{
 		question: "Do you have a start up program?",
 		answer: `Yes, we have 20% discount for newly registered business. (Must be less than 3 years old)`,
+	},
+	{
+		question: "Who owns the website?",
+		answer: `You own the website, we are just the developer and designer. We will provide you with the necessary files and access.`,
 	},
 ];
 
