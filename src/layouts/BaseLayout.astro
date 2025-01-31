@@ -71,6 +71,9 @@ const currLocale = getLocaleFromUrl(Astro.url);
 			postFrontmatter={postFrontmatter ? postFrontmatter : undefined}
 			noindex={noindex}
 		/>
+
+		<!-- CLoudflare Turnstile -->
+		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
 	</head>
 	<body
 		id="body"
