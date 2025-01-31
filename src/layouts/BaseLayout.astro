@@ -73,7 +73,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		/>
 
 		<!-- CLoudflare Turnstile -->
-		<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
+		<!-- <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script> -->
 	</head>
 	<body
 		id="body"
@@ -119,5 +119,8 @@ const currLocale = getLocaleFromUrl(Astro.url);
 				document.addEventListener("astro:after-swap", AOS.refreshHard);
 			}
 		</script>
+
+		<!-- CLoudflare Turnstile -->
+		<script src="https://js.usebasin.com/v2.3.0.min.js" async></script>
 	</body>
 </html>

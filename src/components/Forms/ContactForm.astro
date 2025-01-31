@@ -21,7 +21,9 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 		onload="initEmbed('my-form-pfx9fr')"
 		src="https://opnform.com/widgets/iframe.min.js"></script> -->
 
-	<form
+	<form data-basin-form
+		data-basin-spam-protection='turnstile'
+		data-basin-turnstile-sitekey="0x4AAAAAAA655yCS_Lg1buRH"
 		action="https://usebasin.com/f/98e1539db42c"
 		method="POST"
 		id="contact-form"
@@ -91,6 +93,10 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 			<label for="emai" class="sr-only">Real users skip this field</label>
 			<input id="emai" type="text" name="emai" class="sr-only" tabindex="-1" />
 		</div>
+
+		<!-- Cloudflare Turnstile -->
+		<!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAA655yCS_Lg1buRH>"></div> -->
+		
 		<Button variant="primary" type="submit" class="rounded-md before:rounded-md">
 			<!-- your loading SVG here with id="form-loading" -->
 			<svg
@@ -109,9 +115,6 @@ import CtaCardBgImage from "@components/Cta/CtaCardBgImage.astro";
 			</svg>
 			Submit</Button
 		>
-		<!-- Cloudflare Turnstile -->
-
-		<div class="cf-turnstile" data-sitekey="0x4AAAAAAA655yCS_Lg1buRH>"></div>
 		
 	</form>
 
