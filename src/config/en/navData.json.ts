@@ -23,40 +23,40 @@ const navConfig: navItem[] = [
 		icon: "tabler/user",
 	},
 
-	// mega menu
+	// mega menu - leave this comment out
 	// {
 	// 	text: "Pages",
 	// 	megaMenuColumns: [
 	// 		{
-	// 			title: "Landing Pages",
+	// 			title: "Development",
 	// 			items: [
 	// 				{
-	// 					text: "Landing 1",
-	// 					link: "/",
+	// 					text: "Websites",
+	// 					link: "/services/websites",
 	// 					icon: "tabler/star",
 	// 				},
 	// 				{
-	// 					text: "Landing 2",
-	// 					link: "/examples/landing2",
+	// 					text: "Intranets",
+	// 					link: "/services/intranets",
 	// 					icon: "tabler/diamonds",
 	// 				},
 	// 				{
-	// 					text: "Landing 3",
+	// 					text: "SysAdmin",
 	// 					link: "/examples/landing3",
 	// 					icon: "tabler/circle",
 	// 				},
 	// 			],
 	// 		},
 	// 		{
-	// 			title: "Blog",
+	// 			title: "Branding",
 	// 			items: [
 	// 				{
-	// 					text: "Blog Post 1",
+	// 					text: "Logo Design",
 	// 					link: "/blog/tsconfig-paths-setup",
 	// 					icon: "tabler/edit-circle",
 	// 				},
 	// 				{
-	// 					text: "Blog Post 2",
+	// 					text: "Photography",
 	// 					link: "/examples/blog-post-2",
 	// 					icon: "tabler/edit-circle",
 	// 				},
@@ -140,6 +140,7 @@ const navConfig: navItem[] = [
 	// 		},
 	// 	],
 	// },
+	// End of mega menu - leave this comment out
 
 	{
 		text: "Insights",
