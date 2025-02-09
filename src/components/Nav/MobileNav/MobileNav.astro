@@ -40,7 +40,7 @@ import { locales } from "@config/siteSettings.json";
 	<dialog
 		aria-label="mobile navigation menu"
 		id="mobile-nav__content"
-		class="whitepace-nowrap fixed inset-x-0 top-0 z-20 m-0 h-[100dvh] max-h-screen w-screen max-w-[100vw] items-center overflow-auto overflow-y-auto overflow-x-hidden bg-base-100 px-4 pb-4 pt-2 text-lg font-normal text-base-900 transition-opacity duration-300 dark:bg-base-950 dark:text-base-100"
+		class="whitepace-nowrap bg-base-100 text-base-900 dark:bg-base-950 dark:text-base-100 fixed inset-x-0 top-0 z-20 m-0 h-[100dvh] max-h-screen w-screen max-w-[100vw] items-center overflow-auto overflow-x-hidden overflow-y-auto px-4 pt-2 pb-4 text-lg font-normal transition-opacity duration-300"
 	>
 		<div class="dialog-frame">
 			<div class="flex items-center justify-between">
@@ -70,7 +70,7 @@ import { locales } from "@config/siteSettings.json";
 								// mobile dropdown menu
 								<>
 									<MobileNavDropdown navItem={navItem} />
-									<hr class="mx-4 my-1 border-base-300 dark:border-base-600/60" />
+									<hr class="border-base-300 dark:border-base-600/60 mx-4 my-1" />
 								</>
 							) : "megaMenuColumns" in navItem ? (
 								// mobile mega menu dropdowns
@@ -78,13 +78,13 @@ import { locales } from "@config/siteSettings.json";
 									{navItem.megaMenuColumns.map((navItem) => (
 										<MobileNavDropdown navItem={navItem} />
 									))}
-									<hr class="mx-4 my-1 border-base-300 dark:border-base-600/60" />
+									<hr class="border-base-300 dark:border-base-600/60 mx-4 my-1" />
 								</>
 							) : (
 								// normal nav link
 								<>
 									<NavLink {navItem} />
-									<hr class="mx-4 my-1 border-base-300 dark:border-base-600/60" />
+									<hr class="border-base-300 dark:border-base-600/60 mx-4 my-1" />
 								</>
 							),
 						)

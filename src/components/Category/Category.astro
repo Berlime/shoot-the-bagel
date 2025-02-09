@@ -15,7 +15,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 ---
 
 <a
-	class="inline-block text-sm font-medium tracking-tight text-primary-600 transition-colors hover:text-primary-700 md:text-base dark:text-primary-400 dark:hover:text-primary-300"
+	class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 inline-block text-sm font-medium tracking-tight transition-colors md:text-base"
 	href={getRelativeLocaleUrl(currLocale, `/categories/${slugify(category)}`)}
 >
 	{humanize(category)}

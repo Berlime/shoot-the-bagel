@@ -24,7 +24,7 @@ const { showCount = false } = Astro.props as Props;
 		processedCategories.map(([category, count]) => (
 			<a
 				href={getRelativeLocaleUrl(currLocale, `/categories/${category}/`)}
-				class="hover-border-glow rounded-full border border-base-200 bg-base-100 px-4 py-2 text-sm font-medium before:rounded-full md:text-base dark:border-base-800 dark:bg-base-950"
+				class="hover-border-glow border-base-200 bg-base-100 dark:border-base-800 dark:bg-base-950 rounded-full border px-4 py-2 text-sm font-medium before:rounded-full md:text-base"
 			>
 				{humanize(category)}
 				{showCount && <span class="text-xs opacity-70">{count}</span>}

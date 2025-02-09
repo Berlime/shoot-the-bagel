@@ -104,12 +104,12 @@ const featureData: FeatureData = {
 	<div class="relative">
 		<!-- left fade-out -->
 		<div
-			class="absolute -left-px top-0 z-10 h-full w-[15%] bg-gradient-to-r from-base-50 from-20% to-transparent dark:from-dark-bg"
+			class="from-base-50 dark:from-dark-bg absolute top-0 -left-px z-10 h-full w-[15%] bg-gradient-to-r from-20% to-transparent"
 		>
 		</div>
 		<!-- right fade-out -->
 		<div
-			class="absolute -right-px top-0 z-10 h-full w-[15%] bg-gradient-to-r from-transparent to-base-50 to-80% dark:to-dark-bg"
+			class="to-base-50 dark:to-dark-bg absolute top-0 -right-px z-10 h-full w-[15%] bg-gradient-to-r from-transparent to-80%"
 		>
 		</div>
 
@@ -117,7 +117,7 @@ const featureData: FeatureData = {
 			<!-- marquee top row -->
 			<div class="marquee-top-integrations relative flex gap-0 overflow-hidden">
 				<div
-					class="flex min-w-full shrink-0 animate-marquee-integrations items-center justify-around gap-0"
+					class="animate-marquee-integrations flex min-w-full shrink-0 items-center justify-around gap-0"
 				>
 					{
 						featureData.topRow.map((card, idx) => (
@@ -127,7 +127,7 @@ const featureData: FeatureData = {
 				</div>
 				<div
 					aria-hidden="true"
-					class="flex min-w-full shrink-0 animate-marquee-integrations items-center justify-around gap-0"
+					class="animate-marquee-integrations flex min-w-full shrink-0 items-center justify-around gap-0"
 				>
 					{
 						featureData.topRow.map((card, idx) => (
@@ -140,7 +140,7 @@ const featureData: FeatureData = {
 			<!-- marquee bottom row -->
 			<div class="marquee-bot-integrations relative flex gap-0 overflow-hidden">
 				<div
-					class="flex min-w-full shrink-0 animate-marquee-integrations items-center justify-around gap-0 [animation-direction:reverse]"
+					class="animate-marquee-integrations flex min-w-full shrink-0 items-center justify-around gap-0 [animation-direction:reverse]"
 				>
 					{
 						featureData.botRow.map((card, idx) => (
@@ -150,7 +150,7 @@ const featureData: FeatureData = {
 				</div>
 				<div
 					aria-hidden="true"
-					class="flex min-w-full shrink-0 animate-marquee-integrations items-center justify-around gap-0 [animation-direction:reverse]"
+					class="animate-marquee-integrations flex min-w-full shrink-0 items-center justify-around gap-0 [animation-direction:reverse]"
 				>
 					{
 						featureData.botRow.map((card, idx) => (
