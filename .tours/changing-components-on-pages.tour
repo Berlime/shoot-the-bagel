@@ -5,7 +5,7 @@
     {
       "file": "src/pages/index.astro",
       "description": "Lets say we want to change the hero section on the homepage (src/pages/index.astro file). There are already 3 components available under src/components/hero. So for example, you can change this \"@components/Hero/HeroSideImage.astro\" to \"@components/Hero/HeroCentered.astro\" and your Hero section will now be a different already crafted option.",
-      "line": 6
+      "line": 8
     },
     {
       "file": "src/components/Hero/HeroSideImage.astro",
