@@ -63,7 +63,7 @@ const authorsData = await getEntries(authors);
 											width={100}
 											quality="high"
 											loading="eager"
-											class="h-7 w-7 rounded-full border border-base-300 object-cover dark:border-base-700"
+											class="border-base-300 dark:border-base-700 h-7 w-7 rounded-full border object-cover"
 										/>
 									</figure>
 									<div class="my-auto ml-2">{authorData.data.name}</div>
@@ -82,7 +82,7 @@ const authorsData = await getEntries(authors);
 			</div>
 
 			<!-- blog post main image -->
-			<div class="mt-6 overflow-hidden rounded-xl border border-base-300 dark:border-base-700">
+			<div class="border-base-300 dark:border-base-700 mt-6 overflow-hidden rounded-xl border">
 				<Image
 					src={heroImage}
 					alt={`Cover for ${title}`}
@@ -120,7 +120,7 @@ const authorsData = await getEntries(authors);
 							</div>
 						)
 					}
-					<section id="blog-post-content" class="prose mx-auto md:text-lg">
+					<section id="blog-post-content" class="markdown-content mx-auto max-w-[650px] lg:ml-0">
 						<slot />
 					</section>
 

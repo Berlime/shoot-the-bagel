@@ -11,6 +11,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 // components
 import Button from "@components/Button/Button.astro";
 import Badge from "@components/Badge/Badge.astro";
+import { Switch } from "@components/starwind/switch";
 
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
@@ -74,7 +75,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(currLocale);
 ---
 
-<section id="pricing" class="py-16 md:py-20">
+<section id="pricing-three-cards" class="py-16 md:py-20">
 	<div class="site-container relative">
 		<div class="flex justify-center">
 			<!-- <Badge>Pricing</Badge> -->
@@ -87,23 +88,10 @@ const t = useTranslations(currLocale);
 		<div class="mt-6 flex justify-center">
 			<label
 				for="pricing-plan__toggle"
-				class="relative inline-flex cursor-pointer select-none items-center"
+				class="relative inline-flex cursor-pointer items-center gap-4 select-none"
 			>
-				<input
-					type="checkbox"
-					name="pricing-plan__toggle"
-					id="pricing-plan__toggle"
-					class="pricing-plan__toggle sr-only"
-					aria-label="Toggle between monthly and yearly pricing"
-				/>
 				<span class="description flex items-center">Monthly</span>
-				<span
-					class="pricing-plan__slider mx-4 flex h-7 w-[56px] items-center rounded-full border border-base-300 bg-base-100 p-1 duration-200 dark:border-base-700 dark:bg-base-900"
-				>
-					<span
-						class="pricing-plan__dot size-5 rounded-full bg-base-800 duration-200 dark:bg-base-200"
-					></span>
-				</span>
+				<Switch id="pricing-three-cards__toggle" variant="primary" padding={4} />
 				<span class="description flex items-center">Yearly</span>
 			</label>
 		</div>
@@ -114,7 +102,7 @@ const t = useTranslations(currLocale);
 				pricingData.map((plan) => (
 					<div class="pricing-plan w-full">
 						<div
-							class="relative flex h-full flex-col justify-between rounded-xl border bg-base-100 p-8 text-center dark:bg-base-950"
+							class="bg-base-100 dark:bg-base-950 relative flex h-full flex-col justify-between rounded-xl border p-8 text-center"
 							class:list={[
 								{
 									"border-primary-300 before:absolute before:inset-0.5 before:-z-10 before:rounded-xl before:bg-blue-500 before:blur":
@@ -154,7 +142,7 @@ const t = useTranslations(currLocale);
 									</>
 								) : (
 									<>
-										<div class="pricing-plan__monthly-price">
+										<div class="pricing-monthly">
 											<h4 class="text-4xl font-medium tracking-tight">
 												${plan.price.monthly} / mo
 											</h4>
@@ -162,7 +150,7 @@ const t = useTranslations(currLocale);
 												(paid monthly)
 											</span>
 										</div>
-										<div class="pricing-plan__yearly-price hidden">
+										<div class="pricing-yearly hidden">
 											<h4 class="text-4xl font-medium tracking-tight">${plan.price.yearly} / mo</h4>
 											<span class="description inline-block text-sm tracking-tight">
 												(paid yearly)
@@ -171,7 +159,7 @@ const t = useTranslations(currLocale);
 									</>
 								)}
 
-								<div class="mt-8 border-y border-base-200 py-8 dark:border-base-800">
+								<div class="border-base-200 dark:border-base-800 mt-8 border-y py-8">
 									<p
 										class="description mx-auto max-w-xs tracking-tight"
 										class:list={[
@@ -188,7 +176,7 @@ const t = useTranslations(currLocale);
 										<li class="mb-2.5 flex flex-wrap items-center gap-3">
 											<Icon
 												name="tabler/check"
-												class="size-5 text-primary-600 dark:text-primary-400"
+												class="text-primary-600 dark:text-primary-400 size-5"
 												aria-hidden="true"
 											/>
 											<span
@@ -221,42 +209,22 @@ const t = useTranslations(currLocale);
 </section>
 
 <script>
+	import type { SwitchChangeEvent } from "@/components/starwind/switch";
+
 	function pricingPlanToggleSetup() {
-		// toggle between monthly and yearly pricing
-		const pricingToggle = document.querySelector(".pricing-plan__toggle") as HTMLInputElement;
+		const pricingSection = document.getElementById("pricing-three-cards");
+		const toggle = pricingSection?.querySelector("#pricing-three-cards__toggle");
+		const monthlyPrices = pricingSection?.querySelectorAll(".pricing-monthly");
+		const yearlyPrices = pricingSection?.querySelectorAll(".pricing-yearly");
 
-		const pricingToggleSlider = document.querySelector(".pricing-plan__slider") as HTMLInputElement;
+		if (!toggle || !monthlyPrices || !yearlyPrices) return;
 
-		const pricingToggleDot = document.querySelector(".pricing-plan__dot") as HTMLInputElement;
+		toggle.addEventListener("starwind-switch:change", (e: Event) => {
+			const event = e as SwitchChangeEvent;
+			const isYearly = event.detail.checked;
 
-		// each pricing plan has a monthly price and a yearly price
-		const pricingPlans = document.querySelectorAll(".pricing-plan") as NodeListOf<HTMLElement>;
-
-		// each plan has monthly and yearly price
-		pricingPlans.forEach((pricingPlan) => {
-			const monthlyPrice = pricingPlan.querySelector(".pricing-plan__monthly-price") as HTMLElement;
-
-			const yearlyPrice = pricingPlan.querySelector(".pricing-plan__yearly-price") as HTMLElement;
-
-			if (pricingToggle && pricingToggleDot && pricingToggleSlider && monthlyPrice && yearlyPrice) {
-				pricingToggle.addEventListener("change", (event) => {
-					if (pricingToggle.checked) {
-						// if checked, then yearly price
-						monthlyPrice.classList.add("hidden");
-						yearlyPrice.classList.remove("hidden");
-						pricingToggleDot.classList.add("translate-x-[26px]");
-						pricingToggleSlider.classList.add("border-primary-400");
-						pricingToggleSlider.classList.add("dark:border-primary-600");
-					} else {
-						// if unchecked, then monthly price
-						monthlyPrice.classList.remove("hidden");
-						yearlyPrice.classList.add("hidden");
-						pricingToggleDot.classList.remove("translate-x-[26px]");
-						pricingToggleSlider.classList.remove("border-primary-400");
-						pricingToggleSlider.classList.remove("dark:border-primary-600");
-					}
-				});
-			}
+			monthlyPrices.forEach((price) => price.classList.toggle("hidden", isYearly));
+			yearlyPrices.forEach((price) => price.classList.toggle("hidden", !isYearly));
 		});
 	}
 

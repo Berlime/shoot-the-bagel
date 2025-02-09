@@ -5,12 +5,11 @@
  */
 
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 // components
 import Button from "@components/Button/Button.astro";
-import Badge from "@components/Badge/Badge.astro";
+import { Switch } from "@components/starwind/switch";
 
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
@@ -154,24 +153,11 @@ const t = useTranslations(currLocale);
 		<!-- Toggle switch for monthly or yearly pricing -->
 		<div class="mt-6 flex justify-center">
 			<label
-				for="pricing-plan__toggle"
-				class="relative inline-flex cursor-pointer select-none items-center"
+				for="pricing-table__toggle"
+				class="relative inline-flex cursor-pointer items-center gap-4 select-none"
 			>
-				<input
-					type="checkbox"
-					name="pricing-plan__toggle"
-					id="pricing-plan__toggle"
-					class="pricing-plan__toggle sr-only"
-					aria-label="Toggle between monthly and yearly pricing"
-				/>
 				<span class="description flex items-center">Monthly</span>
-				<span
-					class="pricing-plan__slider mx-4 flex h-7 w-[56px] items-center rounded-full border border-base-300 bg-white p-1 duration-200 dark:border-base-700 dark:bg-base-900"
-				>
-					<span
-						class="pricing-plan__dot size-5 rounded-full bg-base-800 duration-200 dark:bg-base-100"
-					></span>
-				</span>
+				<Switch id="pricing-table__toggle" variant="primary" padding={4} />
 				<span class="description flex items-center">Yearly</span>
 			</label>
 		</div>
@@ -186,10 +172,10 @@ const t = useTranslations(currLocale);
 						<div class="pricing-plan relative mx-auto h-full w-full max-w-sm rounded-2xl lg:rounded-b-none">
 							<div class="relative h-full lg:pb-0">
 								<div
-									class="relative z-10 flex h-full flex-col rounded-b-xl rounded-t-xl lg:rounded-b-none"
+									class="relative z-10 flex h-full flex-col rounded-t-xl rounded-b-xl lg:rounded-b-none"
 									class:list={[
 										{
-											"border border-primary-600 bg-base-100 lg:border-b-0 dark:border-primary-400 dark:bg-base-950":
+											"border-primary-600 bg-base-100 dark:border-primary-400 dark:bg-base-950 border lg:border-b-0":
 												plan.featured === true,
 										},
 									]}
@@ -212,7 +198,7 @@ const t = useTranslations(currLocale);
 										</div>
 										<div class="text-center">
 											<p class="mt-3 font-medium">
-												<div class="pricing-plan__monthly-price">
+												<div class="pricing-monthly">
 													<h4 class="text-4xl font-medium tracking-tight">
 														${plan.price.monthly} / mo
 													</h4>
@@ -220,7 +206,7 @@ const t = useTranslations(currLocale);
 														(paid monthly)
 													</span>
 												</div>
-												<div class="pricing-plan__yearly-price hidden">
+												<div class="pricing-yearly hidden">
 													<h4 class="text-4xl font-medium tracking-tight">
 														${plan.price.yearly} / mo
 													</h4>
@@ -247,7 +233,7 @@ const t = useTranslations(currLocale);
 															>
 																<Icon
 																	name="tabler/check"
-																	class="mt-0.5 size-5 shrink-0 text-primary-600 dark:text-primary-400"
+																	class="text-primary-600 dark:text-primary-400 mt-0.5 size-5 shrink-0"
 																	aria-hidden="true"
 																/>
 																<span class="ml-2 inline text-left leading-tight">
@@ -256,7 +242,7 @@ const t = useTranslations(currLocale);
 																		{
 																			// if the feature row has a string, show it
 																			typeof featureRow.plans[planIdx] === "string" && (
-																				<span class="ml-1 text-sm text-base-700 dark:text-base-300">
+																				<span class="text-base-700 dark:text-base-300 ml-1 text-sm">
 																					({featureRow.plans[planIdx]})
 																				</span>
 																			)
@@ -291,13 +277,13 @@ const t = useTranslations(currLocale);
 					// loop over feature groups
 					pricingData.featureTable.map((featureGroup) => (
 						<div>
-							<div class="grid grid-cols-4 border-b border-base-300 text-lg dark:border-base-700">
-								<p class="pb-2 pt-6 font-medium">{featureGroup.title}</p>
+							<div class="border-base-300 dark:border-base-700 grid grid-cols-4 border-b text-lg">
+								<p class="pt-6 pb-2 font-medium">{featureGroup.title}</p>
 								{pricingData.plans.map((plan, planIdx) => (
 									<div
 										class={`${
 											plan.featured === true
-												? "-mt-px border-x border-primary-600 bg-base-200/30 dark:border-primary-400 dark:bg-base-800/20"
+												? "border-primary-600 bg-base-200/30 dark:border-primary-400 dark:bg-base-800/20 -mt-px border-x"
 												: ""
 										}`}
 									/>
@@ -305,14 +291,14 @@ const t = useTranslations(currLocale);
 							</div>
 							{featureGroup.features.map((feature) => (
 								// each feature group has feature name, and data for each plan to display in the row
-								<div class="grid grid-cols-4 border-b border-base-300 dark:border-base-700">
+								<div class="border-base-300 dark:border-base-700 grid grid-cols-4 border-b">
 									<p class="py-2 opacity-90 dark:opacity-80">{feature.feature}</p>
 									{feature.plans.map((plan, planIdx) => (
 										<div
 											class="flex items-center justify-center py-2"
 											class:list={[
 												{
-													"-mt-px border-x border-primary-600 bg-base-200/30 dark:border-primary-400 dark:bg-base-800/20":
+													"border-primary-600 bg-base-200/30 dark:border-primary-400 dark:bg-base-800/20 -mt-px border-x":
 														pricingData.plans[planIdx].featured,
 												},
 											]}
@@ -339,7 +325,7 @@ const t = useTranslations(currLocale);
 												) : (
 													<Icon
 														name="tabler/check"
-														class={`size-5 shrink-0 text-primary-600 dark:text-primary-400 ${
+														class={`text-primary-600 dark:text-primary-400 size-5 shrink-0 ${
 															pricingData.plans[planIdx].featured === true
 																? ""
 																: "opcaity-90 dark:opacity-80"
@@ -361,42 +347,22 @@ const t = useTranslations(currLocale);
 </section>
 
 <script>
+	import type { SwitchChangeEvent } from "@/components/starwind/switch";
+
 	function pricingPlanToggleSetup() {
-		// toggle between monthly and yearly pricing
-		const pricingToggle = document.querySelector(".pricing-plan__toggle") as HTMLInputElement;
+		const pricingSection = document.getElementById("pricing");
+		const toggle = pricingSection?.querySelector("#pricing-table__toggle");
+		const monthlyPrices = pricingSection?.querySelectorAll(".pricing-monthly");
+		const yearlyPrices = pricingSection?.querySelectorAll(".pricing-yearly");
 
-		const pricingToggleSlider = document.querySelector(".pricing-plan__slider") as HTMLInputElement;
+		if (!toggle || !monthlyPrices || !yearlyPrices) return;
 
-		const pricingToggleDot = document.querySelector(".pricing-plan__dot") as HTMLInputElement;
+		toggle.addEventListener("starwind-switch:change", (e: Event) => {
+			const event = e as SwitchChangeEvent;
+			const isYearly = event.detail.checked;
 
-		// each pricing plan has a monthly price and a yearly price
-		const pricingPlans = document.querySelectorAll(".pricing-plan") as NodeListOf<HTMLElement>;
-
-		// each plan has monthly and yearly price
-		pricingPlans.forEach((pricingPlan) => {
-			const monthlyPrice = pricingPlan.querySelector(".pricing-plan__monthly-price") as HTMLElement;
-
-			const yearlyPrice = pricingPlan.querySelector(".pricing-plan__yearly-price") as HTMLElement;
-
-			if (pricingToggle && pricingToggleDot && pricingToggleSlider && monthlyPrice && yearlyPrice) {
-				pricingToggle.addEventListener("change", (event) => {
-					if (pricingToggle.checked) {
-						// if checked, then yearly price
-						monthlyPrice.classList.add("hidden");
-						yearlyPrice.classList.remove("hidden");
-						pricingToggleDot.classList.add("translate-x-[26px]");
-						pricingToggleSlider.classList.add("border-primary-400");
-						pricingToggleSlider.classList.add("dark:border-primary-600");
-					} else {
-						// if unchecked, then monthly price
-						monthlyPrice.classList.remove("hidden");
-						yearlyPrice.classList.add("hidden");
-						pricingToggleDot.classList.remove("translate-x-[26px]");
-						pricingToggleSlider.classList.remove("border-primary-400");
-						pricingToggleSlider.classList.remove("dark:border-primary-600");
-					}
-				});
-			}
+			monthlyPrices.forEach((price) => price.classList.toggle("hidden", isYearly));
+			yearlyPrices.forEach((price) => price.classList.toggle("hidden", !isYearly));
 		});
 	}
 
