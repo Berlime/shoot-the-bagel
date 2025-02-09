@@ -3,7 +3,6 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 
 // components
 import NavLink from "@components/Nav/NavLink.astro";
-import NavDropdown from "@components/Nav/NavDropdown/NavDropdown.astro";
 import NavDropdownToggle from "./NavDropdown/NavDropdownToggle.astro";
 import MegaMenuDropdownToggle from "@components/Nav/NavDropdown/MegaMenuDropdownToggle.astro";
 import MobileNav from "@components/Nav/MobileNav/MobileNav.astro";
@@ -25,7 +24,7 @@ import { locales } from "@config/siteSettings.json";
 
 <div
 	id="nav__container"
-	class="navbar--initial fixed left-0 top-0 z-30 flex w-full flex-col border-b transition-all duration-300"
+	class="navbar--initial fixed top-0 left-0 z-30 flex w-full flex-col border-b transition-all duration-300"
 	transition:name={`nav`}
 >
 	<div class="mx-auto flex w-full">
@@ -69,7 +68,7 @@ import { locales } from "@config/siteSettings.json";
 				<div class="flex justify-end">
 					<Button
 						variant="ghost"
-						class="nav__link--base mr-2 hidden px-4 py-1.5 hover:text-base-800 md:flex"
+						class="mr-2 hidden px-4 py-1.5 md:flex"
 						href={getRelativeLocaleUrl(currLocale, "/login")}
 					>
 						Login
@@ -95,9 +94,12 @@ import { locales } from "@config/siteSettings.json";
 	</div>
 </div>
 
-<style lang="scss">
+<style>
+	@import "tailwindcss/theme" theme(reference);
+	@import "@/styles/tailwind-theme.css" theme(reference);
+
 	.navbar--scrolled {
-		@apply border-b-base-200 bg-base-50/70 backdrop-blur dark:border-b-base-800 dark:bg-base-950/50;
+		@apply border-foreground/10 bg-background/70 backdrop-blur-sm;
 	}
 
 	.navbar--initial {

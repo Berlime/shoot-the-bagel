@@ -33,19 +33,19 @@ const testimonialData = getTranslatedData("testimonialData", currLocale);
 	<div class="relative -mt-2">
 		<!-- left fade-out -->
 		<div
-			class="absolute -left-px top-0 z-20 h-full w-[10%] bg-gradient-to-r from-base-50 from-10% to-transparent dark:from-dark-bg"
+			class="from-base-50 dark:from-dark-bg absolute top-0 -left-px z-20 h-full w-[10%] bg-gradient-to-r from-10% to-transparent"
 		>
 		</div>
 		<!-- right fade-out -->
 		<div
-			class="absolute -right-px top-0 z-20 h-full w-[10%] bg-gradient-to-r from-transparent to-base-50 to-90% dark:to-dark-bg"
+			class="to-base-50 dark:to-dark-bg absolute top-0 -right-px z-20 h-full w-[10%] bg-gradient-to-r from-transparent to-90%"
 		>
 		</div>
 
 		<div class="relative h-full overflow-x-hidden py-4">
 			<div class="testimonial-marquee flex gap-6">
 				<div
-					class="flex min-w-full shrink-0 animate-marquee-testimonials items-start justify-around gap-6"
+					class="animate-marquee-testimonials flex min-w-full shrink-0 items-start justify-around gap-6"
 				>
 					{
 						testimonialData.map((testimonial, idx) => (
@@ -57,7 +57,7 @@ const testimonialData = getTranslatedData("testimonialData", currLocale);
 				</div>
 				<div
 					aria-hidden="true"
-					class="flex min-w-full shrink-0 animate-marquee-testimonials items-start justify-around gap-6"
+					class="animate-marquee-testimonials flex min-w-full shrink-0 items-start justify-around gap-6"
 				>
 					{
 						testimonialData.map((testimonial, idx) => (

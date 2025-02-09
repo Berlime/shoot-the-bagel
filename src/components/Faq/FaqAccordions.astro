@@ -3,10 +3,15 @@
  * * FAQ section in accordions, left header text with right faq items
  * using the Accordion component
  */
-import { Icon } from "astro-icon/components";
 
 // components
-import Accordion from "@components/Accordion/Accordion.astro";
+// import Accordion from "@components/Accordion/Accordion.astro";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@components/Accordion";
 import Badge from "@components/Badge/Badge.astro";
 
 // utils
@@ -23,14 +28,19 @@ const faqData = getTranslatedData("faqData", currLocale);
 		<div class="mr-auto max-w-lg md:max-w-none" data-aos="fade-right">
 			<Badge>FAQ</Badge>
 			<h2 class="h2">Provide some additional information with this FAQ Accordion.</h2>
-			<!-- <p class="description mt-6 md:text-lg">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat
-        consequuntur doloremque saepe, laboriosam excepturi cumque nostrum
-        tempora perferendis perspiciatis.
-      </p> -->
 		</div>
-		<div class="flex flex-col gap-3" data-aos="fade-left">
+		<Accordion class="space-y-3" data-aos="fade-left">
+			{
+				faqData.map((faqItem, idx) => (
+					<AccordionItem value={`item-${idx}`} class="hover-border-glow">
+						<AccordionTrigger>{faqItem.question}</AccordionTrigger>
+						<AccordionContent class="" details={faqItem.answer} />
+					</AccordionItem>
+				))
+			}
+		</Accordion>
+		<!-- <div class="flex flex-col gap-3" data-aos="fade-left">
 			{faqData.map(({ question, answer }) => <Accordion title={question} details={answer} />)}
-		</div>
+		</div> -->
 	</div>
 </section>

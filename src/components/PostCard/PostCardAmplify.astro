@@ -28,7 +28,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 <article class=`${className}` {...rest}>
 	<a
 		href={getRelativeLocaleUrl(currLocale, `/blog/${post.id}/`)}
-		class="flex aspect-[16/10] max-h-[30rem] shrink-0 justify-center overflow-hidden rounded-md border border-base-300 sm:justify-normal dark:border-base-700"
+		class="border-base-300 dark:border-base-700 flex aspect-[16/10] max-h-[30rem] shrink-0 justify-center overflow-hidden rounded-md border sm:justify-normal"
 	>
 		<figure>
 			<Image
@@ -65,7 +65,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		}
 
 		<!-- published date -->
-		<p class="mt-4 whitespace-nowrap text-sm text-base-600 dark:text-base-400">
+		<p class="text-base-600 dark:text-base-400 mt-4 text-sm whitespace-nowrap">
 			{formatDate(pubDate, currLocale)}
 		</p>
 	</div>

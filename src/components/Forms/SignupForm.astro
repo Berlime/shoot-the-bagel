@@ -14,11 +14,11 @@ const currLocale = getLocaleFromUrl(Astro.url);
 
 <div class="w-full">
 	<div class="mb-12">
-		<h1 class="h2 mb-2 text-xl text-base-900 dark:text-base-200">Create your free account</h1>
-		<p class="tracking-tight text-base-600 dark:text-base-400">
+		<h1 class="h2 text-base-900 dark:text-base-200 mb-2 text-xl">Create your free account</h1>
+		<p class="text-base-600 dark:text-base-400 tracking-tight">
 			<span class="description">Already have an account?</span>
 			<a
-				class="whitespace-nowrap text-primary-500 transition duration-200 hover:text-primary-600"
+				class="text-primary-500 hover:text-primary-600 whitespace-nowrap transition duration-200"
 				href={getRelativeLocaleUrl(currLocale, "/login")}>Log in</a
 			>
 		</p>
@@ -65,23 +65,23 @@ const currLocale = getLocaleFromUrl(Astro.url);
 				>
 				<div class="-mx-2.5 my-2 flex items-center">
 					<div class="flex-1 p-2.5">
-						<div class="h-px bg-base-300 dark:bg-base-700"></div>
+						<div class="bg-base-300 dark:bg-base-700 h-px"></div>
 					</div>
 					<div class="auto p-2.5">
-						<span class="text-sm tracking-tight text-base-600 dark:text-base-400">OR</span>
+						<span class="text-base-600 dark:text-base-400 text-sm tracking-tight">OR</span>
 					</div>
 					<div class="flex-1 p-2.5">
-						<div class="h-px bg-base-300 dark:bg-base-700"></div>
+						<div class="bg-base-300 dark:bg-base-700 h-px"></div>
 					</div>
 				</div>
 
 				<!-- Google sign in button -->
 				<a
-					class="flex w-full justify-center rounded-md bg-base-100 px-5 py-2.5 font-medium tracking-tight transition duration-200 hover:bg-base-200 focus:outline-none focus:ring-4 focus:ring-primary-300"
+					class="bg-base-100 hover:bg-base-200 focus:ring-primary-300 flex w-full justify-center rounded-md px-5 py-2.5 font-medium tracking-tight transition duration-200 focus:ring-4 focus:outline-none"
 					href="#"
 				>
 					<Icon name="amplify/google" aria-hidden="true" class="mr-3 size-6 shrink-0" />
-					<span class="hidden text-base-900 xs:block">Sign up with Google</span><span
+					<span class="text-base-900 xs:block hidden">Sign up with Google</span><span
 						class="text-base-900 xs:hidden">Google</span
 					>
 				</a>

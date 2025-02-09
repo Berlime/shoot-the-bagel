@@ -11,23 +11,23 @@ import { Icon } from "astro-icon/components";
 
 <section
 	id="logo-cloud-marquee"
-	class="border-y border-base-200 px-4 py-6 text-base-800 dark:border-base-800 dark:text-base-400"
+	class="border-base-200 text-base-800 dark:border-base-800 dark:text-base-400 border-y px-4 py-6"
 >
 	<div class="relative mx-auto max-w-[1700px] overflow-hidden">
 		<!-- left fade-out -->
 		<div
-			class="absolute -left-px top-0 z-10 h-full w-[20%] bg-gradient-to-r from-base-50 from-20% to-transparent dark:from-dark-bg"
+			class="from-base-50 dark:from-dark-bg absolute top-0 -left-px z-10 h-full w-[20%] bg-gradient-to-r from-20% to-transparent"
 		>
 		</div>
 		<!-- right fade-out -->
 		<div
-			class="absolute -right-px top-0 z-10 h-full w-[20%] bg-gradient-to-r from-transparent to-base-50 to-80% dark:to-dark-bg"
+			class="to-base-50 dark:to-dark-bg absolute top-0 -right-px z-10 h-full w-[20%] bg-gradient-to-r from-transparent to-80%"
 		>
 		</div>
 
 		<div class="logo-marquee relative flex gap-20">
 			<!-- Each animate-marquee2 section needs to have the exact same icons. Just do one then copy / paste -->
-			<div class="flex min-w-full shrink-0 animate-marquee2 items-center justify-around gap-20">
+			<div class="animate-marquee2 flex min-w-full shrink-0 items-center justify-around gap-20">
 				<Icon name="logos/astro" class="logo py-2" aria-label="logo" />
 
 				<Icon name="logos/spotify" class="logo" aria-label="logo" />
@@ -51,7 +51,7 @@ import { Icon } from "astro-icon/components";
 
 			<div
 				aria-hidden="true"
-				class="flex min-w-full shrink-0 animate-marquee2 items-center justify-around gap-20"
+				class="animate-marquee2 flex min-w-full shrink-0 items-center justify-around gap-20"
 			>
 				<Icon name="logos/astro" class="logo py-2" aria-label="logo" />
 
@@ -77,7 +77,10 @@ import { Icon } from "astro-icon/components";
 	</div>
 </section>
 
-<style lang="scss">
+<style>
+	@import "tailwindcss/theme" theme(reference);
+	@import "@/styles/tailwind-theme.css" theme(reference);
+
 	.logo {
 		@apply h-10 w-auto md:h-12;
 	}

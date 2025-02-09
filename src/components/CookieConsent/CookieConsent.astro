@@ -21,13 +21,13 @@ const currLocale = getLocaleFromUrl(Astro.url);
 
 <div id="accept-banner" class="fixed inset-x-6 bottom-6 z-50 hidden justify-center">
 	<div
-		class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-xl border border-base-200 bg-base-100 px-5 py-3 dark:border-base-700 dark:bg-base-900"
+		class="border-base-200 bg-base-100 dark:border-base-700 dark:bg-base-900 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-xl border px-5 py-3"
 	>
 		<div class="text-center">
 			<p class="description text-sm font-medium lg:text-base">
 				We use cookies to improve your experience on this site. To learn more, see our <a
 					href={getRelativeLocaleUrl(currLocale, "/privacy-policy")}
-					class="text-base-700 underline decoration-primary-500 transition hover:text-primary-500 dark:text-base-300 dark:hover:text-primary-500"
+					class="text-base-700 decoration-primary-500 hover:text-primary-500 dark:text-base-300 dark:hover:text-primary-500 underline transition"
 					>Privacy Policy</a
 				>.
 			</p>

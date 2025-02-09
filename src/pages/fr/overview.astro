@@ -22,7 +22,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		<div class="mr-auto max-w-4xl">
 			<Badge>Overview</Badge>
 			<h1 class="h1 -mt-3">The elements of Amplify</h1>
-			<div class="mx-auto mt-10 grid gap-4 xs:grid-cols-2 md:grid-cols-3">
+			<div class="xs:grid-cols-2 mx-auto mt-10 grid gap-4 md:grid-cols-3">
 				<!-- Landing pages -->
 				<div class="flex flex-col">
 					<h3 class="overview-heading">Landing Pages</h3>
@@ -118,13 +118,13 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		<!-- CookieConsent component should be used in BaseLayout.astro if desired -->
 		<div id="test-banner" class="fixed inset-x-6 bottom-6 z-50 hidden justify-center">
 			<div
-				class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-md border border-base-200 bg-base-100 px-5 py-3 dark:border-base-700 dark:bg-base-900"
+				class="border-base-200 bg-base-100 dark:border-base-700 dark:bg-base-900 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 rounded-md border px-5 py-3"
 			>
 				<div class="text-center">
 					<p class="description text-sm font-medium lg:text-base">
 						We use cookies to improve your experience on this site. To learn more, see our <a
 							href={getRelativeLocaleUrl(currLocale, "/privacy-policy")}
-							class="text-base-700 underline decoration-primary-500 transition hover:text-primary-500 dark:text-base-300 dark:hover:text-primary-500"
+							class="text-base-700 decoration-primary-500 hover:text-primary-500 dark:text-base-300 dark:hover:text-primary-500 underline transition"
 							>Privacy Policy</a
 						>.
 					</p>
@@ -138,13 +138,15 @@ const currLocale = getLocaleFromUrl(Astro.url);
 	</section>
 </BaseLayout>
 
-<style lang="scss">
+<style>
+	@import "tailwindcss/theme" theme(reference);
+	@import "@/styles/tailwind-theme.css" theme(reference);
+
 	.overview-heading {
-		@apply mb-4 mt-6 text-xl font-medium md:text-2xl dark:text-base-300;
+		@apply dark:text-base-300 mt-6 mb-4 text-xl font-medium md:text-2xl;
 	}
 	.overview-link {
-		// @apply text-primary-600 hover:text-primary-700 hover:underline;
-		@apply my-0.5 tracking-tight text-base-800 transition hover:text-base-600 dark:text-base-400 dark:hover:text-base-300;
+		@apply text-base-800 hover:text-base-600 dark:text-base-400 dark:hover:text-base-300 my-0.5 tracking-tight transition;
 	}
 </style>
 
