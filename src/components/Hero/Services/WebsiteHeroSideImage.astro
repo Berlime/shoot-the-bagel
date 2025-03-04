@@ -14,7 +14,7 @@ import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
 import Badge3 from "@components/Badge/Badge3.astro";
 
-import heroImage from "@images/storm-2.webp";
+import heroImage from "@images/storm-3.jpg";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(currLocale);
@@ -43,7 +43,7 @@ const t = useTranslations(currLocale);
 				>
 					WDaaS innovates how businesses
 					approach web design & development. We are not re-inventing the wheel, but
-					getting you `The Right Wheel`.
+					getting you <b>'The Right Wheel'</b>.
 				</p>
 				<div
 					class="mt-6 flex flex-wrap justify-center gap-4 md:justify-start"
@@ -52,16 +52,15 @@ const t = useTranslations(currLocale);
 					data-aos-trigger="#hero-side"
 				>
 					<Button variant="primary" href={getRelativeLocaleUrl(currLocale, "/signup")}>
-						Get Started
+						Schedule a Discovery Call
 					</Button>
 					<Button
 						variant="ghost"
 						arrow="right"
-						href="https://cosmicthemes.com/themes/amplify/"
-						target="_blank"
+						href="#pricing"
 						rel="noopener noreferrer"
 					>
-						Get Amplify
+						See Pricing
 					</Button>
 				</div>
 			</div>

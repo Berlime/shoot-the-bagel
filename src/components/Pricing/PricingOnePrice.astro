@@ -28,17 +28,17 @@ interface pricingItem {
 }
 
 const pricingData: pricingItem = {
-	name: "One-time payment from S$2000+",
+	name: "Get Started for only S$2000",
 	description: "Everything for you to get started at a low monthly price, billed annually.",
 	price: {
-		monthly: 100,
+		monthly: 40,
 	},
 	cardBullets: [
 		"Free Domain Name for 1 Year",
 		"Free Custom e-mail for 1 Year",
 		"Access to Client Dashboard",
-		"Quarterly Online Consultation",
-		"Full Support",
+		"No Hourly Charges for Changes/Edits",
+		"Google Indexing",
 	],
 };
 ---
@@ -62,7 +62,7 @@ const pricingData: pricingItem = {
 					{pricingData.name}
 				</h3>
 				<p class="mt-6 text-4xl font-medium tracking-tight">
-					From S${pricingData.price.monthly} / mo
+					then S${pricingData.price.monthly} / mo
 				</p>
 				<p class="description mx-auto mt-2 tracking-tight">
 					{pricingData.description}
