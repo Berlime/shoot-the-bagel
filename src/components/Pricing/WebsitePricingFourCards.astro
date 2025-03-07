@@ -349,7 +349,9 @@ const t = useTranslations(currLocale);
                             <Button
                                 class="mb-0"
                                 variant={plan.featured === true ? "primary" : "outline"}
-                                href={getRelativeLocaleUrl(currLocale, plan.href)}
+                                href={plan.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {plan.linkText}
                             </Button>
