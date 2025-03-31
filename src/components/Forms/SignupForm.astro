@@ -26,19 +26,18 @@ const currLocale = getLocaleFromUrl(Astro.url);
 	<div class="mb-6">
 		<form class="-m-2 flex flex-wrap" id="signup__form" name="signup__form">
 			<div class="w-full p-2">
-				<label class="block">
+				<label for="signup__name" aria-label="Your Name" class="block">
 					<input
 						class="form__input w-full"
 						id="signup__name"
 						type="text"
 						placeholder="Your Name"
-						autofocus
 						required
 					/>
 				</label>
 			</div>
 			<div class="w-full p-2">
-				<label class="block">
+				<label for="signup__email" aria-label="Email Address" class="block">
 					<input
 						class="form__input w-full"
 						id="signup__email"
@@ -49,7 +48,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 				</label>
 			</div>
 			<div class="w-full p-2">
-				<label class="relative block">
+				<label for="signup__password" aria-label="Password" class="relative block">
 					<input
 						class="form__input w-full md:pr-40"
 						id="signup__password"

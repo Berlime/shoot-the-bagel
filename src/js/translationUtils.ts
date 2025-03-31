@@ -5,8 +5,8 @@ import {
 	textTranslations,
 	dataTranslations,
 	routeTranslations,
-} from "@config/translationData.json";
-import { locales, defaultLocale } from "@config/siteSettings.json";
+} from "@/config/translationData.json";
+import { locales, defaultLocale } from "@/config/siteSettings.json";
 
 /**
  * * text translation helper function
@@ -16,10 +16,10 @@ import { locales, defaultLocale } from "@config/siteSettings.json";
  * ## Example
  *
  * ```ts
- * import { useTranslations, getLocaleFromUrl } from "@js/i18nUtils";
+ * import { useTranslations, getLocaleFromUrl } from "@/js/i18nUtils";
  * const currLocale = getLocaleFromUrl(Astro.url);
  * const t = useTranslations(currLocale);
- * t("hero_text"); // translated string for key "hero_text" in the current locale
+ * t("blog.time"); // translated string for key "blog.time" in the current locale
  * ```
  */
 export function useTranslations(locale: keyof typeof textTranslations) {
@@ -34,13 +34,13 @@ type DataKey<T extends Locale> = keyof (typeof dataTranslations)[T];
  * * data file translation helper function
  * @param data: key in the data file to translate, like "siteData" or "navData"
  * @param locale: Language to use for translation, one of the locales
- * @returns appropriate data file as specified in src/config/translationData.json.ts
+ * @returns appropriate data file as specified in src/config/i18nData.json.ts
  *
  * ## Example
  *
  * ```ts
- * import { getLocaleFromUrl } from "@js/i18nUtils";
- * import { getTranslatedData } from "@js/translations";
+ * import { getLocaleFromUrl } from "@/js/i18nUtils";
+ * import { getTranslatedData } from "@/js/translations";
  * const currLocale = getLocaleFromUrl(Astro.url);
  * const siteData = getTranslatedData("siteData", currLocale);
  * ```
@@ -69,7 +69,7 @@ export function getLocalizedPathname(locale: (typeof locales)[number], url: URL)
 	};
 
 	let oldPath: string, currLocale: (typeof locales)[number];
-	//@ts-ignore
+	// @ts-expect-error the whole point of this is to check if lang is a valid locale
 	if (locales.includes(lang)) {
 		// remove locale from URL if it's already there
 		oldPath = rest.join("/");

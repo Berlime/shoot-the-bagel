@@ -26,13 +26,12 @@ const currLocale = getLocaleFromUrl(Astro.url);
 	<div class="mb-6">
 		<form class="-m-2 flex flex-wrap" id="login__form" name="login__form">
 			<div class="w-full p-2">
-				<label class="block">
+				<label for="login__email" aria-label="Email Address" class="block">
 					<input
 						class="form__input w-full"
 						id="login__email"
 						type="email"
 						placeholder="Email Address"
-						autofocus
 						required
 					/>
 				</label>
