@@ -20,7 +20,7 @@ const codeToggles = await getCollection("codeToggles", ({ data }) => {
 	return data.draft !== true;
 });
 
-interface codeToggleData {
+interface codeToggleDataProps {
 	language: string;
 	order: number;
 	icon?: string;
@@ -28,7 +28,7 @@ interface codeToggleData {
 }
 
 // for each element in codeToggles, render the code and return the data
-const codeToggleData: codeToggleData[] = await Promise.all(
+const codeToggleData: codeToggleDataProps[] = await Promise.all(
 	codeToggles.map(async (codeToggle) => {
 		const { language, order, icon } = codeToggle.data;
 		const { Content } = await render(codeToggle);
