@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QOh, not to forget, under the hosting, you will also be able to create multiple business emails like \"gerald\\@yourname.com.\"\\E$"}

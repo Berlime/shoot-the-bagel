@@ -31,22 +31,22 @@ const navConfig: navItem[] = [
 					{
 						text: "Websites",
 						link: "/services/websites",
-						icon: "tabler/star",
+						icon: "tabler/home-heart",
 					},
 					{
 						text: "Intranets",
 						link: "/coming-soon",
-						icon: "tabler/diamonds",
+						icon: "tabler/chevrons-up-right",
 					},
 					{
 						text: "Automations",
 						link: "/coming-soon", 
-						icon: "tabler/circle",
+						icon: "tabler/refresh-dot",
 					},
 					{
 						text: "Interactive",
 						link: "/coming-soon",
-						icon: "tabler/circle",
+						icon: "tabler/wand",
 					},
 
 				],
@@ -57,22 +57,22 @@ const navConfig: navItem[] = [
 					{
 						text: "E-mail Marketing",
 						link: "/coming-soon",
-						icon: "tabler/edit-circle",
+						icon: "tabler/send",
 					},
 					{
 						text: "WhatsApp Marketing",
 						link: "/coming-soon",
-						icon: "tabler/edit-circle",
+						icon: "tabler/brand-whatsapp",
 					},
 					{
 						text: "Chatbots",
 						link: "/coming-soon",
-						icon: "tabler/category",
+						icon: "tabler/message-chatbot",
 					},
 					{
 						text: "Search Engine",
 						link: "/coming-soon",
-						icon: "tabler/pencil",
+						icon: "tabler/settings-search",
 					},
 				],
 			},
@@ -82,12 +82,12 @@ const navConfig: navItem[] = [
 					{
 						text: "SOHO Network",
 						link: "/coming-soon",
-						icon: "tabler/wand",
+						icon: "tabler/router",
 					},
 					{
 						text: "File Servers",
 						link: "/coming-soon",
-						icon: "tabler/address-book",
+						icon: "tabler/server",
 					},
 				],
 			},
@@ -97,17 +97,17 @@ const navConfig: navItem[] = [
 					{
 						text: "Devices",
 						link: "/coming-soon",
-						icon: "tabler/user",
+						icon: "tabler/cpu",
 					},
 					{
 						text: "Softwares",
 						link: "/coming-soon",
-						icon: "tabler/lock-square",
+						icon: "tabler/layout-grid",
 					},
 					{
 						text: "Computer Hardwares",
 						link: "/coming-soon",
-						icon: "tabler/script",
+						icon: "tabler/devices-pc",
 					},
 				],
 			},

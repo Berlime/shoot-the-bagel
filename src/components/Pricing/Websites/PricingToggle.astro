@@ -1,0 +1,39 @@
+---
+/**
+ * Toggle component for switching between Kick Start and Jump Start pricing
+ */
+---
+
+<div class="mt-6 flex justify-center">
+  <label
+    for="pricing-plan__toggle"
+    class="relative inline-flex cursor-pointer select-none items-center"
+  >
+    <input
+      type="checkbox"
+      name="pricing-plan__toggle"
+      id="pricing-plan__toggle"
+      class="pricing-plan__toggle sr-only"
+      aria-label="Toggle between monthly and yearly pricing"
+    />
+    <span class="description flex items-center">Kick Start</span>
+    <span
+      class="pricing-plan__slider mx-4 flex h-7 w-[56px] items-center rounded-full border border-base-300 bg-base-100 p-1 duration-200 dark:border-base-700 dark:bg-base-900"
+    >
+      <span
+        class="pricing-plan__dot size-5 rounded-full bg-base-800 duration-200 dark:bg-base-200"
+      ></span>
+    </span>
+    <span class="description flex items-center">Jump Start</span>
+  </label>
+</div>
+
+<style>
+  .pricing-plan__dot {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .pricing-plan__slider {
+    transition: border-color 0.5s ease;
+  }
+</style> 

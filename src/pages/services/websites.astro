@@ -9,9 +9,9 @@ import FeatureCodeToggle from "@components/Feature/FeatureCodeToggle.astro";
 import WebsitesFeatureCardsSmall2 from "@components/Feature/WebsitesFeatureCardsSmall2.astro";
 import FeatureIntegrations from "@components/Feature/FeatureIntegrations.astro";
 import TestimonialsSwiperQuotes from "@components/Testimonials/TestimonialsSwiperQuotes.astro";
-import WebsitePricingFourCards from "@components/Pricing/WebsitePricingFourCards.astro";
 import CtaBgImage from "@components/Cta/CtaBgImage.astro";
 import FaqAccordions from "@components/Faq/FaqAccordions.astro";
+import WebsitePricingTableWithAccordion from "@components/Pricing/Websites/WebsitePricingTableWithAccordion.astro";
 
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
@@ -32,7 +32,7 @@ const siteData = getTranslatedData("siteData", currLocale);
   /> -->
 	<FeatureCodeToggle />
 	<WebsitesFeatureCardsSmall2 />
-	<WebsitePricingFourCards />
+	<WebsitePricingTableWithAccordion />
 	<FeatureIntegrations />
 	<TestimonialsSwiperQuotes />
 	<CtaBgImage />
