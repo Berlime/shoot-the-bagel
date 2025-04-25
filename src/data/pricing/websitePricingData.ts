@@ -235,40 +235,35 @@ export const pricingTableData: PricingData = {
           },
           {
             feature: "Animation",
-            plans: ["Basic", "Basic", "Advance", "Basic"],
+            plans: ["Basic", "Basic", "Custom", "Advance"],
             planTooltips: [
               "Animate on scroll for fade-in effects & other basic animations.",
-              "Animate on scroll for fade-in effects & other basic animations.",
-              "Advanced buttery-smooth stellar animations.",
-              "Animate on scroll for fade-in effects & other basic animations."
+              null,
+              "Advance buttery-smooth stellar animations.",
+              null
             ]
           },
           {
             feature: "Media",
             tooltip: "Images, videos, and other media files/assets included in your website.",
-            plans: ["Stock", "Premium Stock", "+ Custom Components", "Premium Stock"],
+            plans: ["Stock", "Premium Stock", "Premium Stock", "Premium Stock"],
             planTooltips: [
               "Stock images from Unsplash, Pexels, etc.",
-              "Premium stock from Unsplash, Pexels, etc.",
-              "Custom animations & components.",
-              "Premium stock images from Unsplash, Pexels, etc."
+              "Premium images from Unsplash, Pexels, etc.",
+              null,
+              null
             ]
           },
           {
             feature: "Custom Elements",
             tooltip: "Unique design elements created specifically for your website.",
-            plans: [false, true, true, true]
+            plans: [false, false, true, true]
           },
           {
             feature: "VFX Components",
             tooltip: "Visual effects components that enhance user experience with animation and interactivity.",
-            plans: [false, false, false, false]
+            plans: [false, false, true, false]
           },
-          {
-            feature: "3D Components",
-            tooltip: "Interactive 3D elements that provide immersive experiences for users.",
-            plans: [false, false, false, false]
-          }
         ]
       },
       {
@@ -403,7 +398,7 @@ export const pricingTableData: PricingData = {
             ]
           },
           {
-            feature: "Hosting",
+            feature: "Server",
             tooltip: "Advanced hosting solutions for optimal performance. Higher tiers have higher performance.",
             plans: ["Shared VPS", "VPS1", "VPS2", "VPS3 + SLA"],
             planTooltips: [
@@ -436,28 +431,28 @@ export const pricingTableData: PricingData = {
           },
           {
             feature: "Design Revisions",
-            tooltip: "Multiple design revision cycles to achieve the perfect look.",
-            plans: ["2", "3", "4", "Unlimited"]
+            tooltip: "Multiple design revision cycles to achieve the design goal.",
+            plans: ["3", "4", "5", "7"]
           },
           {
             feature: "Animation",
-            plans: ["Basic", "Advanced", "Custom", "Signature"],
+            plans: ["Basic", "Advance", "Visual Effects", "Custom"],
             planTooltips: [
               "Simple animations and transitions",
               "Advanced motion and interactions",
-              "Custom animation sequences",
-              "Branded signature animations"
+              "Extended Visual Interactions",
+              "Custom animation sequences"
             ]
           },
           {
             feature: "Media",
             tooltip: "High-quality media assets for your website.",
-            plans: ["Premium Stock", "Custom", "Brand Package", "Full Production"],
+            plans: ["Premium Stock", "Photo + Video", "Video Only", "Full Production"],
             planTooltips: [
               "Premium stock images and videos",
-              "Custom photography and videography",
-              "Complete brand identity package",
-              "Full media production services"
+              "1 x Photo/Video production service",
+              "For VFX post-production",
+              "1 x Lifestyle & Product Photoshoot & Promo Video"
             ]
           },
           {
@@ -468,12 +463,12 @@ export const pricingTableData: PricingData = {
           {
             feature: "VFX Components",
             tooltip: "Interactive features that enhance user experience.",
-            plans: ["Basic", "Advanced", "Premium", "Custom"]
+            plans: [false, false, true, true]
           },
           {
             feature: "3D Components",
             tooltip: "Enhanced mobile experience with specialized features.",
-            plans: [true, true, true, true]
+            plans: [false, false, false, true]
           }
         ]
       },

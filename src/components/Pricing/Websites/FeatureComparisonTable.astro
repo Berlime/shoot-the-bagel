@@ -170,10 +170,10 @@ const featureTableData = pricingData.featureTable[mode];
                 <div class="mt-auto">
                   <Button
                     variant={plan.featured === true ? "primary" : "outline"}
-                    href={getRelativeLocaleUrl(currLocale, "/signup")}
+                    href={plan.href}
                     class={`mt-4 py-1.5`}
                   >
-                    Get Started
+                    {plan.linkText}
                   </Button>
                 </div>
               </div>
