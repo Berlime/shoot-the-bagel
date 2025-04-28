@@ -272,12 +272,18 @@ export const pricingTableData: PricingData = {
           {
             feature: "Newsletter",
             tooltip: "Send e-mail notification whenever you post.",
-            plans: [false, "< 100 contacts", "< 250 contacts", "< 500 contacts"]
+            plans: [false, "< 250 contacts", "< 300 contacts", "< 500 contacts"]
           },
           {
             feature: "Email Marketing",
             tooltip: "Sends a series of automated e-mails.",
-            plans: [false, false, false, true]
+            plans: [false, "1", "2", "5"],
+            planTooltips: [
+              null,
+              "1 x automation workflow max 5 e-mails",
+              "2 x automation workflow max 3 e-mails",
+              "5 x automation workflow max 5 e-mails"
+            ]
           },
           {
             feature: "Search Engine Marketing",
@@ -478,12 +484,18 @@ export const pricingTableData: PricingData = {
           {
             feature: "Newsletter",
             tooltip: "Comprehensive email marketing solutions.",
-            plans: ["< 500 contacts", "< 2,000 contacts", "< 5,000 contacts", "< 10,000 contacts"]
+            plans: ["< 500 contacts", "< 750 contacts", "< 850 contacts", "< 5,500 contacts"]
           },
           {
             feature: "Email Marketing",
             tooltip: "Automated marketing workflows and campaigns.",
-            plans: ["Basic", "Standard", "Advanced", "Enterprise"]
+            plans: ["1", "3", "4", "10"],
+            planTooltips: [
+              "1 x automation workflow max 5 e-mails",
+              "3 x automation workflow max 3 e-mails",
+              "4 x automation workflow max 5 e-mails",
+              "10 x automation workflow max 5 e-mails"
+            ]
           },
           {
             feature: "Search Engine Marketing",
