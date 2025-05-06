@@ -286,9 +286,14 @@ export const pricingTableData: PricingData = {
             ]
           },
           {
-            feature: "Search Engine Marketing",
-            tooltip: "Full suite SEO services.",
-            plans: [false, false, false, false]
+            feature: "Search Engine Optimization",
+            plans: ["Basic", "30 Keywords Tracking", "Local SEO", "Content Postings"],
+            planTooltips: [
+              null,
+              null,
+              "Create Listings in Local Directories",
+              "We will create blog posts for your website."
+            ]
           },
           {
             feature: "WhatsApp Marketing",
@@ -297,37 +302,37 @@ export const pricingTableData: PricingData = {
           }
         ]
       },
-      {
-        title: "Advance Features",
-        features: [
-          {
-            feature: "Collections",
-            tooltip: "Organized groups of content that can be managed and displayed together.",
-            plans: [false, "1", "1", "2"],
-            planTooltips: [
-              null,
-              "Maximum 5 metadata fields.",
-              "Maximum 3 metadata fields.",
-              "Maximum 3 metadata fields."
-            ]
-          },
-          {
-            feature: "SEO Configuration",
-            plans: [true, true, true, true]
-          },
-          {
-            feature: "Google Tag Manager Set Up",
-            tooltip: "Set-up Google Tag Manager.",
-            plans: [false, false, true, true]
-          }
-        ]
-      },
+      // {
+      //   title: "Advance Features",
+      //   features: [
+      //     {
+      //       feature: "Collections",
+      //       tooltip: "Organized groups of content that can be managed and displayed together.",
+      //       plans: [false, "1", "1", "2"],
+      //       planTooltips: [
+      //         null,
+      //         "Maximum 5 metadata fields.",
+      //         "Maximum 3 metadata fields.",
+      //         "Maximum 3 metadata fields."
+      //       ]
+      //     },
+      //     {
+      //       feature: "SEO Configuration",
+      //       plans: [true, true, true, true]
+      //     },
+      //     {
+      //       feature: "Google Tag Manager Set Up",
+      //       tooltip: "Set-up Google Tag Manager.",
+      //       plans: [false, false, true, true]
+      //     }
+      //   ]
+      // },
       {
         title: "Support",
         features: [
           {
             feature: "Email Support",
-            tooltip: "General email support for quick assistance.",
+            tooltip: "General email support for assistance.",
             plans: [true, true, true, true]
           },
           {
@@ -341,14 +346,13 @@ export const pricingTableData: PricingData = {
             plans: [false, false, false, true]
           },
           {
-            feature: "Developer Support",
-            tooltip: "Direct developer support.",
+            feature: "Direct Developer Support",
             plans: [false, false, false, "Email Only"]
           },
           {
             feature: "Documentation",
             tooltip: "Comprehensive guides & knowledge base for your website.",
-            plans: [false, false, true, true]
+            plans: [false, false, false, true]
           },
           {
             feature: "Consultation",
@@ -498,42 +502,47 @@ export const pricingTableData: PricingData = {
             ]
           },
           {
-            feature: "Search Engine Marketing",
-            tooltip: "Complete search engine optimization strategy.",
-            plans: ["Basic", "Standard", "Premium", "Enterprise"]
-          },
-          {
-            feature: "WhatsApp Marketing",
-            tooltip: "Integration with all major social media platforms.",
-            plans: [true, true, true, true]
-          }
-        ]
-      },
-      {
-        title: "Advance Features",
-        features: [
-          {
-            feature: "Collections",
-            tooltip: "Advanced content management systems.",
-            plans: ["1 Collection", "3 Collections", "5 Collections", "Unlimited"],
+            feature: "Search Engine Optimization",
+            plans: ["20 Keyword Tracking", "Local SEO", "Local SEO", "Event Tracking"],
             planTooltips: [
-              "Basic collection management",
-              "Multiple collections with templates",
-              "Advanced collections with workflows",
-              "Unlimited collections with custom fields"
+              null,
+              null,
+              null,
+              "Track key events for more insights."
             ]
           },
           {
-            feature: "SEO Configuration",
-            plans: ["Basic", "Standard", "Advanced", "Custom"]
-          },
-          {
-            feature: "Google Tag Manager Set Up",
-            tooltip: "Integrate with your existing business tools and systems.",
-            plans: ["2 Systems", "5 Systems", "10 Systems", "Unlimited"]
+            feature: "WhatsApp Marketing",
+            tooltip: "Auto reply basic enquiries before talking to a person.",
+            plans: [false, false, false, true]
           }
         ]
       },
+      // {
+      //   title: "Advance Features",
+      //   features: [
+      //     {
+      //       feature: "Collections",
+      //       tooltip: "Advanced content management systems.",
+      //       plans: ["1 Collection", "3 Collections", "5 Collections", "Unlimited"],
+      //       planTooltips: [
+      //         "Basic collection management",
+      //         "Multiple collections with templates",
+      //         "Advanced collections with workflows",
+      //         "Unlimited collections with custom fields"
+      //       ]
+      //     },
+      //     {
+      //       feature: "SEO Configuration",
+      //       plans: ["Basic", "Standard", "Advanced", "Custom"]
+      //     },
+      //     {
+      //       feature: "Google Tag Manager Set Up",
+      //       tooltip: "Integrate with your existing business tools and systems.",
+      //       plans: ["2 Systems", "5 Systems", "10 Systems", "Unlimited"]
+      //     }
+      //   ]
+      // },
       {
         title: "Support",
         features: [
@@ -549,18 +558,17 @@ export const pricingTableData: PricingData = {
           },
           {
             feature: "WhatsApp Support",
-            tooltip: "Support across email, chat, phone, and video.",
-            plans: ["Email", "Email + Chat", "All Channels", "24/7 All Channels"]
+            tooltip: "General WhatsApp group support for quick assistance.",
+            plans: [false, true, true, true]
           },
           {
-            feature: "Developer Support",
-            tooltip: "Expert technical support for complex issues.",
-            plans: ["Basic", "Standard", "Advanced", "Enterprise"]
+            feature: "Direct Developer Support",
+            plans: [false, true, true, true]
           },
           {
             feature: "Documentation",
             tooltip: "Comprehensive guides and training sessions.",
-            plans: ["Basic Docs", "Standard", "Custom", "Comprehensive"]
+            plans: [false, false, false, true]
           },
           {
             feature: "Consultation",
