@@ -34,19 +34,19 @@ const navConfig: navItem[] = [
 						icon: "tabler/home-heart",
 					},
 					{
-						text: "Intranets",
+						text: "Microsoft 365",
 						link: "/coming-soon",
-						icon: "tabler/chevrons-up-right",
-					},
-					{
-						text: "Automations",
-						link: "/coming-soon", 
-						icon: "tabler/refresh-dot",
+						icon: "tabler/brand-windows",
 					},
 					{
 						text: "Interactive",
 						link: "/coming-soon",
 						icon: "tabler/wand",
+					},
+					{
+						text: "Ai for Business",
+						link: "/coming-soon",
+						icon: "tabler/message-chatbot",
 					},
 
 				],
@@ -65,15 +65,16 @@ const navConfig: navItem[] = [
 						icon: "tabler/brand-whatsapp",
 					},
 					{
-						text: "Chatbots",
-						link: "/coming-soon",
-						icon: "tabler/message-chatbot",
-					},
-					{
 						text: "Search Engine",
 						link: "/coming-soon",
 						icon: "tabler/settings-search",
 					},
+					{
+						text: "Google Ads",
+						link: "/coming-soon",
+						icon: "tabler/brand-google-analytics",
+					},
+					
 				],
 			},
 			{
@@ -88,6 +89,11 @@ const navConfig: navItem[] = [
 						text: "File Servers",
 						link: "/coming-soon",
 						icon: "tabler/server",
+					},
+					{
+						text: "Cloud Engineering",
+						link: "/coming-soon",
+						icon: "tabler/cloud",
 					},
 				],
 			},

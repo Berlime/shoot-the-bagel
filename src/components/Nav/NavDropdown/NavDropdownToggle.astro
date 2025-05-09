@@ -39,7 +39,7 @@ const { navItem } = Astro.props as Props;
 	<div
 		id={`${slugify(navItem.text)}-dropdown-menu-content`}
 		aria-labelledby={`${slugify(navItem.text)}-dropdown-menu`}
-		class="nav__dropdown-content invisible absolute left-0 z-10 opacity-0 transition-all duration-300"
+		class="nav__dropdown-content invisible absolute left-0 z-10 opacity-10 transition-all duration-300"
 	>
 		<ul class="dropdown--base mt-4 w-[12rem] min-w-[9rem] max-w-[20rem] px-1.5 py-2">
 			{navItem.dropdown.map((dropdownItem) => <NavLink navItem={dropdownItem} class="w-full" />)}
