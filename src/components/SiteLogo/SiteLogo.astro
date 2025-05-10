@@ -2,8 +2,9 @@
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import { Image } from "astro:assets";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import { Icon } from "astro-icon/components";
+
+import { getLocalizedRoute } from "@/js/translationUtils";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
@@ -14,7 +15,7 @@ import logo from "@images/amplify-logo.png";
 
 <a
 	class="text-base-800 dark:text-base-200 flex items-center gap-1 align-middle text-xl font-medium"
-	href={getRelativeLocaleUrl(currLocale)}
+	href={getLocalizedRoute(currLocale)}
 >
 	<!-- <Image
     src={logo}

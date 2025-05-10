@@ -1,16 +1,15 @@
 ---
+import jsonLDGenerator from "@js/jsonLD";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import { getImage } from "astro:assets";
 import { type CollectionEntry } from "astro:content";
 import { SEO } from "astro-seo";
 
+import HrefLang from "./HrefLang.astro";
+
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
-
-import jsonLDGenerator from "@js/jsonLD";
-
-import HrefLang from "./HrefLang.astro";
 
 interface BaseProps {
 	title: string;

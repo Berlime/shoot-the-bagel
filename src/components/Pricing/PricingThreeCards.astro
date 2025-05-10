@@ -10,8 +10,9 @@ import { Switch } from "@components/starwind/switch";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
 import { Image } from "astro:assets";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import { Icon } from "astro-icon/components";
+
+import { getLocalizedRoute } from "@/js/translationUtils";
 
 interface pricingItem {
 	name: string; // plan name
@@ -192,7 +193,7 @@ const t = useTranslations(currLocale);
 							<Button
 								class="mb-0"
 								variant={plan.featured === true ? "primary" : "outline"}
-								href={getRelativeLocaleUrl(currLocale, plan.href)}
+								href={getLocalizedRoute(currLocale, plan.href)}
 							>
 								{plan.linkText}
 							</Button>

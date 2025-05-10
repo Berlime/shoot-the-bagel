@@ -6,7 +6,8 @@ import { formatDate, humanize, slugify } from "@js/textUtils";
 import { useTranslations } from "@js/translationUtils";
 import { Image } from "astro:assets";
 import { type CollectionEntry, getEntries } from "astro:content";
-import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { getLocalizedRoute } from "@/js/translationUtils";
 
 // main layout
 import BaseLayout from "./BaseLayout.astro";
@@ -111,7 +112,7 @@ const authorsData = await getEntries(authors);
 
 					<!-- button to go back to all posts -->
 					<div class="mt-16 flex justify-center">
-						<Button variant="outline" arrow="left" href={getRelativeLocaleUrl(currLocale, "/blog")}>
+						<Button variant="outline" arrow="left" href={getLocalizedRoute(currLocale, "/blog")}>
 							{t("back_to_all_posts")}
 						</Button>
 					</div>

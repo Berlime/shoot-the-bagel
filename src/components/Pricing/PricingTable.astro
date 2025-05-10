@@ -8,8 +8,9 @@ import Button from "@components/Button/Button.astro";
 import { Switch } from "@components/starwind/switch";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
-import { getRelativeLocaleUrl } from "astro:i18n";
 import { Icon } from "astro-icon/components";
+
+import { getLocalizedRoute } from "@/js/translationUtils";
 
 interface planInfo {
 	name: string; // plan name
@@ -253,7 +254,7 @@ const t = useTranslations(currLocale);
 										<div class="mt-auto">
 											<Button
 												variant={plan.featured === true ? "primary" : "outline"}
-												href={getRelativeLocaleUrl(currLocale, "/signup")}
+												href={getLocalizedRoute(currLocale, "/signup")}
 												class={`mt-4 py-1.5`}
 											>
 												Get Started
