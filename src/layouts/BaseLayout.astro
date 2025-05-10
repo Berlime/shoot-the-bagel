@@ -16,7 +16,6 @@ import { type CollectionEntry } from "astro:content";
 interface Props {
 	type?: "blog" | "general";
 	title: string;
-	navTheme?: "default" | "dark"; // if you want to force dark mode
 	description: string;
 	image?: ImageMetadata;
 	authorsData?: CollectionEntry<"authors">[];
@@ -28,7 +27,6 @@ const {
 	type = "general",
 	title,
 	description,
-	navTheme = "default",
 	image,
 	authorsData,
 	postFrontmatter,
@@ -60,9 +58,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		<!-- put cookie consent first so it is seen first by screen readers -->
 		<!-- <CookieConsent /> -->
 		<div class="min-h-[100lvh]">
-			<!-- <div class=`${navTheme == "dark" ? "dark" : ""}`> -->
 			<Nav />
-			<!-- </div> -->
 			<main>
 				<slot />
 			</main>
