@@ -4,15 +4,12 @@
  */
 
 import Badge from "@components/Badge/Badge.astro";
-// utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import { Icon } from "astro-icon/components";
 
-// components
 import TestimonialCard from "./TestimonialItemCard.astro";
 
-// data
 const currLocale = getLocaleFromUrl(Astro.url);
 const testimonialData = getTranslatedData("testimonialData", currLocale);
 ---

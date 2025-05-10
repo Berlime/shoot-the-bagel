@@ -1,7 +1,6 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 
 import { defaultLocale, locales } from "@/config/siteSettings.json";
-// data
 import {
 	dataTranslations,
 	routeTranslations,

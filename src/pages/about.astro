@@ -6,9 +6,7 @@
 import Badge from "@components/Badge/Badge.astro";
 import Button from "@components/Button/Button.astro";
 import CtaCenter from "@components/Cta/CtaCardBgImage.astro";
-// components
 import Profile from "@components/Profile/Profile.astro";
-// utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 // main layout
@@ -16,7 +14,6 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { Icon } from "astro-icon/components";
 
-// data
 const currLocale = getLocaleFromUrl(Astro.url);
 const teamData = getTranslatedData("teamData", currLocale);
 ---

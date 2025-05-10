@@ -2,9 +2,8 @@
 /**
  * * A section to show the steps to using your product. They are numbers with an image to the side
  */
-// components
+
 import Button from "@components/Button/Button.astro";
-// utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
 import { Image } from "astro:assets";
@@ -20,7 +19,6 @@ interface FeatureData {
 
 import sideImage from "@images/storm-1.webp";
 
-// data
 const featureData: FeatureData[] = [
 	{
 		title: "Secured Payments",

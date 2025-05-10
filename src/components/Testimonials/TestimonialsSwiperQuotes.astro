@@ -9,14 +9,11 @@ import "swiper/css/pagination";
 import "./testimonialSwiper.css"; // have to define custom styles like this
 
 import Badge from "@components/Badge/Badge.astro";
-// utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 
-// components
 import TestimonialItemQuotes from "./TestimonialItemQuotes.astro";
 
-// data
 const currLocale = getLocaleFromUrl(Astro.url);
 const testimonialData = getTranslatedData("testimonialData", currLocale);
 ---

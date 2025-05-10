@@ -10,7 +10,6 @@
  * Create a Keystatic Cloud account here: https://keystatic.cloud/
  */
 
-// components
 import Collections from "@components/KeystaticComponents/Collections";
 import { config } from "@keystatic/core";
 
