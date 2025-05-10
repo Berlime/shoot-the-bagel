@@ -1,11 +1,9 @@
 ---
-import { Icon } from "astro-icon/components";
-
 // components
 import NavLink from "@components/Nav/NavLink.astro";
-
 // data
-import { type navMegaDropdownColumn, type navDropdownItem } from "@config/types/configDataTypes";
+import { type navDropdownItem, type navMegaDropdownColumn } from "@config/types/configDataTypes";
+import { Icon } from "astro-icon/components";
 
 interface Props {
 	navItem: navDropdownItem | navMegaDropdownColumn;

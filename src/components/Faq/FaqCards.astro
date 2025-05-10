@@ -4,14 +4,13 @@
  */
 
 // components
-import FaqCard from "./FaqCard.astro";
-
+// data
+import { type FaqItem } from "@config/types/configDataTypes";
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 
-// data
-import { type FaqItem } from "@config/types/configDataTypes";
+import FaqCard from "./FaqCard.astro";
 const currLocale = getLocaleFromUrl(Astro.url);
 const faqData = getTranslatedData("faqData", currLocale);
 

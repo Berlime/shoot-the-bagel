@@ -7,15 +7,15 @@
  * * Data file configuration for the i18n system
  * Every {Data} key must exist in the below object
  */
-import siteDataEn from "./en/siteData.json";
-import siteDataFr from "./fr/siteData.json";
-import navDataEn from "./en/navData.json";
-import navDataFr from "./fr/navData.json";
 import faqDataEn from "./en/faqData.json";
-import faqDataFr from "./fr/faqData.json";
+import navDataEn from "./en/navData.json";
+import siteDataEn from "./en/siteData.json";
 import teamDataEn from "./en/teamData.json";
-import teamDataFr from "./fr/teamData.json";
 import testimonialDataEn from "./en/testimonialData.json";
+import faqDataFr from "./fr/faqData.json";
+import navDataFr from "./fr/navData.json";
+import siteDataFr from "./fr/siteData.json";
+import teamDataFr from "./fr/teamData.json";
 import testimonialDataFr from "./fr/testimonialData.json";
 
 export const dataTranslations = {

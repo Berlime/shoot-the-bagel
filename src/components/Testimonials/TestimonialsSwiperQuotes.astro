@@ -8,13 +8,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./testimonialSwiper.css"; // have to define custom styles like this
 
-// components
-import TestimonialItemQuotes from "./TestimonialItemQuotes.astro";
 import Badge from "@components/Badge/Badge.astro";
-
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
+
+// components
+import TestimonialItemQuotes from "./TestimonialItemQuotes.astro";
 
 // data
 const currLocale = getLocaleFromUrl(Astro.url);
@@ -61,8 +61,8 @@ const testimonialData = getTranslatedData("testimonialData", currLocale);
 <script>
 	// Import Swiper and modules
 	import Swiper from "swiper";
-	import type { SwiperOptions } from "swiper/types";
 	import { Pagination } from "swiper/modules";
+	import type { SwiperOptions } from "swiper/types";
 	// import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 
 	function swiperSetup() {

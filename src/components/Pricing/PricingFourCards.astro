@@ -4,16 +4,14 @@
  * This is designed for 3 pricing items, but can be modified to support more
  */
 
-import { Icon } from "astro-icon/components";
-import { getRelativeLocaleUrl } from "astro:i18n";
-
 // components
 import Button from "@components/Button/Button.astro";
 import { Switch } from "@components/starwind/switch";
-
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { Icon } from "astro-icon/components";
 
 interface pricingItem {
 	name: string; // plan name

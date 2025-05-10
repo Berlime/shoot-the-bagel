@@ -1,15 +1,12 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
-
-// main layout
-import BaseLayout from "@layouts/BaseLayout.astro";
-
+import Badge from "@components/Badge/Badge.astro";
 // components
 import Button from "@components/Button/Button.astro";
-import Badge from "@components/Badge/Badge.astro";
-
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
+// main layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 ---

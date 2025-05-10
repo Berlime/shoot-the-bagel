@@ -105,7 +105,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		},
 
 		normalize: function () {
-			var len = Math.sqrt(this.x * this.x + this.y * this.y);
+			const len = Math.sqrt(this.x * this.x + this.y * this.y);
 			if (len) {
 				this.x /= len;
 				this.y /= len;
@@ -118,13 +118,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		},
 
 		distanceTo: function (v: VectorType) {
-			var dx = v.x - this.x,
+			const dx = v.x - this.x,
 				dy = v.y - this.y;
 			return Math.sqrt(dx * dx + dy * dy);
 		},
 
 		distanceToSq: function (v: VectorType) {
-			var dx = v.x - this.x,
+			const dx = v.x - this.x,
 				dy = v.y - this.y;
 			return dx * dx + dy * dy;
 		},
@@ -151,8 +151,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	 * Point
 	 */
 	Point.prototype = (function (o) {
-		var s = new Vector(0, 0),
-			p;
+		const s = new Vector(0, 0);
+		let p;
 		for (p in o) {
 			s[p] = o[p];
 		}
@@ -170,11 +170,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			if (this.dragging) return;
 
 			if (lightningConfig.movingPoints) {
-				var vec = this.vec,
-					i,
-					len,
-					p,
-					d;
+				const vec = this.vec;
+				let i, len, p, d;
 
 				if (lightningConfig.circleMotion) {
 					// points move in a circle pattern. They are currently on the edges of the "circle" and maintain the same distance from the center
@@ -300,12 +297,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		},
 
 		setChildNum: function (num: number) {
-			var children = this.children,
-				child,
-				i,
-				len;
+			const children = this.children;
+			let child, i;
 
-			len = this.children.length;
+			const len = this.children.length;
 
 			if (len > num) {
 				for (i = num; i < len; i++) {
@@ -322,30 +317,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		},
 
 		update: function () {
-			var startPoint = this.startPoint,
-				endPoint = this.endPoint,
-				length,
-				normal,
-				radian,
-				sinv,
-				cosv,
-				points,
-				off,
-				waveWidth,
-				n,
-				av,
-				ax,
-				ay,
-				bv,
-				bx,
-				by,
-				m,
-				x,
-				y,
-				children,
-				child,
-				i,
-				len;
+			const startPoint = this.startPoint;
+			const endPoint = this.endPoint;
+			let waveWidth, n, av, ax, ay, bv, bx, by, m, x, y, child, i, len;
 
 			if (this.parent) {
 				if (this.endStep > this.parent.step) {
@@ -356,16 +330,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				endPoint.set(this.parent.points[this.endStep]);
 			}
 
-			length = this.length();
-			normal = Vector.sub(endPoint, startPoint)
+			const length = this.length();
+			const normal = Vector.sub(endPoint, startPoint)
 				.normalize()
 				.scale(length / this.step);
-			radian = normal.angle();
-			sinv = Math.sin(radian);
-			cosv = Math.cos(radian);
+			const radian = normal.angle();
+			const sinv = Math.sin(radian);
+			const cosv = Math.cos(radian);
 
-			points = this.points = [];
-			off = this.off += random(this.arcSpeed, this.arcSpeed * 0.2);
+			const points = (this.points = []);
+			const off = (this.off += random(this.arcSpeed, this.arcSpeed * 0.2));
 			waveWidth = (this.parent ? length * 1.5 : length) * this.amplitude;
 			if (waveWidth > 750) waveWidth = 750;
 
@@ -384,10 +358,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 				x = startPoint.x + normal.x * i + (ax - bx) * m;
 				y = startPoint.y + normal.y * i - (ay - by) * m;
 
+				// @ts-expect-error
 				points.push(new Vector(x, y));
 			}
 
-			children = this.children;
+			const children = this.children;
 
 			for (i = 0, len = children.length; i < len; i++) {
 				child = children[i];
@@ -402,12 +377,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		},
 
 		draw: function (ctx) {
-			var points = this.points,
-				children = this.children,
-				i,
-				len,
-				p,
-				d;
+			const points = this.points;
+			const children = this.children;
+			let i, len, p, d;
 
 			// Blur
 			if (this.blur) {
@@ -452,9 +424,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		},
 
 		_noise: function (v: number) {
-			var octaves = 6,
-				fallout = 0.5,
-				amp = 1,
+			const octaves = 6;
+			const fallout = 0.5;
+			let amp = 1,
 				f = 1,
 				sum = 0,
 				i;
@@ -472,7 +444,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			if (!(lightning instanceof Lightning)) return;
 			this.parent = lightning;
 
-			var self = this,
+			// eslint-disable-next-line @typescript-eslint/no-this-alias
+			const self = this,
 				setTimer = function () {
 					self._updateStepsByParent();
 
@@ -484,7 +457,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 		_updateStepsByParent: function () {
 			if (!this.parent) return;
-			var parentStep = this.parent.step;
+			const parentStep = this.parent.step;
 
 			this.startStep = randint(parentStep - 2);
 			this.endStep = this.startStep + randint(parentStep - this.startStep - 2) + 2;
@@ -530,18 +503,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 	function initLightningCanvas() {
 		// Vars
 
-		var canvas,
-			contexts,
-			context,
-			centerX,
-			centerY,
-			grad,
-			mouse,
-			bounds,
-			points,
-			lightning,
-			gui,
-			control;
+		let contexts, context, centerX, centerY, grad, mouse, bounds, points, lightning, gui, control;
 
 		// Event Listeners
 
@@ -587,7 +549,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			mouse.set(e.clientX, e.clientY);
 			console.log(e);
 
-			var i,
+			let i,
 				hit = false;
 			for (i = 0; i < 2; i++) {
 				if ((!hit && points[i].hitTest(mouse)) || points[i].dragging) hit = true;
@@ -597,7 +559,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 		function mouseDown(e) {
 			console.log(e);
-			for (var i = 0; i < 2; i++) {
+			for (let i = 0; i < 2; i++) {
 				if (points[i].hitTest(mouse)) {
 					points[i].startDrag();
 					return;
@@ -606,14 +568,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		}
 
 		function mouseUp(e) {
-			for (var i = 0; i < 2; i++) {
+			for (let i = 0; i < 2; i++) {
 				if (points[i].dragging) points[i].endDrag();
 			}
 		}
 
 		// Init
 
-		canvas = document.getElementById("lightning");
+		const canvas = document.getElementById("lightning") as HTMLCanvasElement;
 		// const canvasEls = document.querySelectorAll("canvas.lightning");
 
 		window.addEventListener("resize", resize, false);
@@ -629,7 +591,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 		// Start Update
 
-		var loop = function () {
+		const loop = function () {
 			if (!canvas) return;
 			// canvasEls.forEach((canvas: HTMLCanvasElement) => {
 			context.save();
@@ -651,9 +613,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			lightning.update();
 			lightning.draw(context);
 
-			var i, p, distance;
+			let i, p;
 			// get distance between the two points and make it an integer
-			distance = points[0].distanceTo(points[1]).toFixed(0);
+			const distance = points[0].distanceTo(points[1]).toFixed(0);
 			// console.log(distance);
 
 			for (i = 0; i < 2; i++) {

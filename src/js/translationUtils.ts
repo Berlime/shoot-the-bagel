@@ -1,12 +1,12 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 
+import { defaultLocale, locales } from "@/config/siteSettings.json";
 // data
 import {
-	textTranslations,
 	dataTranslations,
 	routeTranslations,
+	textTranslations,
 } from "@/config/translationData.json";
-import { locales, defaultLocale } from "@/config/siteSettings.json";
 
 /**
  * * text translation helper function

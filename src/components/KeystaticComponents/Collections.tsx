@@ -3,17 +3,15 @@
  * This makes it much cleaner to work with content in different languages
  */
 
+// components
+import ComponentBlocks from "@components/KeystaticComponents/ComponentBlocks";
+// utils
+import { locales } from "@config/siteSettings.json";
 import {
 	collection,
 	fields,
 	// singleton,
 } from "@keystatic/core";
-
-// components
-import ComponentBlocks from "@components/KeystaticComponents/ComponentBlocks";
-
-// utils
-import { locales } from "@config/siteSettings.json";
 
 /**
  * * Blog posts collection

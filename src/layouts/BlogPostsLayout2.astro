@@ -2,11 +2,10 @@
 /**
  * * Grid with 3 columns. Most recent blog post is largest and spans full width.
  */
-import { type CollectionEntry, getCollection, getEntries } from "astro:content";
-
 // components
 import PostCard from "@components/PostCard/PostCardAmplify.astro";
 import PostCardLarge from "@components/PostCard/PostCardAmplifyLarge.astro";
+import { type CollectionEntry, getCollection, getEntries } from "astro:content";
 
 interface Props {
 	posts: CollectionEntry<"blog">[];

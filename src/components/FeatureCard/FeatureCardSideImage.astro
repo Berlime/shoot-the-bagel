@@ -3,16 +3,14 @@
  * * These are alternating side cards with titles, check-marked list items, and images
  */
 
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
-import { getRelativeLocaleUrl } from "astro:i18n";
-
+import Badge from "@components/Badge/Badge.astro";
 // components
 import Button from "@components/Button/Button.astro";
-import Badge from "@components/Badge/Badge.astro";
-
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
+import { Image } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { Icon } from "astro-icon/components";
 
 interface Props {
 	badge: string; // small badge

@@ -1,17 +1,14 @@
 ---
-import { render } from "astro:content";
-import { type InferGetStaticPropsType } from "astro";
-
+// components
+import ExternalLink from "@components/MarkdownComponents/ExternalLink.astro";
+import { defaultLocale } from "@config/siteSettings.json";
+// utils
+import { getAllPosts } from "@js/blogUtils";
 // layout
 import BlogLayoutCenter from "@layouts/BlogLayoutCenter.astro";
 import BlogLayoutSidebars from "@layouts/BlogLayoutSidebars.astro";
-
-// components
-import ExternalLink from "@components/MarkdownComponents/ExternalLink.astro";
-
-// utils
-import { getAllPosts } from "@js/blogUtils";
-import { defaultLocale } from "@config/siteSettings.json";
+import { type InferGetStaticPropsType } from "astro";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
 	const posts = await getAllPosts(defaultLocale);

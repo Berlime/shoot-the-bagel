@@ -1,8 +1,7 @@
 import { type teamMember } from "@config/types/configDataTypes";
-
 import Virginia from "@images/ashton_blackwell.jpg";
-import Victra from "@images/nicola_harris.jpg";
 import Darrow from "@images/nic_fassbender.jpg";
+import Victra from "@images/nicola_harris.jpg";
 
 export const teamData: teamMember[] = [
 	{

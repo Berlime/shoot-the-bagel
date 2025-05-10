@@ -1,11 +1,11 @@
-import { type TestimonialItem } from "../types/configDataTypes";
-
-import BowTiedFocus from "@images/BowTiedFocus.jpg";
-import TravisB from "@images/travis-b.png";
-import Isaac from "@images/isaac_saas.jpg";
 import Aniket from "@images/aniket_p.jpg";
-import David from "@images/david-g-davedev.png";
+import BowTiedFocus from "@images/BowTiedFocus.jpg";
 import Damiano from "@images/damiano.jpg";
+import David from "@images/david-g-davedev.png";
+import Isaac from "@images/isaac_saas.jpg";
+import TravisB from "@images/travis-b.png";
+
+import { type TestimonialItem } from "../types/configDataTypes";
 
 export const testimonialData: TestimonialItem[] = [
 	{

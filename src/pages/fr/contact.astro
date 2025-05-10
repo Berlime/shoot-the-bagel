@@ -1,16 +1,13 @@
 ---
-import { Icon } from "astro-icon/components";
-
-// main layout
-import BaseLayout from "@layouts/BaseLayout.astro";
-
+import Badge from "@components/Badge/Badge.astro";
 // components
 import ContactForm from "@components/Forms/ContactForm.astro";
-import Badge from "@components/Badge/Badge.astro";
-
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
+// main layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
 
 // data
 const currLocale = getLocaleFromUrl(Astro.url);

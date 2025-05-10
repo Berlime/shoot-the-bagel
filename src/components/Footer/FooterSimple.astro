@@ -1,15 +1,13 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
-
+import Button from "@components/Button/Button.astro";
 // components
 import FooterLink from "@components/Footer/FooterLink.astro";
 import SiteLogo from "@components/SiteLogo/SiteLogo.astro";
-import Button from "@components/Button/Button.astro";
 import SocialIcon from "@components/SocialIcon/SocialIcon.astro";
-
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 // data
 const currLocale = getLocaleFromUrl(Astro.url);

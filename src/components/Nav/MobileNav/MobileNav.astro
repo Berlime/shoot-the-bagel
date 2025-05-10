@@ -1,18 +1,16 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n";
-import { Icon } from "astro-icon/components";
-
+import Button from "@components/Button/Button.astro";
+import LanguageSelect from "@components/LanguageSelect/MobileLanguageSelect.astro";
 // components
 import MobileNavDropdown from "@components/Nav/MobileNav/MobileNavDropdown.astro";
 import NavLink from "@components/Nav/NavLink.astro";
-import Button from "@components/Button/Button.astro";
-import ThemeToggle from "@components/ThemeToggle/ThemeToggle.astro";
-import LanguageSelect from "@components/LanguageSelect/MobileLanguageSelect.astro";
 import SiteLogo from "@components/SiteLogo/SiteLogo.astro";
-
+import ThemeToggle from "@components/ThemeToggle/ThemeToggle.astro";
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { Icon } from "astro-icon/components";
 
 // data
 const currLocale = getLocaleFromUrl(Astro.url);
