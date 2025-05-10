@@ -9,6 +9,8 @@ import { Image } from "astro:assets";
 import { type CollectionEntry, getEntries } from "astro:content";
 import { Icon } from "astro-icon/components";
 
+import { getLocalizedRoute } from "@/js/translationUtils";
+
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
@@ -121,7 +123,9 @@ const authorsData = await getEntries(authors);
 
 					<!-- button to go back to all posts -->
 					<div class="mt-10 flex justify-center">
-						<Button variant="outline" href="/blog/" arrow="left"> Back to all posts </Button>
+						<Button variant="outline" href={getLocalizedRoute(currLocale, "/blog/")} arrow="left">
+							Back to all posts
+						</Button>
 					</div>
 				</div>
 

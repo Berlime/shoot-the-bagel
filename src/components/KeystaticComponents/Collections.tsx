@@ -69,6 +69,10 @@ const Blog = (locale: (typeof locales)[number]) =>
 				itemLabel: (props) => props.value,
 				validation: { length: { min: 1 } },
 			}),
+			mappingKey: fields.text({
+				label: "Mapping Key",
+				description: "This is used to map entries between languages.",
+			}),
 			content: fields.mdx({
 				label: "Content",
 				options: {
@@ -196,6 +200,10 @@ const OtherPages = (locale: (typeof locales)[number]) =>
 			description: fields.text({
 				label: "Description",
 				validation: { isRequired: true, length: { min: 1, max: 160 } },
+			}),
+			mappingKey: fields.text({
+				label: "Mapping Key",
+				description: "This is used to map entries between languages.",
 			}),
 			draft: fields.checkbox({
 				label: "Draft",
