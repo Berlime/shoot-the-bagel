@@ -1,5 +1,5 @@
-import { defineCollection, reference, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { defineCollection, reference, z } from "astro:content";
 
 // Type-check frontmatter using a schema
 const blogCollection = defineCollection({
@@ -21,6 +21,8 @@ const blogCollection = defineCollection({
 				.transform((str) => (str ? new Date(str) : undefined)),
 			heroImage: image(),
 			categories: z.array(z.string()),
+			// mappingKey allows you to match entries across languages for SEO purposes
+			mappingKey: z.string().optional(),
 			// blog posts will be excluded from build if draft is "true"
 			draft: z.boolean().optional(),
 		}),
@@ -46,6 +48,8 @@ const otherPagesCollection = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
+			// mappingKey allows you to match entries across languages for SEO purposes
+			mappingKey: z.string().optional(),
 			draft: z.boolean().optional(),
 		}),
 });

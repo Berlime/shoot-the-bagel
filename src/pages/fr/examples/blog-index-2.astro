@@ -1,16 +1,11 @@
 ---
-// layout
-import BaseLayout from "@layouts/BaseLayout.astro";
-import BlogPostsLayout from "@layouts/BlogPostsLayout1.astro";
-
-// components
-import PostCard from "@components/PostCard/PostCardAmplify.astro";
-import CategoryCloud from "@components/CategoryCloud/CategoryCloud.astro";
 import Badge from "@components/Badge/Badge.astro";
-
-// utils
+import CategoryCloud from "@components/CategoryCloud/CategoryCloud.astro";
+import PostCard from "@components/PostCard/PostCardAmplify.astro";
 import { getAllPosts } from "@js/blogUtils";
 import { getLocaleFromUrl } from "@js/localeUtils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BlogPostsLayout from "@layouts/BlogPostsLayout1.astro";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const posts = await getAllPosts(currLocale);

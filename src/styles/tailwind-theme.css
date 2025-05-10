@@ -33,8 +33,8 @@
 
 	/* other theme settings */
 	--color-dark-bg: hsl(0, 0%, 1%);
-	--button-transition-properties: box-shadow, color, background-color, border-color,
-		text-decoration-color, fill, stroke;
+	--button-transition-properties:
+		box-shadow, color, background-color, border-color, text-decoration-color, fill, stroke;
 
 	/* layout settings */
 	--screen-xs: 400px;
@@ -45,11 +45,12 @@
 	--screen-2xl: 1536px;
 
 	/* font families */
-	--font-fallback: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica",
-		"Arial", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--font-fallback:
+		"-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif",
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	--font-sans: "InterVariable", var(--font-fallback);
-	--font-mono: "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New",
-		"monospace";
+	--font-mono:
+		"SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
 
 	/* starwind and cosmic themes animations */
 	--animate-accordion-down: accordion-down 0.3s ease-out;

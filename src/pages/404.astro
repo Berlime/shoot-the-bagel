@@ -1,18 +1,14 @@
 ---
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import { getRelativeLocaleUrl } from "astro:i18n";
-
-// main layout
-import BaseLayout from "@layouts/BaseLayout.astro";
-
-// components
+import Badge from "@components/Badge/Badge.astro";
 import Button from "@components/Button/Button.astro";
 import LightningAnimation from "@components/Canvas/LightningAnimation.astro";
-import Badge from "@components/Badge/Badge.astro";
-
-// utils
 import { getLocaleFromUrl } from "@js/localeUtils";
+// main layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import { getLocalizedRoute } from "@/js/translationUtils";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 ---
@@ -36,7 +32,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 							Something went wrong, so this page is broken.
 						</p>
 						<div class="relative z-10 flex flex-wrap justify-center md:justify-start">
-							<Button variant="primary" href={getRelativeLocaleUrl(currLocale, "/")}
+							<Button variant="primary" href={getLocalizedRoute(currLocale, "/")}
 								>Go back to homepage</Button
 							>
 						</div>

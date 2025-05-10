@@ -4,23 +4,19 @@
  *
  * There is a commented out "awards" section below in case you want that
  */
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import { getRelativeLocaleUrl } from "astro:i18n";
-
-// components
+import Badge from "@components/Badge/Badge.astro";
 import Button from "@components/Button/Button.astro";
 import VideoButton from "@components/Button/VideoButton.astro";
-import Badge from "@components/Badge/Badge.astro";
-
-// utils
-import { getLocaleFromUrl } from "@js/localeUtils";
-import { useTranslations } from "@js/translationUtils";
-
 // images
 import person1 from "@images/ashton_blackwell.jpg";
-import person2 from "@images/nicola_harris.jpg";
 import person3 from "@images/nic_fassbender.jpg";
+import person2 from "@images/nicola_harris.jpg";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { useTranslations } from "@js/translationUtils";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import { getLocalizedRoute } from "@/js/translationUtils";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const t = useTranslations(currLocale);

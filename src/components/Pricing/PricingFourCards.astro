@@ -4,16 +4,13 @@
  * This is designed for 3 pricing items, but can be modified to support more
  */
 
-import { Icon } from "astro-icon/components";
-import { getRelativeLocaleUrl } from "astro:i18n";
-
-// components
 import Button from "@components/Button/Button.astro";
 import { Switch } from "@components/starwind/switch";
-
-// utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { useTranslations } from "@js/translationUtils";
+import { Icon } from "astro-icon/components";
+
+import { getLocalizedRoute } from "@/js/translationUtils";
 
 interface pricingItem {
 	name: string; // plan name
@@ -202,7 +199,7 @@ const t = useTranslations(currLocale);
 							<Button
 								class="mb-0"
 								variant={plan.featured === true ? "primary" : "outline"}
-								href={getRelativeLocaleUrl(currLocale, plan.href)}
+								href={getLocalizedRoute(currLocale, plan.href)}
 							>
 								{plan.linkText}
 							</Button>

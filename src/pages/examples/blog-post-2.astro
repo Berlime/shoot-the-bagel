@@ -1,17 +1,11 @@
 ---
-import { render } from "astro:content";
-
-// layout
+import ExternalLink from "@components/MarkdownComponents/ExternalLink.astro";
+import { defaultLocale } from "@config/siteSettings.json";
+import { getAllPosts } from "@js/blogUtils";
+import { getLocaleFromUrl } from "@js/localeUtils";
 import BlogLayoutCenter from "@layouts/BlogLayoutCenter.astro";
 import BlogLayoutSidebars from "@layouts/BlogLayoutSidebars.astro";
-
-// components
-import ExternalLink from "@components/MarkdownComponents/ExternalLink.astro";
-
-// utils
-import { getAllPosts } from "@js/blogUtils";
-import { defaultLocale } from "@config/siteSettings.json";
-import { getLocaleFromUrl } from "@js/localeUtils";
+import { render } from "astro:content";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const posts = await getAllPosts(currLocale);

@@ -8,11 +8,9 @@
  * ! If the icon is at src/icons/tabler/paint.svg then you put in "tabler/paint"
  */
 
-import { Icon } from "astro-icon/components";
-
-// components
-import FeatureCard from "@components/FeatureCard/FeatureCardSmall.astro";
 import Badge from "@components/Badge/Badge.astro";
+import FeatureCard from "@components/FeatureCard/FeatureCardSmall.astro";
+import { Icon } from "astro-icon/components";
 
 interface FeatureData {
 	icon: string;
@@ -20,7 +18,6 @@ interface FeatureData {
 	text: string;
 }
 
-// data
 const featureData: FeatureData[] = [
 	{
 		icon: "tabler/calendar-check",

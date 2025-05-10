@@ -1,28 +1,21 @@
 ---
-import { type CollectionEntry } from "astro:content";
-
-// component imports
-import BaseHead from "@layouts/BaseHead.astro";
-import Nav from "@components/Nav/Nav.astro";
-import Footer from "@components/Footer/Footer.astro";
-import FooterSimple from "@components/Footer/FooterSimple.astro";
-import CookieConsent from "@components/CookieConsent/CookieConsent.astro";
-
 // style import
 import "@/styles/global.css";
 
-// utils
-import { getLocaleFromUrl } from "@js/localeUtils";
-
-// data
+import CookieConsent from "@components/CookieConsent/CookieConsent.astro";
+import Footer from "@components/Footer/Footer.astro";
+import FooterSimple from "@components/Footer/FooterSimple.astro";
+import Nav from "@components/Nav/Nav.astro";
 import siteSettings from "@config/siteSettings.json";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import BaseHead from "@layouts/BaseHead.astro";
+import { type CollectionEntry } from "astro:content";
 
 // heroImage and authorData are defined on blog posts
 // authorData could also be defined on the about author page
 interface Props {
 	type?: "blog" | "general";
 	title: string;
-	navTheme?: "default" | "dark"; // if you want to force dark mode
 	description: string;
 	image?: ImageMetadata;
 	authorsData?: CollectionEntry<"authors">[];
@@ -34,7 +27,6 @@ const {
 	type = "general",
 	title,
 	description,
-	navTheme = "default",
 	image,
 	authorsData,
 	postFrontmatter,
@@ -66,9 +58,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		<!-- put cookie consent first so it is seen first by screen readers -->
 		<!-- <CookieConsent /> -->
 		<div class="min-h-[100lvh]">
-			<!-- <div class=`${navTheme == "dark" ? "dark" : ""}`> -->
 			<Nav />
-			<!-- </div> -->
 			<main>
 				<slot />
 			</main>
@@ -79,7 +69,6 @@ const currLocale = getLocaleFromUrl(Astro.url);
 		<!-- Scroll animations -->
 		<script>
 			import siteSettings from "@config/siteSettings.json";
-
 			import AOS from "@js/aos/aos";
 
 			if (siteSettings.useAnimations === true) {

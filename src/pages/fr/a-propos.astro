@@ -3,23 +3,18 @@
  * * About page with various sections including some text, team profiles, and CTA
  * Edit the team member information inside src/config/teamData.json.ts
  */
-import { Icon } from "astro-icon/components";
-import { getRelativeLocaleUrl } from "astro:i18n";
-
-// main layout
-import BaseLayout from "@layouts/BaseLayout.astro";
-
-// components
-import Profile from "@components/Profile/Profile.astro";
+import Badge from "@components/Badge/Badge.astro";
 import Button from "@components/Button/Button.astro";
 import CtaCenter from "@components/Cta/CtaCardBgImage.astro";
-import Badge from "@components/Badge/Badge.astro";
-
-// utils
+import Profile from "@components/Profile/Profile.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
+// main layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
 
-// data
+import { getLocalizedRoute } from "@/js/translationUtils";
+
 const currLocale = getLocaleFromUrl(Astro.url);
 const teamData = getTranslatedData("teamData", currLocale);
 ---

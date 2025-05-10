@@ -3,15 +3,12 @@
  * * These are alternating side cards with titles, text, and images
  * Recommend using 2 or 3 cards in a row
  */
-import { Icon } from "astro-icon/components";
-
-// components
-import FeatureCard from "@components/FeatureCard/FeatureCardSideImage.astro";
 import Badge from "@components/Badge/Badge.astro";
-
+import FeatureCard from "@components/FeatureCard/FeatureCardSideImage.astro";
 // images
 import image1 from "@images/storm-1.webp";
 import image2 from "@images/storm-2.webp";
+import { Icon } from "astro-icon/components";
 
 interface FeatureItem {
 	badge: string; // badge text
@@ -22,7 +19,6 @@ interface FeatureItem {
 	buttonText: string; // button text
 }
 
-// data
 const featureData: FeatureItem[] = [
 	{
 		badge: "the best",
