@@ -3,10 +3,10 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // components
-import Microsoft365Hero from "@components/Hero/Services/Microsoft365.astro";
+import HeroMicrosoft365 from "@components/Services/Intranets/HeroMicrosoft365.astro";
 import LogoCloudMarquee from "@components/LogoCloud/LogoCloudMarquee.astro";
 import FeatureCodeToggle from "@components/Feature/FeatureCodeToggle.astro";
-import WebsitesFeatureCardsSmall2 from "@components/Feature/WebsitesFeatureCardsSmall2.astro";
+import MS365FeatureCardsSmall from "@components/Services/Intranets/MS365FeatureCardsSmall.astro";
 import FeatureIntegrations from "@components/Feature/FeatureIntegrations.astro";
 import TestimonialsSwiperQuotes from "@components/Testimonials/TestimonialsSwiperQuotes.astro";
 import CtaBgImage from "@components/Cta/CtaBgImage.astro";
@@ -23,13 +23,12 @@ const siteData = getTranslatedData("siteData", currLocale);
 ---
 
 <BaseLayout title={siteData.title} description={siteData.description}>
-	<Microsoft365Hero />
+	<HeroMicrosoft365 />
 	<!-- <LogoCloudMarquee /> to create new componentwith microsoft 365 product logos-->
-	<FeatureCodeToggle />
-	<WebsitesFeatureCardsSmall2 />
-	<WebsitePricingTableWithAccordion />
-	<FeatureIntegrations />
-	<TestimonialsSwiperQuotes />
-	<CtaBgImage />
-	<FaqAccordions />
+	<MS365FeatureCardsSmall />
+	<!-- <WebsitePricingTableWithAccordion /> -->
+	<!-- <FeatureIntegrations /> -->
+	<!-- <TestimonialsSwiperQuotes /> -->
+	<!-- <CtaBgImage /> -->
+	<!-- <FaqAccordions /> -->
 </BaseLayout>

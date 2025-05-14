@@ -41,12 +41,12 @@ const today = new Date();
 							<ul class="flex flex-col gap-3">
 								<li>
 									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
-										>New Businesses</FooterLink
+										>NGOs</FooterLink
 									>
 								</li>
 								<li>
 									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
-										>Non-Profit Organizations</FooterLink
+										>Professionals</FooterLink
 									>
 								</li>
 								<li>
@@ -56,7 +56,7 @@ const today = new Date();
 								</li>
 								<li>
 									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
-										>Start Ups (Pre-Seed)</FooterLink
+										>Start Ups</FooterLink
 									>
 								</li>
 							</ul>
@@ -65,29 +65,20 @@ const today = new Date();
 						<!-- second links column -->
 						<div class="w-auto py-2">
 							<h3 class="mb-8 font-medium tracking-tight text-base-800 dark:text-base-300">
-								Resources
+								Important Links
 							</h3>
 							<ul class="flex flex-col gap-3">
 								<li>
+									<FooterLink href="https://wiki.berlime.com">Wiki</FooterLink>
+								</li>
+								<li>
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Resources</FooterLink
+									>
+								</li>
+								<li>
 									<FooterLink href={getRelativeLocaleUrl(currLocale, "/categories/updates")}
 										>What's New</FooterLink
-									>
-								</li>
-								<li>
-									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
-										>Affiliate Programs</FooterLink
-									>
-								</li>
-								<li>
-									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
-										>Brand Assets</FooterLink
-									>
-								</li>
-								<li>
-									<FooterLink 
-										href="https://www.upwork.com/agencies/1893631511197085545/"
-										newTab={true}
-									>Hire In Upwork</FooterLink
 									>
 								</li>
 							</ul>
@@ -100,11 +91,8 @@ const today = new Date();
 							</h3>
 							<ul class="flex flex-col gap-3">
 								<li>
-									<FooterLink href="https://wiki.berlime.com">Wiki</FooterLink>
-								</li>
-								<li>
-									<FooterLink href={getRelativeLocaleUrl(currLocale, "/blog")}
-										>Tips & Tricks</FooterLink
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Brand Assets</FooterLink
 									>
 								</li>
 								<li>
@@ -115,6 +103,11 @@ const today = new Date();
 								<li>
 									<FooterLink href={getRelativeLocaleUrl(currLocale, "/terms")}
 										>Terms & Conditions</FooterLink
+									>
+								</li>
+								<li>
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Affiliate Programs</FooterLink
 									>
 								</li>
 							</ul>
@@ -139,7 +132,12 @@ const today = new Date();
 								href="https://x.com/BerlimeWM"
 								icon="tabler/brand-x"
 								social="twitter (x)"
-							/>
+								/>
+							<SocialIcon
+								href="https://www.upwork.com/agencies/1893631511197085545/"
+								icon="tabler/brand-upwork"
+								social="upwork"
+							/>								
 							<SocialIcon
 								href="https://facebook.com/berlime"
 								icon="tabler/brand-facebook"

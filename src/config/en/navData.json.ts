@@ -35,7 +35,7 @@ const navConfig: navItem[] = [
 					},
 					{
 						text: "Microsoft 365",
-						link: "/coming-soon",
+						link: "/services/microsoft-365",
 						icon: "tabler/brand-windows",
 					},
 					{
