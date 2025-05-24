@@ -44,7 +44,8 @@
 		"lodash.debounce": "^4.0.8",
 		"lodash.throttle": "^4.1.1",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.6.8"
+		"prettier-plugin-tailwindcss": "^0.6.8",
+		"wrangler": "^4.16.1"
 	},
 	"overrides": {
 		"sharp": "^0.33.0"
