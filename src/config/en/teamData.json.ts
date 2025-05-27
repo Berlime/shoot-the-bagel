@@ -31,7 +31,7 @@ export const teamData: teamMember[] = [
 	// 		image: Victra,
 	// 		name: "Jasveena",
 	// 		title: "Copywriter",
-	// 		bio: ` I graduated from the Technological University of Malaysia in 2013.
+	// 		bio: `I graduated from the Technological University of Malaysia in 2013.
 	//       I've been working in the paint industry ever since. I’m a huge fan of the outdoors and I love to travel.
 	//       `,
 	// 	},
@@ -47,8 +47,16 @@ export const teamData: teamMember[] = [
 	// 		image: Victra,
 	// 		name: "Eric Low",
 	// 		title: "Administration",
-	// 		bio: `I'm from the south side of Chicago. I graduated from the University of Illinois in 2013.
-	//       I've been working in the paint industry ever since. I’m a huge fan of the outdoors and I love to travel.
+	// 		bio: `With 15 years of experience at Synergy Focus, I specialize in translation and interpretation across legal, business & finance, healthcare, and technical fields.
+	//      My tech background gives me a unique edge in website and mobile app localization.
+	//       `,
+	// 	},
+	// 	{
+	// 		image: Victra,
+	// 		name: "Peng Hao",
+	// 		title: "Graphic Designer",
+	// 		bio: `I'm a graphic designer with a passion for visual storytelling. When I'm not working on design projects, you'll find me out with my camera,
+	//      always hunting for that perfect shot. I see design everywhere—it's just how my creative mind works.
 	//       `,
 	// 	},
 ];
