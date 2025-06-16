@@ -9,7 +9,6 @@ import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const navData = getTranslatedData("navData", currLocale);
@@ -97,7 +96,7 @@ import { locales } from "@config/siteSettings.json";
 				<Button
 					variant="outline"
 					class="mx-2 whitespace-nowrap"
-					href={getLocalizedRoute(currLocale, "/login")}
+					href={"/login"}
 				>
 					Login
 				</Button>

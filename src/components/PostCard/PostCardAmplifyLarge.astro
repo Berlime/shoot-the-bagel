@@ -6,7 +6,6 @@ import { Image } from "astro:assets";
 import { type CollectionEntry, getEntries } from "astro:content";
 import { Icon } from "astro-icon/components";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
 
 interface Props {
 	post: CollectionEntry<"blog">;
@@ -24,7 +23,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 
 <article class=`grid gap-3 md:grid-cols-3 md:gap-6 ${className}` {...rest}>
 	<a
-		href={getLocalizedRoute(currLocale, `/blog/${post.id}/`)}
+		href={`/blog/${post.id}/`}
 		class="border-base-300 dark:border-base-700 flex aspect-[16/10] max-h-[30rem] shrink-0 justify-center overflow-hidden rounded-md border sm:justify-normal md:col-span-2"
 	>
 		<figure>
@@ -46,7 +45,7 @@ const currLocale = getLocaleFromUrl(Astro.url);
 
 		<!-- title -->
 		<div class="mt-2">
-			<a href={getLocalizedRoute(currLocale, `/blog/${post.id}/`)} class="group">
+			<a href={`/blog/${post.id}/`} class="group">
 				<div>
 					<h2 class="underline-ltr inline text-lg font-medium md:text-xl lg:text-3xl">
 						{title}

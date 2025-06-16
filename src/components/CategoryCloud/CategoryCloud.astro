@@ -3,7 +3,6 @@ import { countItems, getAllPosts, sortByValue } from "@js/blogUtils";
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { humanize } from "@js/textUtils";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
 
 const currLocale = getLocaleFromUrl(Astro.url);
 const posts = await getAllPosts(currLocale);
@@ -22,7 +21,7 @@ const { showCount = false } = Astro.props as Props;
 	{
 		processedCategories.map(([category, count]) => (
 			<a
-				href={getLocalizedRoute(currLocale, `/categories/${category}/`)}
+				href={`/categories/${category}/`}
 				class="hover-border-glow border-base-200 bg-base-100 dark:border-base-800 dark:bg-base-950 rounded-full border px-4 py-2 text-sm font-medium before:rounded-full md:text-base"
 			>
 				{humanize(category)}

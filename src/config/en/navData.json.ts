@@ -12,123 +12,123 @@ import { type navItem } from "../types/configDataTypes";
 
 // note: 1 level of dropdown is supported
 const navConfig: navItem[] = [
+	// {
+	// 	text: "Overview",
+	// 	link: "/overview",
+	// },
+
 	{
-		text: "Overview",
-		link: "/overview",
+		text: "About",
+		link: "/about",
+		description: "Learn about our company, mission, and team"
 	},
 
-	// mega menu
 	{
-		text: "Pages",
+		text: "Services",
 		megaMenuColumns: [
 			{
-				title: "Landing Pages",
+				title: "Development",
 				items: [
 					{
-						text: "Landing 1",
-						link: "/",
-						icon: "tabler/star",
+						text: "Websites",
+						link: "/services/websites",
+						icon: "tabler/home-heart",
+						description: "Custom website development and design services"
 					},
 					{
-						text: "Landing 2",
-						link: "/examples/landing2",
-						icon: "tabler/diamonds",
+						text: "Microsoft 365",
+						link: "/services/microsoft-365",
+						icon: "tabler/brand-windows",
+						description: "Microsoft 365 setup, migration, and support"
 					},
 					{
-						text: "Landing 3",
-						link: "/examples/landing3",
-						icon: "tabler/circle",
-					},
-				],
-			},
-			{
-				title: "Blog",
-				items: [
-					{
-						text: "Blog Post 1",
-						link: "/blog/tsconfig-paths-setup",
-						icon: "tabler/edit-circle",
-					},
-					{
-						text: "Blog Post 2",
-						link: "/examples/blog-post-2",
-						icon: "tabler/edit-circle",
-					},
-					{
-						text: "Categories",
-						link: "/categories",
-						icon: "tabler/category",
-					},
-					{
-						text: "Blog Index 1",
-						link: "/blog",
-						icon: "tabler/pencil",
-					},
-					{
-						text: "Blog Index 2",
-						link: "/examples/blog-index-2",
-						icon: "tabler/pencil",
-					},
-				],
-			},
-			{
-				title: "Elements and Forms",
-				items: [
-					{
-						text: "MDX Pages",
-						link: "/elements",
+						text: "Interactive",
+						link: "/coming-soon",
 						icon: "tabler/wand",
+						description: "Interactive web applications and experiences"
 					},
 					{
-						text: "Contact",
-						link: "/contact",
-						icon: "tabler/address-book",
+						text: "Ai for Business",
+						link: "/coming-soon",
+						icon: "tabler/message-chatbot",
+						description: "AI solutions to automate and optimize your business"
+					},
+
+				],
+			},
+			{
+				title: "Marketing",
+				items: [
+					{
+						text: "E-mail Marketing",
+						link: "/coming-soon",
+						icon: "tabler/send",
+						description: "Email campaign management and automation"
 					},
 					{
-						text: "Login",
-						link: "/login",
-						icon: "tabler/login",
+						text: "WhatsApp Marketing",
+						link: "/coming-soon",
+						icon: "tabler/brand-whatsapp",
+						description: "WhatsApp business solutions and marketing"
 					},
 					{
-						text: "Signup",
-						link: "/signup",
-						icon: "tabler/user",
+						text: "Search Engine",
+						link: "/coming-soon",
+						icon: "tabler/settings-search",
+						description: "SEO optimization and search engine marketing"
 					},
 					{
-						text: "Password Reset",
-						link: "/password-reset",
-						icon: "tabler/password",
+						text: "Google Ads",
+						link: "/coming-soon",
+						icon: "tabler/brand-google-analytics",
+						description: "Google Ads campaign management and optimization"
+					},
+					
+				],
+			},
+			{
+				title: "Networking",
+				items: [
+					{
+						text: "SOHO Network",
+						link: "/coming-soon",
+						icon: "tabler/router",
+						description: "Small office/home office network setup and management"
+					},
+					{
+						text: "File Servers",
+						link: "/coming-soon",
+						icon: "tabler/server",
+						description: "File server setup, maintenance, and security"
+					},
+					{
+						text: "Cloud Engineering",
+						link: "/coming-soon",
+						icon: "tabler/cloud",
+						description: "Cloud infrastructure and migration services"
 					},
 				],
 			},
 			{
-				title: "Other Pages",
+				title: "Others",
 				items: [
 					{
-						text: "About",
-						link: "/about",
-						icon: "tabler/user",
+						text: "Devices",
+						link: "/coming-soon",
+						icon: "tabler/cpu",
+						description: "Device procurement and management solutions"
 					},
 					{
-						text: "Privacy Policy",
-						link: "/privacy-policy",
-						icon: "tabler/lock-square",
+						text: "Softwares",
+						link: "/coming-soon",
+						icon: "tabler/layout-grid",
+						description: "Software licensing and management services"
 					},
 					{
-						text: "Terms of Use",
-						link: "/terms",
-						icon: "tabler/script",
-					},
-					{
-						text: "Page not found",
-						link: "/not-a-link",
-						icon: "tabler/error-404",
-					},
-					{
-						text: "RSS Feed",
-						link: "/rss.xml",
-						newTab: true,
-						icon: "tabler/rss",
+						text: "Computer Hardwares",
+						link: "/coming-soon",
+						icon: "tabler/devices-pc",
+						description: "Hardware procurement and maintenance"
 					},
 				],
 			},
@@ -136,8 +136,14 @@ const navConfig: navItem[] = [
 	},
 
 	{
-		text: "Blog",
+		text: "Insights",
 		link: "/blog",
+		description: "Latest news, tips, and insights from our team"
+	},
+	{
+		text: "Contact",
+		link: "/contact",
+		description: "Get in touch with our team"
 	},
 ];
 

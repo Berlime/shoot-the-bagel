@@ -2,31 +2,31 @@ import { type SiteDataProps } from "../types/configDataTypes";
 
 // Update this file with your site specific information
 const siteData: SiteDataProps = {
-	name: "Amplify",
+	name: "Berlime",
 	// Your website's title and description (meta fields)
-	title: "Amplify - an electric SaaS theme crafted with Astro and Tailwind CSS",
+	title: "Berlime - WDaaS Studio",
 	description:
-		"Create an amazing website for your SaaS clients with our beautiful website theme designed using Astro and Tailwind CSS. Perfect for freelancers, developers, startups, and personal use.",
+		"Done for you an amazing website for your business & projects. Perfect for small businesses, enterprise, developers, startups, and personal use.",
 
 	// used on contact page and footer
 	contact: {
-		address1: "1234 Main Street",
-		address2: "New York, NY 10001",
-		phone: "(123) 456-7890",
-		email: "creator@cosmicthemes.com",
+		address1: "2 Venture Drive",
+		address2: "#14-02 Vision Exchange, SG, 608526",
+		phone: "+65 9894-4737",
+		email: "kevin@berlime.com",
 	},
 
 	// Your information for blog post purposes
 	author: {
-		name: "Cosmic Themes",
-		email: "creator@cosmicthemes.com",
-		twitter: "Cosmic_Themes",
+		name: "Kevin VA",
+		email: "kevin@berlime.com",
+		twitter: "berlime",
 	},
 
 	// default image for meta tags if the page doesn't have an image already
 	defaultImage: {
-		src: "/images/cosmic-themes-logo.jpg",
-		alt: "Cosmic Themes logo",
+		src: "/images/berlime-logo.jpg",
+		alt: "Berlime logo",
 	},
 };
 

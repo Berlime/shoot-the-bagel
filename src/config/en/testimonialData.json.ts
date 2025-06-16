@@ -1,62 +1,95 @@
-import Aniket from "@images/aniket_p.jpg";
-import BowTiedFocus from "@images/BowTiedFocus.jpg";
-import Damiano from "@images/damiano.jpg";
-import David from "@images/david-g-davedev.png";
-import Isaac from "@images/isaac_saas.jpg";
-import TravisB from "@images/travis-b.png";
-
 import { type TestimonialItem } from "../types/configDataTypes";
+
+import Fatin from "@images/fatin.jpg";
+import Heyya from "@images/heyya.jpg";
+import Sadiq from "@images/sadiq.jpg";
+import KahwinSG from "@images/kahwinsg.jpg";
+import HafizZainul from "@images/hafiz-zainul.jpg";
 
 export const testimonialData: TestimonialItem[] = [
 	{
-		avatar: Aniket,
-		name: "Aniket P",
-		title: "Data Scientist",
-		testimonial: `I'm not a front-end dev, but I wanted to rebuild my personal site with Astro. If you're in the same shoes,
-      I can't recommend enough Cosmic Themes.
+		avatar: Sadiq,
+		name: "Sadiq Syed",
+		title: "Teh Master",
+		testimonial: `They delivered a user-friendly, visually appealing website that perfectly represents my brand. Communication was seamless throughout the project, and they were always open to feedback and ready to provide solutions. Highly recommend them for anyone looking to build or improve their online presence!
       `,
 	},
 	{
-		avatar: BowTiedFocus,
-		name: "BowTiedFocus",
-		title: "Frontend Engineer",
-		testimonial: `The Blogsmith Pro theme is ridiculously well put together and documented.
-      I learned a ton about Astro engineering by studying it, and I've already used some of the components
-      for my web design clients. 
+		avatar: Fatin,
+		name: "Fatin Roszizi",
+		title: "Admin Executive",
+		testimonial: `Got Berlime to create a documentation for my employer’s SOP portal, works like a charm and super speed, Kevin showed me how static sites is useful for my case and not using the monolithic site builders. 
       `,
 	},
 	{
-		avatar: Damiano,
-		name: "Damiano L",
-		title: "C++ Developer",
-		testimonial: `Cosmic Themes provides some of the best Astro themes out there. They are well designed, easy to customize and, 
-      most importantly, the team is very responsive concerning support and feature requests.
+		avatar: HafizZainul,
+		name: "Hafiz Zainul",
+		title: "Global Represenative",
+		testimonial: `The team was attentive to my needs, provided creative solutions. Their communication throughout the process was seamless, and they exceeded my expectations in every way. Highly recommend Berlime Solutions for anyone seeking quality website design and development services!
       `,
 	},
 	{
-		avatar: David,
-		name: "David G",
-		title: "Web Developer",
-		testimonial: `It's the cleanest template standup experience ever! I've never used Astro, but looking at the demo, code, it
-      should be fairly simple pickup on top of my existing React and NextJS experience.
+		avatar: KahwinSG,
+		name: "Kahwin SG",
+		title: "Editor",
+		testimonial: `Berlime Solutions delivered an outstanding blogging site for our community, exceeding expectations with their professionalism, creativity, and technical expertise. No regrets.
       `,
 	},
 	{
-		avatar: TravisB,
-		name: "Travis B",
-		title: "Developer",
-		testimonial: `Cosmic themes are for webdevs and marketers who don't want to waste time reinventing the wheel. 
-    Their themes have great examples of some of the creative things you can accomplish with Astro. 
+		avatar: Heyya,
+		name: "Nurul",
+		title: "Event Coordinator",
+		testimonial: `Engaged with Kevin, very straight forward and he explain technical jargon very good. Also it is well documented for the terms that is fit into the company's context.
       `,
 	},
-	{
-		avatar: Isaac,
-		name: "Isaac",
-		title: "SaaS Developer",
-		testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
-      and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
-      `,
-	},
+	// {
+	// 	avatar: Kamilah,
+	// 	name: "Kamilah",
+	// 	title: "Life Coach",
+	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
+	// },
+	// {
+	// 	avatar: Surayya,
+	// 	name: "Surayya",
+	// 	title: "Tutor",
+	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
+	// },
+	// {
+	// 	avatar: Angullia,
+	// 	name: "Angullia Mosque",
+	// 	title: "Mosque Manager",
+	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
+	// },
+	// {
+	// 	avatar: Sakinah,
+	// 	name: "Sakinah",
+	// 	title: "Image Consultant",
+	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
+	// },
+	// {
+	// 	avatar: Myra,
+	// 	name: "After Hours Halaqah",
+	// 	title: "Mosque Manager",
+	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
+	// },
+	// {
+	// 	avatar: Faizul,
+	// 	name: "Faizul",
+	// 	title: "Education Center",
+	// 	testimonial: `My step-dad is starting a construction business and we're looking through Astro themes right now for his website
+	//   and stumbled upon Cosmic Themes "Galaxy" theme. Absolutely filthy. Excellent work, man.
+	//   `,
+	// },
 ];
 
 export default testimonialData;

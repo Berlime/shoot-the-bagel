@@ -5,14 +5,10 @@
 
 import Button from "@components/Button/Button.astro";
 import { getLocaleFromUrl } from "@js/localeUtils";
-import { useTranslations } from "@js/translationUtils";
 import { Image } from "astro:assets";
 
-import { getLocalizedRoute } from "@/js/translationUtils";
 
 const currLocale = getLocaleFromUrl(Astro.url);
-const t = useTranslations(currLocale);
-
 interface FeatureData {
 	title: string; // the number to showcase
 	description: string; // description below the number
@@ -75,7 +71,7 @@ const featureData: FeatureData[] = [
 					data-aos-trigger="#feature-steps-trigger"
 					data-aos-delay={0.75}
 				>
-					<Button variant="primary" arrow="right" href={getLocalizedRoute(currLocale, "signup")}>
+					<Button variant="primary" arrow="right" href={"signup"}>
 						Get Started
 					</Button>
 				</div>

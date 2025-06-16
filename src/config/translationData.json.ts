@@ -12,13 +12,20 @@ import navDataEn from "./en/navData.json";
 import siteDataEn from "./en/siteData.json";
 import teamDataEn from "./en/teamData.json";
 import testimonialDataEn from "./en/testimonialData.json";
-import faqDataFr from "./fr/faqData.json";
-import navDataFr from "./fr/navData.json";
-import siteDataFr from "./fr/siteData.json";
-import teamDataFr from "./fr/teamData.json";
-import testimonialDataFr from "./fr/testimonialData.json";
+
+
+
+
+
 
 export const dataTranslations = {
+  
+  
+  
+  
+  
+  
+  
 	en: {
 		siteData: siteDataEn,
 		navData: navDataEn,
@@ -26,13 +33,7 @@ export const dataTranslations = {
 		teamData: teamDataEn,
 		testimonialData: testimonialDataEn,
 	},
-	fr: {
-		siteData: siteDataFr,
-		navData: navDataFr,
-		faqData: faqDataFr,
-		teamData: teamDataFr,
-		testimonialData: testimonialDataFr,
-	},
+	
 } as const;
 
 /**
@@ -42,19 +43,22 @@ export const dataTranslations = {
  *
  * ```ts
  * import { getLocaleFromUrl } from "@js/localeUtils";
- * import { useTranslations } from "@js/translationUtils";
- * const currLocale = getLocaleFromUrl(Astro.url);
- * const t = useTranslations(currLocale);
- * t("back_to_all_posts"); // this would be "Retour à tous les articles" if the current locale is "fr"
+ * * const currLocale = getLocaleFromUrl(Astro.url);
+ * * t("back_to_all_posts"); // this would be "Retour à tous les articles" if the current locale is "fr"
  * ```
  * or
  * ```ts
- * import { useTranslations } from "@js/translationUtils";
- * const t = useTranslations("fr");
- * t("back_to_all_posts"); // this would be "Retour à tous les articles"
+ * * * t("back_to_all_posts"); // this would be "Retour à tous les articles"
  * ```
  */
 export const textTranslations = {
+  
+  
+  
+  
+  
+  
+  
 	en: {
 		hero_text: "Amplify your next website",
 		hero_description:
@@ -62,13 +66,7 @@ export const textTranslations = {
 		back_to_all_posts: "Back to all posts",
 		updated: "Updated",
 	},
-	fr: {
-		hero_text: "Amplifiez votre site Web en français",
-		hero_description:
-			"Je ne parle pas vraiment français donc j'utilise Google Translate pour quelques parties de cette démo.",
-		back_to_all_posts: "Retour à tous les articles",
-		updated: "Mis à jour",
-	},
+	
 } as const;
 
 /**
@@ -83,6 +81,13 @@ export const textTranslations = {
  * Note: This works in conjunction with the localizedCollections object below
  */
 export const routeTranslations = {
+  
+  
+  
+  
+  
+  
+  
 	en: {
 		aboutKey: "about",
 		categoryKey: "categories",
@@ -90,13 +95,7 @@ export const routeTranslations = {
 		categoryKey3: "categories",
 		blogKey: "blog",
 	},
-	fr: {
-		aboutKey: "a-propos",
-		categoryKey: "categories",
-		categoryKey2: "categories",
-		categoryKey3: "categories/*",
-		blogKey: "blog",
-	},
+	
 } as const;
 
 /**
@@ -112,7 +111,7 @@ export const routeTranslations = {
 export const localizedCollections = {
 	blog: {
 		en: "blog",
-		fr: "blog",
+		sg: "blog"
 	},
 	// Add more collections/locales as needed
 } as const;

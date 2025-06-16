@@ -1,6 +1,6 @@
 // site data types
 export interface SiteDataProps {
-	name: string;
+	name: String;
 	title: string;
 	description: string;
 	contact: {
@@ -29,6 +29,7 @@ export interface navLinkItem {
 	link: string;
 	newTab?: boolean; // adds target="_blank" rel="noopener noreferrer" to link
 	icon?: string; // adds an icon to the left of the text
+	description?: string; // adds a tooltip description on hover
 }
 
 export interface navDropdownItem {
