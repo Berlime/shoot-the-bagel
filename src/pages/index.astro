@@ -14,10 +14,10 @@ import FeatureNumbers from "@components/Feature/FeatureNumbers.astro";
 import FeatureSideImage from "@components/Feature/FeatureSideImage.astro";
 import FeatureSteps from "@components/Feature/FeatureSteps.astro";
 import FeatureVideo from "@components/Feature/FeatureVideo.astro";
-import HeroCentered from "@components/Hero/HeroCentered.astro";
+import HomeHeroCentered from "@components/Hero/HomeHeroCentered.astro";
 import HeroSideElectric from "@components/Hero/HeroSideElectric.astro";
 import HeroSideImage from "@components/Hero/HeroSideImage.astro";
-import LogoCloudMarquee from "@components/LogoCloud/LogoCloudMarquee.astro";
+import HomeLogoCloudMarquee from "@components/LogoCloud/HomeLogoCloudMarquee.astro";
 import LogoCloudStatic from "@components/LogoCloud/LogoCloudStatic.astro";
 import PricingFourCards from "@components/Pricing/PricingFourCards.astro";
 import PricingOnePrice from "@components/Pricing/PricingOnePrice.astro";
@@ -36,10 +36,10 @@ const siteData = getTranslatedData("siteData", currLocale);
 
 <BaseLayout title={siteData.title} description={siteData.description}>
 	<!-- <HeroSideElectric /> -->
-	<HeroCentered />
+	<HomeHeroCentered />
 	<!-- <HeroSideImage /> -->
 
-	<LogoCloudMarquee />
+	<HomeLogoCloudMarquee />
 	<!-- <LogoCloudStatic
 		class="dark bg-dark-bg md:-mt-10 md:pb-20"
 		data-aos="fade-up"

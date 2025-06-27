@@ -1,0 +1,156 @@
+---
+/**
+ * * Hero centered with video button
+ *
+ * There is a commented out "awards" section below in case you want that
+ */
+import Badge from "@components/Badge/Badge.astro";
+import Button from "@components/Button/Button.astro";
+// images
+import person1 from "@images/ashton_blackwell.jpg";
+import person3 from "@images/nic_fassbender.jpg";
+import person2 from "@images/nicola_harris.jpg";
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+
+const currLocale = getLocaleFromUrl(Astro.url);
+---
+
+<section id="hero-center" class="dark relative overflow-hidden pt-14">
+	<div class="dark:bg-dark-bg">
+		<!-- bg neon arc -->
+		<div class="absolute -inset-x-14 top-20 opacity-70 md:-inset-x-14 md:top-2 xl:-bottom-30">
+			<div class="mx-auto flex h-full w-full max-w-[1800px] items-end justify-center">
+				<Icon
+					is:inline
+					name="amplify/neon-arc"
+					aria-hidden="true"
+					class="text-primary-500 h-full w-full xl:scale-y-[1.1]"
+				/>
+			</div>
+		</div>
+
+		<!-- main content -->
+		<div class="site-container relative mx-auto px-4 pt-16 pb-12 md:pb-20">
+			<!-- alter the max-w-[750px] here until your text looks nice on large screens -->
+			<div class="mx-auto flex w-full max-w-[900px] flex-col justify-center px-4 text-center">
+				<div data-aos="fade-up" data-aos-trigger="#hero-center">
+					<!-- <Badge>Meet Amplify</Badge> -->
+					<!-- notification -->
+					<div class="mb-4 flex w-full items-center justify-center">
+						<a
+							href="/blog/new-look-discount/"
+							class="hover-border-glow flex items-center rounded-full border border-base-200 bg-base-100 px-4 py-1 text-sm text-base-700 dark:border-base-800 dark:bg-base-950 dark:text-base-300"
+						>
+							<span class="flex items-center gap-2">
+								<Icon
+									name="amplify/amplify-logo"
+									class="inline size-4 text-primary-600 dark:text-primary-400"
+									aria-hidden="true"
+								/>New Look Discount!</span
+							></a
+						>
+					</div>
+					<h1 class="h1 mb-10">
+						Done for you Stellar Web Designs that Converts
+					</h1>
+				</div>
+				<p
+					class="text-base-700 dark:text-base-300 mx-auto mb-10 max-w-lg text-lg text-pretty"
+					data-aos="fade-up"
+					data-aos-delay=".1"
+					data-aos-trigger="#hero-center"
+				>
+					Boost sales & ROI. Propel Your Brand into the <b>Digital Stratosphere</b>. Discover new heights you never thought possible.
+				</p>
+				<div class="flex flex-wrap justify-center gap-4">
+					<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center">
+						<Button
+							variant="primary"
+							href="/#pricing"
+							target="_self"
+							rel="noopener norefferer"
+							type="submit">See Pricing</Button
+						>
+					</div>
+
+					<Button
+					variant="outline"
+					href="/contact"
+					target="_self"
+					arrow="right"
+					rel="noopener norefferer">Request Quote</Button
+				>				</div>
+
+				<!-- social proof -->
+				<div
+					class="mx-auto mt-8 flex max-w-md"
+					data-aos="fade-up"
+					data-aos-delay=".3"
+					data-aos-trigger="#hero-center"
+				>
+					<div class="-m-1.5 flex flex-wrap items-center">
+						<div class="w-auto p-1.5">
+							<div class="flex flex-wrap">
+								<div
+									class="border-base-50 dark:border-primary-600 aspect-square size-10 overflow-hidden rounded-full border-2"
+								>
+									<Image
+										src={person1}
+										class="object-cover"
+										alt="reader"
+										loading="eager"
+										width={100}
+									/>
+								</div>
+								<div
+									class="border-base-50 dark:border-primary-600 -ml-4 aspect-square size-10 overflow-hidden rounded-full border-2"
+								>
+									<Image
+										src={person2}
+										class="object-cover"
+										alt="reader"
+										loading="eager"
+										width={100}
+									/>
+								</div>
+								<div
+									class="border-base-50 dark:border-primary-600 -ml-4 aspect-square size-10 overflow-hidden rounded-full border-2"
+								>
+									<Image
+										src={person3}
+										class="object-cover"
+										alt="reader"
+										loading="eager"
+										width={100}
+									/>
+								</div>
+								<div
+									class="border-base-50 dark:border-primary-600 -ml-4 aspect-square size-10 overflow-hidden rounded-full border-2"
+								>
+									<Image
+										src={person2}
+										class="object-cover"
+										alt="reader"
+										loading="eager"
+										width={100}
+									/>
+								</div>
+							</div>
+						</div>
+						<div class="flex-1 p-1.5 text-left">
+							<p
+								class="text-base-700 dark:text-base-300 max-w-[14rem] text-sm leading-tight tracking-tight"
+							>
+							4.9 Google Reviews<br />
+							Top-Rated by Clients
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
