@@ -1,0 +1,103 @@
+---
+/**
+ * * These are small cards with icons, titles, and text. With title first
+ * This looks best with an even number of cards. They are smaller to
+ * use with more cards in the same section. 4 or 6 cards is probably ideal
+ *
+ * ! I copy all icons into the src/icons folder and recommend you do the same
+ * ! If the icon is at src/icons/tabler/paint.svg then you put in "tabler/paint"
+ */
+
+import Badge from "@components/Badge/Badge.astro";
+import FeatureCard from "@components/FeatureCard/FeatureCardSmall.astro";
+import { Icon } from "astro-icon/components";
+import Button from "@components/Button/Button.astro";
+
+interface FeatureData {
+	icon: string;
+	title: string;
+	text: string;
+}
+
+const featureData: FeatureData[] = [
+{
+		icon: "tabler/check",
+		title: "Unify Your Bililng",
+		text: `Combine multiple invoices such as softwares, hosting, servers, plug-ins into a single invoice. `,
+	},
+	{
+		icon: "tabler/heart",
+		title: "Provide More Payment Options",
+		text: `Split Payments, Recurring payments, Deposits, Installments, Subscription, software lisencing & many more.`,
+	},
+	{
+		icon: "tabler/cloud",
+		title: "Simple Yet Powerful",
+		text: `Achieve intentional results with powerful design hierarchy, optimized for all screen-sizes.`,
+	},
+	{
+		icon: "tabler/layout-grid",
+		title: "Stellar Support",
+		text: `Access client portal to keep track of your projects. Simply annotate to make small change requests.`,
+	},
+	{
+		icon: "tabler/wand",
+		title: "Scalable & Secure",
+		text: `Built with industry best practices & security from the ground up. Add new streams of revenue faster.`,
+	},
+	{
+		icon: "tabler/api-app",
+		title: "WDaaS",
+		text: `Web Design/Development as a Service. Reduces administration tasks, HR fees & Payroll fees.`,
+	},
+];
+---
+
+<section id="feature-cards-small" class="py-16 md:py-20">
+	<div class="site-container relative">
+		<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
+			<Badge>Why Berlime Solutions?</Badge>
+			<div class="flex justify-center">
+				<h2 class="h2 mb-4">Simplify your digital front-end side of things</h2>
+			</div>
+			<p class="description text-pretty text-lg md:text-xl">
+				Every interaction is clear. Get straightforward info about our processes and decisions. Dive
+				deeper if you want to `geek` out.
+			</p>
+		</div>
+		<div
+			id="trigger-small-cards"
+			class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+			data-aos="fade-up"
+		>
+			{
+				featureData.map((feature, idx) => (
+					<FeatureCard title={feature.title} text={feature.text} icon={feature.icon} />
+				))
+			}
+		</div>
+				<div class="mt-8 flex flex-wrap justify-center gap-4">
+			<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center">
+				<Button
+					variant="primary"
+					href="/#pricing"
+					target="_self"
+					rel="noopener norefferer"
+					type="submit">See Pricing</Button
+				>
+			</div>
+
+			<!-- link it to ce.berlime.com/quote -->
+			<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center">
+				<Button
+					variant="secondary"
+					href="/contact"
+					target="_self"
+					arrow="right"
+					rel="noopener norefferer">Request Quote</Button
+				>
+			</div>
+		</div>
+
+	</div>
+</section>

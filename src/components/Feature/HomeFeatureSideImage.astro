@@ -1,0 +1,80 @@
+---
+/**
+ * * These are alternating side cards with titles, text, and images
+ * Recommend using 2 or 3 cards in a row
+ */
+import Badge2 from "@components/Badge/Badge2.astro";
+import FeatureCard from "@components/FeatureCard/FeatureCardSideImage.astro";
+// images
+import image1 from "@images/home-ro-acunha.jpeg";
+import image2 from "@images/home-luisdalvan.jpg";
+import image3 from "@images/home-iurii-laimin.jpg";
+import { Icon } from "astro-icon/components";
+
+interface FeatureItem {
+	badge2: string; // badge text
+	image: ImageMetadata; // an imported image
+	title: string;
+	description: string;
+	href: string; // link to learn more
+	buttonText: string; // button text
+}
+
+const featureData: FeatureItem[] = [
+{
+		badge2: "Functional Design",
+		image: image1,
+		title: "Outshine",
+		description:
+			"Stand out amongst the rest. Crafted with the best in class design framework. Fits all device screens and accessibility. Instill long lasting first impression.",
+		href: "/contact",
+		buttonText: "Get Started",
+	},
+	{
+		badge2: "Reduce Daily Tasks",
+		image: image2,
+		title: "Auto-Pilot",
+		description:
+			"Let your website be the ultimate 24/7 salesperson. It smoothly expands as you grow. Freeing you to explore innovative ideas & focus on what you do best. Let your website maximize your reach.",
+		href: "/contact",
+		buttonText: "Get Started",
+	},
+	{
+		badge2: "Enhance User Experience",
+		image: image3,
+		title: "Deliver Your Own Aftersales",
+		description:
+			"Enhance your customer experience throughout every stage. Seamless interactions & intentional crafted layouts to achieve your goals. Customize everything.",
+		href: "/contact",
+		buttonText: "Get Started",
+	},
+];
+---
+
+<section id="feature-side-image" class="my-12 overflow-hidden py-12">
+	<div class="site-container">
+		<div class="mx-auto mb-16 text-center md:max-w-4xl" data-aos="fade-up">
+			<Badge2>🚀 Space is the limit</Badge2>
+			<h2 class="h2 mb-4">Turn Your Vision into Powerhouse</h2>
+			<p class="description" data-aos="fade-up" data-aos-delay=".2">
+				Compelling sleek design websites & optimized for performance.<br />
+				Beautify your main digital front end; that <b>converts</b>.
+			</p>
+    </div>
+		<div class="flex flex-col gap-16 md:gap-24">
+			{
+				featureData.map((feature, idx) => (
+					<FeatureCard
+						badge={feature.badge2}
+						title={feature.title}
+						description={feature.description}
+						image={feature.image}
+						imageSide={idx % 2 === 0 ? "right" : "left"}
+						href={feature.href}
+						buttonText={feature.buttonText}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>

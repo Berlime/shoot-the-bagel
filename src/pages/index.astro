@@ -6,12 +6,11 @@ import CtaSideImage from "@components/Cta/CtaSideImage.astro";
 import FaqAccordions from "@components/Faq/FaqAccordions.astro";
 import FaqCards from "@components/Faq/FaqCards.astro";
 import FeatureCardsMedium from "@components/Feature/FeatureCardsMedium.astro";
-import FeatureCardsSmall from "@components/Feature/FeatureCardsSmall.astro";
+import HomeFeatureCardsSmall from "@components/Feature/HomeFeatureCardsSmall.astro";
 import FeatureCardsSmall2 from "@components/Feature/FeatureCardsSmall2.astro";
-import FeatureCodeToggle from "@components/Feature/FeatureCodeToggle.astro";
 import FeatureIntegrations from "@components/Feature/FeatureIntegrations.astro";
-import FeatureNumbers from "@components/Feature/FeatureNumbers.astro";
-import FeatureSideImage from "@components/Feature/FeatureSideImage.astro";
+import HomeFeatureNumbers from "@components/Feature/HomeFeatureNumbers.astro";
+import HomeFeatureSideImage from "@components/Feature/HomeFeatureSideImage.astro";
 import FeatureSteps from "@components/Feature/FeatureSteps.astro";
 import FeatureVideo from "@components/Feature/FeatureVideo.astro";
 import HomeHeroCentered from "@components/Hero/HomeHeroCentered.astro";
@@ -19,10 +18,7 @@ import HeroSideElectric from "@components/Hero/HeroSideElectric.astro";
 import HeroSideImage from "@components/Hero/HeroSideImage.astro";
 import HomeLogoCloudMarquee from "@components/LogoCloud/HomeLogoCloudMarquee.astro";
 import LogoCloudStatic from "@components/LogoCloud/LogoCloudStatic.astro";
-import PricingFourCards from "@components/Pricing/PricingFourCards.astro";
-import PricingOnePrice from "@components/Pricing/PricingOnePrice.astro";
-import PricingTable from "@components/Pricing/PricingTable.astro";
-import PricingThreeCards from "@components/Pricing/PricingThreeCards.astro";
+import HomePricingOnePrice from "@components/Pricing/HomePricingOnePrice.astro";
 import TestimonialsColumns from "@components/Testimonials/TestimonialsColumns.astro";
 import TestimonialsMarquee from "@components/Testimonials/TestimonialsMarquee.astro";
 import TestimonialsSwiperQuotes from "@components/Testimonials/TestimonialsSwiperQuotes.astro";
@@ -48,10 +44,11 @@ const siteData = getTranslatedData("siteData", currLocale);
 	/> -->
 	<!-- <LogoCloudStatic /> -->
 
-	<FeatureCodeToggle />
-	<FeatureSteps />
-	<FeatureCardsSmall />
-	<FeatureNumbers />
+	<HomeFeatureSideImage />
+	<!-- <FeatureSteps /> -->
+	<HomeFeatureNumbers />
+	<HomeFeatureCardsSmall />
+
 
 	<!-- <FeatureCardsSmall2 />
   <FeatureIntegrations />
@@ -63,10 +60,7 @@ const siteData = getTranslatedData("siteData", currLocale);
 	<!-- <TestimonialsColumns /> -->
 	<!-- <TestimonialsSwiperQuotes /> -->
 
-	<PricingTable />
-	<!-- <PricingThreeCards />
-  <PricingOnePrice />
-  <PricingFourCards /> -->
+    <HomePricingOnePrice />
 
 	<!-- <CtaSideImage /> -->
 	<!-- <CtaBgImage /> -->

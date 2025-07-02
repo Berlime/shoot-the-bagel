@@ -21,17 +21,17 @@ interface pricingItem {
 }
 
 const pricingData: pricingItem = {
-	name: "Solo",
-	description: "All features for one low monthly price.",
+	name: "Get Started for only S$2000",
+	description: "Everything for you to get started at a low monthly price, billed annually.",
 	price: {
-		monthly: 19,
+		monthly: 40,
 	},
 	cardBullets: [
-		"Price Per User",
-		"Unlimited Projects",
-		"No Attribution Required",
-		"150+ Integrations",
-		"Email Support",
+		"Includes domain name",
+		"Includes 5 professional e-mails",
+		"Access to client portal",
+		"No hourly charges for changes/edits",
+		"Google analytics integration & many more",
 	],
 };
 ---
@@ -40,10 +40,12 @@ const pricingData: pricingItem = {
 	<div class="site-container">
 		<div class="grid gap-10 md:grid-cols-2 lg:gap-20">
 			<div class="mx-auto flex h-full max-w-lg flex-col md:mr-auto">
-				<Badge>Pricing</Badge>
+				<Badge>Pricing for everyone</Badge>
 				<h2 class="h2">Elevate your brand with a beautiful website.</h2>
 				<p class="description mt-4 text-lg tracking-tight">
-					Simple one plan pricing that fits for everyone. No hidden fees, no extra charges.
+					Simple pricing that fits for everyone. One-time design & development, then yearly
+					maintenance. Schedule a free consultation to explore more packages suitable for your
+					needs.
 				</p>
 			</div>
 			<div
@@ -53,14 +55,14 @@ const pricingData: pricingItem = {
 					{pricingData.name}
 				</h3>
 				<p class="mt-6 text-4xl font-medium tracking-tight">
-					From ${pricingData.price.monthly} / mo
+					From S${pricingData.price.monthly} / mo
 				</p>
 				<p class="description mx-auto mt-2 tracking-tight">
 					{pricingData.description}
 				</p>
 				<div class="relative z-10">
-					<Button variant="primary" class="mt-8" href={"/signup"}>
-						Get Started
+					<Button variant="primary" class="mt-8" href=https://outlook.office365.com/book/meeting@berlime.com/s/Tyovt-rHPU6N6IQ7EPVEFg2>
+						Schedule Free Consultation Now
 					</Button>
 				</div>
 				<p class="mt-8">What you'll get</p>
