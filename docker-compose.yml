@@ -5,12 +5,26 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "3000:80"
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.amplify-astro.rule=Host(`amplify.cosmicthemes.com`)"
+      - "traefik.http.routers.amplify-astro.entrypoints=websecure"
+      - "traefik.http.routers.amplify-astro.tls.certresolver=letsencrypt"
+      - "traefik.http.services.amplify-astro.loadbalancer.server.port=80"
+      - "traefik.docker.network=traefik-public"
+    networks:
+      - traefik-public
+      - default
     volumes:
       # Optional: Mount for development hot-reload (comment out for production)
       # - ./src:/app/src:ro
       # - ./public:/app/public:ro
+
+networks:
+  traefik-public:
+    external: true
+  default:
+    driver: bridge
