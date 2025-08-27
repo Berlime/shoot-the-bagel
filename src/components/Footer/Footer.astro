@@ -1,28 +1,33 @@
 ---
-import Button from "@components/Button/Button.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+// components
 import FooterLink from "@components/Footer/FooterLink.astro";
 import SiteLogo from "@components/SiteLogo/SiteLogo.astro";
+import Button from "@components/Button/Button.astro";
 import SocialIcon from "@components/SocialIcon/SocialIcon.astro";
+
+// utils
 import { getLocaleFromUrl } from "@js/localeUtils";
 import { getTranslatedData } from "@js/translationUtils";
 
-
+// data
 const currLocale = getLocaleFromUrl(Astro.url);
 const siteData = getTranslatedData("siteData", currLocale);
 
 const today = new Date();
 ---
 
-<footer class="mt-14 overflow-clip pt-16 pb-10">
+<footer class="mt-14 overflow-clip pb-10 pt-16">
 	<div class="site-container">
-		<div class="border-b-base-200 dark:border-b-base-800 border-b pb-10">
+		<div class="border-b border-b-base-200 pb-10 dark:border-b-base-800">
 			<div class="flex flex-wrap">
 				<div class="mb-6 w-full md:w-1/2">
 					<div class="max-w-xs">
 						<SiteLogo />
 						<p class="description mt-11 tracking-tight">
-							A template for the next killer SaaS. Multiple pages and sections, blog, i18n,
-							animations, CMS - all ready to go.
+							A Web-Development as a Service - WDaaS. Cutting costs, saving time, & delivering
+							quality.
 						</p>
 					</div>
 				</div>
@@ -30,21 +35,28 @@ const today = new Date();
 					<div class="flex flex-wrap justify-between gap-x-16 gap-y-8">
 						<!-- first links column -->
 						<div class="w-auto py-2">
-							<h3 class="text-base-800 dark:text-base-300 mb-8 font-medium tracking-tight">
-								Landing Pages
+							<h3 class="mb-8 font-medium tracking-tight text-base-800 dark:text-base-300">
+								Support Programs
 							</h3>
 							<ul class="flex flex-col gap-3">
 								<li>
-									<FooterLink href={"/"}>Landing 1</FooterLink>
-								</li>
-								<li>
-									<FooterLink href={"/examples/landing2"}
-										>Landing 2</FooterLink
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>NGOs</FooterLink
 									>
 								</li>
 								<li>
-									<FooterLink href={"/examples/landing3"}
-										>Landing 3</FooterLink
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Professionals</FooterLink
+									>
+								</li>
+								<li>
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Home-Based Business</FooterLink
+									>
+								</li>
+								<li>
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Start Ups</FooterLink
 									>
 								</li>
 							</ul>
@@ -52,28 +64,21 @@ const today = new Date();
 
 						<!-- second links column -->
 						<div class="w-auto py-2">
-							<h3 class="text-base-800 dark:text-base-300 mb-8 font-medium tracking-tight">
-								Sections
+							<h3 class="mb-8 font-medium tracking-tight text-base-800 dark:text-base-300">
+								Important Links
 							</h3>
 							<ul class="flex flex-col gap-3">
 								<li>
-									<FooterLink href={"/examples/features"}
-										>Features</FooterLink
+									<FooterLink href="https://wiki.berlime.com">Wiki</FooterLink>
+								</li>
+								<li>
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Resources</FooterLink
 									>
 								</li>
 								<li>
-									<FooterLink href={"/examples/pricing"}
-										>Pricing</FooterLink
-									>
-								</li>
-								<li>
-									<FooterLink href={"/examples/testimonials-faq"}
-										>Testimonial & FAQ</FooterLink
-									>
-								</li>
-								<li>
-									<FooterLink href={"/examples/hero-sections"}
-										>Hero</FooterLink
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/categories/updates")}
+										>What's New</FooterLink
 									>
 								</li>
 							</ul>
@@ -81,22 +86,28 @@ const today = new Date();
 
 						<!-- third links column -->
 						<div class="w-auto py-2">
-							<h3 class="text-base-800 dark:text-base-300 mb-8 font-medium tracking-tight">
-								Forms
+							<h3 class="mb-8 font-medium tracking-tight text-base-800 dark:text-base-300">
+								Company
 							</h3>
 							<ul class="flex flex-col gap-3">
 								<li>
-									<FooterLink href={"/contact"}>Contact</FooterLink>
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Brand Assets</FooterLink
+									>
 								</li>
 								<li>
-									<FooterLink href={"/login"}>Login</FooterLink>
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/privacy-policy")}
+										>Privacy Policy</FooterLink
+									>
 								</li>
 								<li>
-									<FooterLink href={"/signup"}>Signup</FooterLink>
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/terms")}
+										>Terms & Conditions</FooterLink
+									>
 								</li>
 								<li>
-									<FooterLink href={"/password-reset"}
-										>Password Reset</FooterLink
+									<FooterLink href={getRelativeLocaleUrl(currLocale, "/coming-soon")}
+										>Affiliate Programs</FooterLink
 									>
 								</li>
 							</ul>
@@ -107,41 +118,40 @@ const today = new Date();
 		</div>
 		<div class="py-4">
 			<div class="flex flex-wrap items-center justify-between">
-				<div class="w-auto p-4">
+				<div class="w-auto">
 					<p class="description tracking-tight">
 						&copy; {today.getFullYear()}
-						{" "}{siteData.name}. All rights reserved.
+						{" "}<a href="https://bit.ly/companiessg">{siteData.name} Solutions Pte. Ltd.</a>
 					</p>
 				</div>
-				<div class="w-auto p-4">
+				<div class="w-auto">
 					<!-- Socials -->
 					<div class="flex flex-col">
 						<div class="flex gap-3">
 							<SocialIcon
-								href="https://twitter.com/BowTiedWebReapr"
+								href="https://x.com/BerlimeWM"
 								icon="tabler/brand-x"
 								social="twitter (x)"
-							/>
+								/>
 							<SocialIcon
-								href="https://twitter.com/BowTiedWebReapr"
+								href="https://www.upwork.com/agencies/1893631511197085545/"
+								icon="tabler/brand-upwork"
+								social="upwork"
+							/>								
+							<SocialIcon
+								href="https://facebook.com/berlime"
 								icon="tabler/brand-facebook"
 								social="facebook"
 							/>
 							<SocialIcon
-								href="https://twitter.com/BowTiedWebReapr"
-								icon="tabler/brand-google-filled"
+								href="https://instagram.com/berlime.wm"
+								icon="tabler/brand-instagram"
 								social="google"
 							/>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="sr-only">
-			<p>
-				A website template crafted with love by <a href="https://cosmicthemes.com/">Cosmic Themes</a
-				>
-			</p>
 		</div>
 	</div>
 </footer>

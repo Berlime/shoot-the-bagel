@@ -1,0 +1,59 @@
+---
+// layout
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// components
+
+import CustomDeviceHeroSideElectric from "@components/Services/CustomDevices/CustomDeviceHeroSideElectric.astro";
+import CallToAction from "@components/Cta/CtaBgImage.astro";
+
+// utils
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { getTranslatedData } from "@js/translationUtils";
+
+// data
+const currLocale = getLocaleFromUrl(Astro.url);
+const siteData = getTranslatedData("siteData", currLocale);
+
+const deviceTableHeaders = ['Device Type', 'Description', 'Features'];
+const deviceTableRows = [
+  ['Custom IoT Sensors', 'Tailored sensing solutions for specific industry needs', 'Temperature, Humidity, Pressure, etc.'],
+  ['Industrial Controllers', 'Specialized control systems for manufacturing', 'Real-time monitoring, Remote access'],
+  ['Smart Home Devices', 'Personalized home automation solutions', 'Voice control, Mobile app integration'],
+];
+---
+
+<BaseLayout title={siteData.title} description={siteData.description}>
+    <CustomDeviceHeroSideElectric />
+
+
+
+    <section class="bg-gray-50 py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8">Why Choose Custom Devices?</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <h3 class="text-xl font-semibold mb-4">Tailored Solutions</h3>
+            <p class="text-gray-600">Devices designed specifically for your unique requirements</p>
+          </div>
+          <div class="text-center">
+            <h3 class="text-xl font-semibold mb-4">Expert Support</h3>
+            <p class="text-gray-600">Dedicated technical support throughout the development process</p>
+          </div>
+          <div class="text-center">
+            <h3 class="text-xl font-semibold mb-4">Quality Assured</h3>
+            <p class="text-gray-600">Rigorous testing and quality control measures</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CallToAction
+      title="Ready to Start Your Custom Device Project?"
+      description="Contact us today to discuss your custom device requirements"
+      buttonText="Get Started"
+      buttonLink="/contact"
+    />
+  </main>
+</BaseLayout>

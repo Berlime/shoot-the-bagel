@@ -1,0 +1,194 @@
+---
+/**
+ * Pricing sections with toggle for monthly or yearly payments
+ * Supports multiple pricing items with features list
+ */
+
+import ChevronDown from "@/icons/tabler/chevron-down.svg?raw";
+
+// components
+import Button from "@components/Button/Button.astro";
+import Badge from "@components/Badge/Badge.astro";
+import PricingToggle from "./PricingToggle.astro";
+import PricingCard from "./PricingCard.astro";
+import FeatureComparisonTable from "./FeatureComparisonTable.astro";
+import PricingTableStyles from "./PricingTableStyles.astro";
+
+// utils
+import { getLocaleFromUrl } from "@js/localeUtils";
+import { useTranslations } from "@js/translationUtils";
+
+// data
+import { pricingItemsData, pricingTableData } from "../../../data/pricing/websitePricingData";
+
+const currLocale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(currLocale);
+
+// Prepare translated text for the script
+// @ts-ignore - TODO: Update useTranslations types to include these keys
+const seeFeaturesText: string = t("websitePricing.seeFullFeatures");
+// @ts-ignore - TODO: Update useTranslations types to include these keys
+const hideFeaturesText: string = t("websitePricing.hideFullFeatures");
+---
+
+<PricingTableStyles seeFeaturesText={seeFeaturesText} hideFeaturesText={hideFeaturesText} />
+
+<section id="pricing" class="py-16 md:py-20 scroll-mt-20">
+	<div class="relative mx-auto max-w-7xl px-4">
+		<div class="mx-auto max-w-2xl text-center" data-aos="fade-left" id="code-toggle-trigger">
+			<div>
+				<h2 class="h2 inline">Pricing</h2>
+			</div>
+			<p class="description mt-4 text-pretty text-xl tracking-tight">
+				Choose <b>Kick Start</b> to explore and get going, or <b>Jump Start</b> for feature rich website and immedietely gather your customer behavior analytics.
+			</p>
+		</div>
+
+			<PricingToggle />
+
+		<div class="mx-auto mt-16 grid w-full gap-6 sm:grid-cols-2 md:mt-20 lg:grid-cols-4" id="pricing-cards-container">
+			{pricingItemsData.map((plan) => <PricingCard plan={plan} />)}
+		</div>
+
+		{/* Add centered link to toggle features comparison */}
+		<div class="mt-10 text-center">
+			<a
+				href="#pricing-comparison"
+				id="toggle-features-link"
+				class="text-primary-600 dark:text-primary-400 hover:underline font-medium inline-flex items-center gap-1 group"
+				aria-controls="pricing-comparison"
+				aria-expanded="false"
+				data-see-features={seeFeaturesText}
+				data-hide-features={hideFeaturesText}
+			>
+				<span class="text-current"></span>
+				<Fragment set:html={ChevronDown} class="w-5 h-5 transition-transform duration-300" />
+			</a>
+		</div>
+	</div>
+</section>
+
+{/* Make this section collapsible */}
+<section
+	id="pricing-comparison"
+	class="md:py-20 scroll-mt-20 max-h-0 overflow-hidden transition-max-height"
+	aria-live="polite"
+>
+	<!-- Tooltip container that will follow cursor -->
+	<div id="tooltip" class="tooltip-container"></div>
+	<div class="site-container relative">
+		<!-- Include both tables but only show one at a time -->
+		<div id="kickstart-table" class="feature-table-container hidden">
+			<FeatureComparisonTable pricingData={pricingTableData} currLocale={currLocale} mode="kickStart" />
+		</div>
+		<div id="jumpstart-table" class="feature-table-container hidden">
+			<FeatureComparisonTable pricingData={pricingTableData} currLocale={currLocale} mode="jumpStart" />
+		</div>
+	</div>
+</section>
+
+<script>
+	import { setupTooltips, pricingPlanToggleSetup } from "./TooltipUtils";
+
+	// Initialize on page load
+	pricingPlanToggleSetup();
+	setupTooltips();
+
+	// Accordion setup for feature comparison
+	function setupComparisonAccordion() {
+		const toggleLink = document.getElementById('toggle-features-link');
+		const comparisonSection = document.getElementById('pricing-comparison');
+		const kickstartTable = document.getElementById('kickstart-table');
+		const jumpstartTable = document.getElementById('jumpstart-table');
+		const seeFeaturesText = toggleLink?.getAttribute('data-see-features') ?? 'See Full Features'; // Fallback text
+		const hideFeaturesText = toggleLink?.getAttribute('data-hide-features') ?? 'Hide Full Features'; // Fallback text
+
+		if (toggleLink && comparisonSection) {
+			// Use translated text if available, otherwise use fallbacks
+			const textSpan = toggleLink.querySelector('span');
+			if (textSpan) textSpan.textContent = seeFeaturesText; // Initial text
+			const chevronIcon = toggleLink.querySelector('svg'); // Get the icon
+
+			// Set initial aria-expanded based on visibility (useful for astro:after-swap)
+			const isExpanded = comparisonSection.style.maxHeight && comparisonSection.style.maxHeight !== '0px';
+			toggleLink.setAttribute('aria-expanded', isExpanded.toString());
+			if (isExpanded) {
+				if (textSpan) textSpan.textContent = hideFeaturesText;
+				if (chevronIcon) chevronIcon.style.transform = 'rotate(180deg)';
+				kickstartTable?.classList.remove('hidden');
+				jumpstartTable?.classList.add('hidden');
+			} else {
+				if (textSpan) textSpan.textContent = seeFeaturesText;
+				if (chevronIcon) chevronIcon.style.transform = 'rotate(0deg)';
+				kickstartTable?.classList.add('hidden');
+				jumpstartTable?.classList.add('hidden');
+			}
+
+			toggleLink.addEventListener('click', (e) => {
+				e.preventDefault();
+				const isCurrentlyExpanded = toggleLink.getAttribute('aria-expanded') === 'true';
+				const textSpan = toggleLink.querySelector('span');
+				const chevronIcon = toggleLink.querySelector('svg');
+
+				if (isCurrentlyExpanded) {
+					// Collapse
+					comparisonSection.style.maxHeight = '0';
+					toggleLink.setAttribute('aria-expanded', 'false');
+					if (textSpan) textSpan.textContent = seeFeaturesText;
+					if (chevronIcon) chevronIcon.style.transform = 'rotate(0deg)';
+					// Hide tables
+					kickstartTable?.classList.add('hidden');
+					jumpstartTable?.classList.add('hidden');
+				} else {
+					// Expand
+					comparisonSection.style.maxHeight = comparisonSection.scrollHeight + 'px';
+					toggleLink.setAttribute('aria-expanded', 'true');
+					if (textSpan) textSpan.textContent = hideFeaturesText;
+					if (chevronIcon) chevronIcon.style.transform = 'rotate(180deg)';
+					// Show active table
+					const pricingToggle = document.querySelector(".pricing-plan__toggle") as HTMLInputElement;
+					const isJumpStart = pricingToggle && pricingToggle.checked;
+					if (isJumpStart) {
+						kickstartTable?.classList.add('hidden');
+						jumpstartTable?.classList.remove('hidden');
+					} else {
+						kickstartTable?.classList.remove('hidden');
+						jumpstartTable?.classList.add('hidden');
+					}
+
+					// Ensure tooltips are ready in the revealed section
+					// Use requestAnimationFrame to ensure layout is calculated
+					requestAnimationFrame(() => {
+						setupTooltips();
+						// Add a listener to resize max-height if window size changes while open
+						// To prevent content overflow issues after resize
+						const resizeObserver = new ResizeObserver(() => {
+							if (toggleLink.getAttribute('aria-expanded') === 'true') {
+								comparisonSection.style.maxHeight = comparisonSection.scrollHeight + 'px';
+							}
+						});
+						resizeObserver.observe(comparisonSection);
+					});
+				}
+			});
+
+			// Adjust max-height on transition end for smoother feel if needed
+			comparisonSection.addEventListener('transitionend', () => {
+				if (comparisonSection.style.maxHeight !== '0px') {
+					// Optional: Set to 'none' or keep as scrollHeight. scrollHeight is safer.
+					// comparisonSection.style.maxHeight = 'none';
+				}
+			});
+		}
+	}
+
+	// Run setup functions
+	setupComparisonAccordion();
+
+	// Initialize after view transitions
+	document.addEventListener("astro:after-swap", () => {
+		pricingPlanToggleSetup();
+		setupTooltips();
+		setupComparisonAccordion(); // Re-run accordion setup
+	});
+</script>

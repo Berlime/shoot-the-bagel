@@ -3,46 +3,24 @@ import { type FaqItem } from "../types/configDataTypes";
 // replace this data with whatever you want in your FAQ section
 export const faqData: FaqItem[] = [
 	{
-		question: "Who are the themes for?",
-		answer: `These themes are for developers who want to have pre-created templates to use in their projects,
-    and have the hard stuff taken care of. Whether that is personal projects, a new SaaS business, a website for a client, etc.
-    They offer speed, customizability with swappable 
-    components, built-in SEO, and image optimization. Instead of spending hours figuring out 
-    how to do this yourself, you can leverage the themes to save weeks of time and effort. You can easily 
-    mix and match sections, update the copy, and change the color theme with just one line of code.`,
+		question: "Do you offer web-development without maintenance?",
+		answer: `Yes, we offer web-development without maintenance. You'll just need to handle essentials like your own server, domain name, hosting, and any other infrastructure on your end. Have no idea how? We can help you with that.`,
 	},
 	{
-		question: "What all components are included?",
-		answer: `76+ components. Including 9 feature sections, 3 hero sections, 4 pricing sections, 4 CTAs, 3 testimonial sections, 
-    2 faq sections, 2 logo clouds, 404, contact, legal, 2 blog post layouts and indexes, and a cookie banner.`,
+		question: "Why Berlime Solutions?",
+		answer: `We leverage top-tier frameworks and tools to build your website, backed by a team of experts who actively contribute to world-class projects and the tech community.`,
 	},
 	{
-		question: 'What do you mean by "free updates"?',
-		answer: `When you purchase any of our themes, you get lifetime updates for free. 
-      We regularly update our themes to ensure compatibility with the latest version of Astro, 
-      and to add new features or bug fixes.`,
+		question: 'Do you have discounts?',
+		answer: `Yes, we have discounts for students, non-profits, new businesses, start-ups, and more.`,
 	},
 	{
-		question: "Why Astro?",
-		answer: `Astro is an excellent framework for content-focused websites, with a great developer
-      experience. It also allows you to use any UI framework you want within it, such as React, Vue,
-      and Svelte. This means you can use any of your existing components, or any of the thousands of 
-      components available online. `,
+		question: "What if I have a very complex business logic?",
+		answer: `Yes, we can handle any complex business logic.`,
 	},
 	{
-		question: "Can I use a theme for multiple projects?",
-		answer: `Yes, you can use any of our themes for as many projects as you like.
-      You can even sell websites you create with them to your clients. As long as you
-      don't resell the theme itself, you're likely to go! See our
-      <a href="https://cosmicthemes.com/license/" target="_blank" rel="noopener noreferrer">License</a> 
-      page for more details.`,
-	},
-	{
-		question: "How do I download new versions of the themes?",
-		answer: `You can download any new versions of the themes by accessing
-      your lemonsqueezy library. When you first purchase the theme, I recommend 
-      creating a lemonsqueezy account at app.lemonsqueezy.com. Then you will have
-      access to any theme updates from that page.`,
+		question: "I want my website to have cool animations, can you do that?",
+		answer: `Yes, we can do that. Our developers are well-versed in the latest web development technologies and can implement any animation you need.`,
 	},
 ];
 

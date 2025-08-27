@@ -1,0 +1,284 @@
+---
+/**
+ * Component for displaying the feature comparison table
+ */
+import { Icon } from "astro-icon/components";
+import Button from "@components/Button/Button.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { PricingData } from "../../../data/pricing/websitePricingData";
+interface Props {
+  pricingData: PricingData;
+  currLocale: string;
+  mode: 'kickStart' | 'jumpStart';
+}
+
+const { pricingData, currLocale, mode = 'kickStart' } = Astro.props;
+const featureTableData = pricingData.featureTable[mode];
+---
+
+<!-- Start Generation Here -->
+<!-- <div class="flex flex-col items-center justify-center mt-4 space-y-4">
+  <h2 class="h2 inline">Compare Website Plans</h2>
+  <p class="text-lg text-base-600 dark:text-base-400 text-center max-w-2xl">
+    Choose the perfect plan for your business needs. Switch between our KickStart and JumpStart options to see detailed features and pricing.
+  </p>
+</div> -->
+<!-- End Generation Here -->
+
+
+<div class="mx-auto grid w-full grid-cols-5 md:mt-20 lg:grid-cols-5">
+
+  <!-- pricing plan top info -->
+  <div class="col-span-5 grid gap-3 md:grid-cols-4 lg:col-start-2 lg:gap-0">
+    {
+      pricingData.plans.map((plan, planIdx) => (
+        // pricing cards
+        <div class="pricing-plan relative mx-auto h-full w-full max-w-sm rounded-2xl lg:rounded-b-none">
+          <div class="relative h-full lg:pb-0">
+            <div
+              class="relative z-10 flex h-full flex-col rounded-b-xl rounded-t-xl lg:rounded-b-none"
+              class:list={[
+                {
+                  "border border-primary-600 bg-base-100 lg:border-b-0 dark:border-primary-400 dark:bg-base-950":
+                    plan.featured === true,
+                },
+              ]}
+            >
+              <div class="mx-auto flex h-full w-full max-w-[20rem] flex-col px-6 pb-6 text-center">
+                <div class="relative">
+                  <div class={`pricing-plan__${mode === 'kickStart' ? 'monthly' : 'yearly'}-price`}>
+                    <div class="flex w-full justify-center pt-6">
+                      <h3
+                        class:list={[
+                          "mb-8 text-lg font-medium tracking-tight plan-tooltip",
+                          {
+                            "text-primary-600 dark:text-primary-400": plan.featured === true,
+                          },
+                          {
+                            "text-base-800 dark:text-base-300": plan.featured !== true,
+                          },
+                        ]}
+                        data-description={plan.description[mode]}
+                      >
+                        {plan.name[mode]}
+                      </h3>
+                    </div>
+                    <div class="text-center">
+                      <p class="mt-3 font-medium">
+                        <h4 class="text-4xl font-medium tracking-tight">
+                          S${plan.price[mode]}
+                        </h4>
+                        <span class="description inline-block text-sm tracking-tight">
+                          {plan.priceTerms[mode]}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class={`pricing-plan__${mode === 'kickStart' ? 'yearly' : 'monthly'}-price hidden`}>
+                    <div class="flex w-full justify-center pt-6">
+                      <h3
+                        class:list={[
+                          "mb-8 text-lg font-medium tracking-tight plan-tooltip",
+                          {
+                            "text-primary-600 dark:text-primary-400": plan.featured === true,
+                          },
+                          {
+                            "text-base-800 dark:text-base-300": plan.featured !== true,
+                          },
+                        ]}
+                        data-description={plan.description[mode === 'kickStart' ? 'jumpStart' : 'kickStart']}
+                      >
+                        {plan.name[mode === 'kickStart' ? 'jumpStart' : 'kickStart']}
+                      </h3>
+                    </div>
+                    <div class="text-center">
+                      <p class="mt-3 font-medium">
+                        <h4 class="text-4xl font-medium tracking-tight">
+                          S${plan.price[mode === 'kickStart' ? 'jumpStart' : 'kickStart']}
+                        </h4>
+                        <span class="description inline-block text-sm tracking-tight">
+                          {plan.priceTerms[mode === 'kickStart' ? 'jumpStart' : 'kickStart']}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="mt-4 flex w-full flex-col gap-2 lg:sr-only">
+                  {featureTableData.map((featureGroup) =>
+                    // features inside cards for mobile views
+                    featureGroup.features.map(
+                      (featureRow) =>
+                        featureRow.plans[planIdx] !== false && (
+                          <li
+                            class:list={[
+                              "flex items-start",
+                              {
+                                "opacity-90": plan.featured !== true,
+                              },
+                            ]}
+                          >
+                            <Icon
+                              name="tabler/check"
+                              class="mt-0.5 size-5 shrink-0 text-primary-600 dark:text-primary-400"
+                              aria-hidden="true"
+                            />
+                            <span class="ml-2 inline text-left leading-tight">
+                              <span 
+                                class={featureRow.tooltip ? "feature-tooltip" : ""} 
+                                data-tooltip={featureRow.tooltip}
+                              >
+                                {featureRow.feature}
+                                {featureRow.tooltip && (
+                                  <Icon
+                                    name="tabler/help"
+                                    class="ml-1 inline-block size-4 text-base-500 dark:text-base-400"
+                                    aria-hidden="true"
+                                  />
+                                )}
+                              </span>
+                              <span>
+                                {
+                                  // if the feature row has a string, show it
+                                  typeof featureRow.plans[planIdx] === "string" && (
+                                    <span class="ml-1 text-sm text-base-700 dark:text-base-300">
+                                      (
+                                      <span 
+                                        class={featureRow.planTooltips && featureRow.planTooltips[planIdx] ? "plan-value-tooltip" : ""} 
+                                        data-tooltip={featureRow.planTooltips && featureRow.planTooltips[planIdx] ? featureRow.planTooltips[planIdx] : null}
+                                      >
+                                        {featureRow.plans[planIdx]}
+                                        {featureRow.planTooltips && featureRow.planTooltips[planIdx] && (
+                                          <Icon
+                                            name="tabler/info-circle"
+                                            class="ml-1 inline-block size-3.5 text-base-500 dark:text-base-400"
+                                            aria-hidden="true"
+                                          />
+                                        )}
+                                      </span>
+                                      )
+                                    </span>
+                                  )
+                                }
+                              </span>
+                            </span>
+                          </li>
+                        ),
+                    ),
+                  )}
+                </ul>
+                <div class="mt-auto">
+                  <Button
+                    variant={plan.featured === true ? "primary" : "outline"}
+                    href={plan.href}
+                    class={`mt-4 py-1.5`}
+                  >
+                    {plan.linkText}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- feature rows for desktop -->
+  <div class="col-span-5 hidden lg:block">
+    {
+      // loop over feature groups
+      featureTableData.map((featureGroup) => (
+        <div>
+          <div class="grid grid-cols-5 border-b border-base-300 text-lg dark:border-base-700">
+            <p class="pb-2 pt-6 font-medium">{featureGroup.title}</p>
+            {pricingData.plans.map((plan, planIdx) => (
+              <div
+                class={`${
+                  plan.featured === true
+                    ? "-mt-px border-x border-primary-600 bg-base-200/30 dark:border-primary-400 dark:bg-base-800/20"
+                    : ""
+                }`}
+              />
+            ))}
+          </div>
+          {featureGroup.features.map((feature) => (
+            // each feature group has feature name, and data for each plan to display in the row
+            <div class="grid grid-cols-5 border-b border-base-300 dark:border-base-700">
+              <p class="py-2 opacity-90 dark:opacity-80">
+                <span 
+                  class={feature.tooltip ? "feature-tooltip" : ""} 
+                  data-tooltip={feature.tooltip}
+                >
+                  {feature.feature}
+                  {feature.tooltip && (
+                    <Icon
+                      name="tabler/help"
+                      class="ml-1 inline-block size-4 text-base-500 dark:text-base-400"
+                      aria-hidden="true"
+                    />
+                  )}
+                </span>
+              </p>
+              {feature.plans.map((plan, planIdx) => (
+                <div
+                  class="flex items-center justify-center py-2"
+                  class:list={[
+                    {
+                      "-mt-px border-x border-primary-600 bg-base-200/30 dark:border-primary-400 dark:bg-base-800/20":
+                        pricingData.plans[planIdx].featured,
+                    },
+                  ]}
+                >
+                  {
+                    // if the feature row has a string, show it
+                    typeof feature.plans[planIdx] === "string" ? (
+                      <span
+                        class={
+                          pricingData.plans[planIdx].featured === true
+                            ? ""
+                            : "opacity-90 dark:opacity-80"
+                        }
+                      >
+                        <span 
+                          class={feature.planTooltips && feature.planTooltips[planIdx] ? "plan-value-tooltip" : ""} 
+                          data-tooltip={feature.planTooltips && feature.planTooltips[planIdx] ? feature.planTooltips[planIdx] : null}
+                        >
+                          {feature.plans[planIdx]}
+                          {feature.planTooltips && feature.planTooltips[planIdx] && (
+                            <Icon
+                              name="tabler/info-circle"
+                              class="ml-1 inline-block size-4 text-base-500 dark:text-base-400"
+                              aria-hidden="true"
+                            />
+                          )}
+                        </span>
+                      </span>
+                    ) : // otherwise show a checkmark if true, or a dash icon if false
+                    plan === false ? (
+                      <Icon
+                        name="tabler/minus"
+                        class={`size-3 shrink-0 opacity-90 dark:opacity-80`}
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <Icon
+                        name="tabler/check"
+                        class={`size-5 shrink-0 text-primary-600 dark:text-primary-400 ${
+                          pricingData.plans[planIdx].featured === true
+                            ? ""
+                            : "opacity-90 dark:opacity-80"
+                        }`}
+                        aria-hidden="true"
+                      />
+                    )
+                  }
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div> 

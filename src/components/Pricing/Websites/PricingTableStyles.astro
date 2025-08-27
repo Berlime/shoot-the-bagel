@@ -1,0 +1,185 @@
+---
+interface Props {
+	seeFeaturesText: string;
+	hideFeaturesText: string;
+}
+
+const { seeFeaturesText, hideFeaturesText } = Astro.props;
+---
+
+<style>
+	.pricing-plan__monthly-price,
+	.pricing-plan__yearly-price {
+	  opacity: 1;
+	  transform: translateY(0);
+	  transition: all 0.5s ease;
+	  position: relative;
+	  width: 100%;
+	  visibility: visible;
+	}
+  
+	.pricing-plan__monthly-price.hidden,
+	.pricing-plan__yearly-price.hidden {
+	  opacity: 0;
+	  transform: translateY(20px);
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  visibility: hidden;
+	}
+  
+	.pricing-plan__dot {
+	  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+  
+	.pricing-plan__slider {
+	  transition: border-color 0.5s ease;
+	}
+
+	/* Tooltip styles */
+	.tooltip-container {
+		position: absolute;
+		z-index: 1000;
+		background-color: rgba(0, 0, 0, 0.85);
+		color: white;
+		padding: 8px 12px;
+		border-radius: 6px;
+		font-size: 14px;
+		max-width: 300px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.15s ease-in-out;
+	}
+
+	.feature-tooltip,
+	.plan-value-tooltip,
+	.plan-tooltip {
+		cursor: help;
+	}
+
+	/* Dark mode tooltip */
+	.dark .tooltip-container {
+		background-color: rgba(30, 30, 30, 0.9);
+		color: #f3f4f6;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	}
+
+	/* Feature table display toggle */
+	.feature-table-container {
+		display: block;
+		opacity: 1;
+		transition: opacity 0.3s ease;
+	}
+	
+	.feature-table-container.hidden {
+		display: none;
+		opacity: 0;
+	}
+
+	/* Accordion transition */
+	.transition-max-height {
+		transition: max-height 0.7s ease-in-out;
+	}
+
+	/* Ensure group-aria-expanded works */
+	[aria-expanded="true"] svg {
+		transform: rotate(180deg);
+	}
+	[aria-expanded="false"] svg {
+		transform: rotate(0deg);
+	}
+	/* Add transition to the SVG */
+	#toggle-features-link svg {
+		transition: transform 0.3s ease-in-out;
+	}
+</style>
+
+<script is:inline define:vars={{ seeFeaturesText, hideFeaturesText }}>
+	// Initialize on page load
+	function init() {
+		if (typeof window.setupTooltips === 'undefined' || typeof window.pricingPlanToggleSetup === 'undefined') {
+			// Wait for utils to load
+			setTimeout(init, 100);
+			return;
+		}
+
+		window.setupTooltips();
+		window.pricingPlanToggleSetup();
+
+		// Accordion setup for feature comparison
+		function setupComparisonAccordion() {
+			const toggleLink = document.getElementById('toggle-features-link');
+			const comparisonSection = document.getElementById('pricing-comparison');
+
+			if (toggleLink && comparisonSection) {
+				// Use translated text from props
+				const textSpan = toggleLink.querySelector('span');
+				if (textSpan) textSpan.textContent = seeFeaturesText; // Initial text
+				const chevronIcon = toggleLink.querySelector('svg'); // Get the icon
+
+				// Set initial aria-expanded based on visibility
+				const isExpanded = comparisonSection.style.maxHeight && comparisonSection.style.maxHeight !== '0px';
+				toggleLink.setAttribute('aria-expanded', isExpanded.toString());
+				if (isExpanded) {
+					if (textSpan) textSpan.textContent = hideFeaturesText;
+					if (chevronIcon) chevronIcon.style.transform = 'rotate(180deg)';
+				} else {
+					if (textSpan) textSpan.textContent = seeFeaturesText;
+					if (chevronIcon) chevronIcon.style.transform = 'rotate(0deg)';
+				}
+
+				toggleLink.addEventListener('click', (e) => {
+					e.preventDefault();
+					const isCurrentlyExpanded = toggleLink.getAttribute('aria-expanded') === 'true';
+					const textSpan = toggleLink.querySelector('span');
+					const chevronIcon = toggleLink.querySelector('svg');
+
+					if (isCurrentlyExpanded) {
+						// Collapse
+						comparisonSection.style.maxHeight = '0';
+						toggleLink.setAttribute('aria-expanded', 'false');
+						if (textSpan) textSpan.textContent = seeFeaturesText;
+						if (chevronIcon) chevronIcon.style.transform = 'rotate(0deg)';
+					} else {
+						// Expand
+						comparisonSection.style.maxHeight = comparisonSection.scrollHeight + 'px';
+						toggleLink.setAttribute('aria-expanded', 'true');
+						if (textSpan) textSpan.textContent = hideFeaturesText;
+						if (chevronIcon) chevronIcon.style.transform = 'rotate(180deg)';
+
+						// Ensure tooltips are ready in the revealed section
+						requestAnimationFrame(() => {
+							window.setupTooltips();
+							// Add a listener to resize max-height if window size changes while open
+							const resizeObserver = new ResizeObserver(() => {
+								if (toggleLink.getAttribute('aria-expanded') === 'true') {
+									comparisonSection.style.maxHeight = comparisonSection.scrollHeight + 'px';
+								}
+							});
+							resizeObserver.observe(comparisonSection);
+						});
+					}
+				});
+
+				// Adjust max-height on transition end for smoother feel
+				comparisonSection.addEventListener('transitionend', () => {
+					if (comparisonSection.style.maxHeight !== '0px') {
+						// Keep using scrollHeight for safety
+						comparisonSection.style.maxHeight = comparisonSection.scrollHeight + 'px';
+					}
+				});
+			}
+		}
+
+		// Run setup functions
+		setupComparisonAccordion();
+	}
+
+	// Start initialization
+	init();
+
+	// Initialize after view transitions
+	document.addEventListener("astro:after-swap", init);
+</script> 

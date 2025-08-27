@@ -1,0 +1,67 @@
+---
+/**
+ * * These are small cards with titles, and text, and a check icon
+ * This looks best with an even number of cards. They are smaller to
+ * use with more cards in the same section. 4 or 6 cards is probably ideal
+ *
+ * ! I copy all icons into the src/icons folder and recommend you do the same
+ * ! If the icon is at src/icons/tabler/paint.svg then you put in "tabler/paint"
+ */
+
+import FeatureCard from "@components/FeatureCard/FeatureCardSmall2.astro";
+
+interface FeatureData {
+	icon: string;
+	title: string;
+	text: string;
+}
+
+const featureData: FeatureData[] = [
+{
+		icon: "tabler/calendar-check",
+		title: "Strategy & asdasd",
+		text: `Keep in the loop of your project's progress, invoices, documents, proposals all in one place.`,
+	},
+	{
+		icon: "tabler/shield-check",
+		title: "Boost Credibility",
+		text: `All necessary configurations from server to front-end are optimized for speed.`,
+	},
+	{
+		icon: "tabler/chart-histogram",
+		title: "Analytics",
+		text: `User traffic & website performance data to pin point key areas for improvements.`,
+	},
+	{
+		icon: "tabler/chart-arrows-vertical",
+		title: "New Income Streams",
+		text: `Innovative ways to generate additional revenue you never thought of.`,
+	},
+	{
+		icon: "tabler/bulb",
+		title: "Learn as You Go",
+		text: `Be in the loop of your project's infrastructures, software & tools used, & many more.`,
+	},
+	{
+		icon: "tabler/api-app",
+		title: "Business Intelligence",
+		text: `Adapt to the market changes, make data-driven decisions with Ai's RAG methodology.`,
+	},
+];
+---
+
+<section id="feature-cards-small-2" class="overflow-hidden py-16 md:py-20">
+	<div class="site-container relative">
+		<div class="mr-auto mb-16 md:max-w-4xl">
+			<h2 class="h2 inline" id="trigger-cards-small-2" data-aos="fade-right">Feature Snapshot</h2>
+		</div>
+		<div
+			class="grid gap-16 sm:grid-cols-2 lg:grid-cols-3"
+			data-aos="fade-right"
+			data-aos-delay=".3"
+			data-aos-trigger="#trigger-cards-small-2"
+		>
+			{featureData.map((feature, idx) => <FeatureCard title={feature.title} text={feature.text} icon={feature.icon} />)}
+		</div>
+	</div>
+</section>

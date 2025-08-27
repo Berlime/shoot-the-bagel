@@ -8,6 +8,14 @@ draft: false
 ```php
 // php comment
 <?php
-echo "Hello World!";
+// Puzzle: Unscramble the string to display the message
+$scrambled = "a l t d n o D ' t i d d l a";
+$words = explode(' ', $scrambled);
+$indices = [0, 2, 4, 6, 8, 10, 12, 1, 3, 5, 7, 9, 11, 13];
+$solution = '';
+foreach ($indices as $i) {
+    $solution .= $words[$i];
+}
+echo $solution;
 ?>
 ```

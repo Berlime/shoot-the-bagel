@@ -1,0 +1,167 @@
+---
+/**
+ * Component for displaying a single pricing card
+ */
+import { Icon } from "astro-icon/components";
+import Button from "@components/Button/Button.astro";
+import type { PricingItem } from "../../../data/pricing/websitePricingData";
+
+interface Props {
+  plan: PricingItem;
+}
+
+const { plan } = Astro.props;
+---
+
+<div class="pricing-plan w-full">
+  <div
+    class:list={[
+      "relative flex h-full flex-col justify-between rounded-xl border bg-base-100 p-8 text-center dark:bg-base-950",
+      {
+        "border-primary-300 before:absolute before:inset-0.5 before:-z-10 before:rounded-xl before:bg-blue-500 before:blur":
+          plan.featured === true,
+        "border-base-200 dark:border-base-800": plan.featured !== true,
+      },
+    ]}
+  >
+    <div class="relative">
+      <div class="pricing-plan__monthly-price">
+        <h3
+          class:list={[
+            "mb-8 text-lg font-medium tracking-tight",
+            {
+              "text-primary-600 dark:text-primary-400": plan.featured === true,
+              "text-base-800 dark:text-base-300": plan.featured !== true,
+            },
+          ]}
+        >
+          {plan.name.kickStart}
+        </h3>
+        <h4 class="text-4xl font-medium tracking-tight">
+          {plan.price.custom ? "Custom" : `S$${plan.price.kickStart}`}
+        </h4>
+        <span class="description inline-block text-sm tracking-tight">
+          {plan.priceTerms.kickStart}
+        </span>
+        <div class="mt-8 border-y border-base-200 py-8 dark:border-base-800">
+          <p
+            class:list={[
+              "description mx-auto max-w-xs tracking-tight",
+              {
+                "text-base-800 dark:text-base-300": plan.featured === true,
+              },
+            ]}
+          >
+            {plan.description.kickStart}
+          </p>
+        </div>
+        <ul class="py-8">
+          {plan.features.kickStart.map((feature) => (
+            <li class="mb-2.5 flex flex-wrap items-center gap-3">
+              <Icon
+                name="tabler/check"
+                class="size-5 text-primary-600 dark:text-primary-400"
+                aria-hidden="true"
+              />
+              <span
+                class:list={[
+                  "font-medium tracking-tight",
+                  {
+                    "text-base-800 dark:text-base-300": plan.featured !== true,
+                  },
+                ]}
+              >
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="pricing-plan__yearly-price hidden">
+        <h3
+          class:list={[
+            "mb-8 text-lg font-medium tracking-tight",
+            {
+              "text-primary-600 dark:text-primary-400": plan.featured === true,
+              "text-base-800 dark:text-base-300": plan.featured !== true,
+            },
+          ]}
+        >
+          {plan.name.jumpStart}
+        </h3>
+        <h4 class="text-4xl font-medium tracking-tight">
+          {plan.price.custom ? "Custom" : `S$${plan.price.jumpStart}`}
+        </h4>
+        <span class="description inline-block text-sm tracking-tight">
+          {plan.priceTerms.jumpStart}
+        </span>
+        <div class="mt-8 border-y border-base-200 py-8 dark:border-base-800">
+          <p
+            class:list={[
+              "description mx-auto max-w-xs tracking-tight",
+              {
+                "text-base-800 dark:text-base-300": plan.featured === true,
+              },
+            ]}
+          >
+            {plan.description.jumpStart}
+          </p>
+        </div>
+        <ul class="py-8">
+          {plan.features.jumpStart.map((feature) => (
+            <li class="mb-2.5 flex flex-wrap items-center gap-3">
+              <Icon
+                name="tabler/check"
+                class="size-5 text-primary-600 dark:text-primary-400"
+                aria-hidden="true"
+              />
+              <span
+                class:list={[
+                  "font-medium tracking-tight",
+                  {
+                    "text-base-800 dark:text-base-300": plan.featured !== true,
+                  },
+                ]}
+              >
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <Button
+      class="mb-0"
+      variant={plan.featured === true ? "primary" : "outline"}
+      href={plan.href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {plan.linkText}
+    </Button>
+  </div>
+</div>
+
+<style>
+  .pricing-plan__monthly-price,
+  .pricing-plan__yearly-price {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+    position: relative;
+    width: 100%;
+    visibility: visible;
+  }
+
+  .pricing-plan__monthly-price.hidden,
+  .pricing-plan__yearly-price.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+  }
+</style> 
