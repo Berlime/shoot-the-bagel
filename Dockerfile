@@ -1,4 +1,4 @@
-# Use Node.js 20 Alpine for smaller image size
+# Multi-stage build for Astro production
 FROM node:20-alpine AS base
 
 # Install dependencies only when needed
@@ -8,12 +8,8 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
-COPY package.json pnpm-lock.yaml* package-lock.json* ./
-RUN \
-  if [ -f pnpm-lock.yaml ]; then npm install -g pnpm && pnpm install --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+COPY package.json pnpm-lock.yaml* ./
+RUN npm install -g pnpm && pnpm install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -29,9 +25,9 @@ FROM nginx:alpine AS runner
 WORKDIR /usr/share/nginx/html
 
 # Copy built assets from builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist .
 
-# Copy custom nginx configuration
+# Copy nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
