@@ -4,7 +4,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 // components
 import WebsiteHeroSideImage from "@components/Hero/WebsiteHeroSideImage.astro";
-import LogoCloudMarquee from "@components/LogoCloud/LogoCloudMarquee.astro";
+import WebsitesLogoCloudMarquee from "@components/LogoCloud/WebsitesLogoCloudMarquee.astro";
 import WebsiteFeatureCodeToggle from "@components/Feature/WebsiteFeatureCodeToggle.astro";
 import WebsiteFeatureCardsSmall2 from "@components/Feature/WebsiteFeatureCardsSmall2.astro";
 import FeatureIntegrations from "@components/Feature/FeatureIntegrations.astro";
@@ -24,7 +24,7 @@ const siteData = getTranslatedData("siteData", currLocale);
 
 <BaseLayout title={siteData.title} description={siteData.description}>
 	<WebsiteHeroSideImage />
-	<LogoCloudMarquee />
+	<WebsitesLogoCloudMarquee />
 	<!-- <LogoCloudStatic
     class="dark bg-dark-bg md:pb-20"
     data-aos="fade-up"

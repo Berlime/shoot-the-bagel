@@ -13,8 +13,10 @@ const { image, name, title, bio } = Astro.props as teamMember;
 			src={image}
 			alt={name}
 			height={112}
-			densities={[1.5, 2]}
-			class="border-base-200 dark:border-base-800 mr-auto mb-6 aspect-square size-20 rounded-full border object-cover md:size-28"
+			width={112}
+			densities={[2, 3, 4]}
+			class="border-base-200 dark:border-base-800 mr-auto mb-6 aspect-square size-10 rounded-full border object-cover md:size-28"
+			style="image-rendering: auto; filter: none;"
 		/>
 		<h3
 			class="main-text-gradient mb-2 text-2xl leading-tight font-medium tracking-tight md:text-3xl md:leading-tight"
