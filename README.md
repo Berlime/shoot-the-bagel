@@ -15,6 +15,75 @@ Amplify is an electric SaaS template and blog with unique components and animati
 
 Should you need any assistance, send me a message at support@cosmicthemes.com
 
+## Docker Development
+
+### Prerequisites
+- Docker and Docker Compose installed
+- Node.js 18+ (for local development)
+
+### Development with Docker
+
+```bash
+# Start development environment
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop development environment
+docker-compose down
+
+# Rebuild containers
+docker-compose up -d --build
+```
+
+### Production Docker Build
+
+```bash
+# Build production image
+docker build -t amplify:latest .
+
+# Run production container
+docker run -p 80:80 amplify:latest
+
+# Build and run with custom port
+docker build -t amplify:latest . && docker run -p 3000:80 amplify:latest
+```
+
+## DOKPLOY Deployment
+
+### Prerequisites
+- DOKPLOY account and access
+- Docker installed on your server
+- Domain configured
+
+### Deployment Steps
+
+1. **Build and push your Docker image:**
+   ```bash
+   # Build the image
+   docker build -t your-registry/amplify:latest .
+   
+   # Push to registry
+   docker push your-registry/amplify:latest
+   ```
+
+2. **Deploy via DOKPLOY:**
+   - Connect your repository to DOKPLOY
+   - Configure build settings to use the Dockerfile
+   - Set environment variables as needed
+   - Deploy to your server
+
+3. **Environment Variables:**
+   ```bash
+   NODE_ENV=production
+   SITE_URL=your-domain.com
+   ```
+
+### DOKPLOY Configuration
+
+The project includes a `Dockerfile` optimized for production deployment and a `docker-compose.yml` for development. The production build uses multi-stage builds for optimal performance.
+
 ## Code Intro
 
 I have created a few code tours to help introduce you to the codebase. You will need the extension [Code Tour](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) to view them in VSCode.
@@ -81,10 +150,27 @@ The source files have the following setup. Note that not all files are included 
 ├── netlify.toml
 ├── package.json
 ├── README.md
-└── tsconfig.json
+├── tsconfig.json
+├── Dockerfile
+├── Dockerfile.dev
+├── docker-compose.yml
+└── nginx.conf
 ```
 
 For robots like Google to see the correct sitemap, you will want to edit the `public/robots.txt` file to use your website domain.
+
+## Deployment Options
+
+### Netlify (Default)
+The project includes `netlify.toml` for easy Netlify deployment. Simply connect your repository and deploy.
+
+### Docker + Nginx
+- `Dockerfile` - Production-ready Docker image
+- `nginx.conf` - Nginx configuration for production
+- `docker-compose.yml` - Development environment
+
+### Manual Deployment
+Build the project and serve the `dist/` folder with any static file server.
 
 ## More Resources
 
@@ -97,7 +183,7 @@ For robots like Google to see the correct sitemap, you will want to edit the `pu
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact/Preact components.
 
 Any static assets, like images, can be placed in the `public/` directory. I also frequently use `src/assets` for images when using Astro asssets for image optimization.
 
@@ -114,7 +200,16 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+### Docker Commands
+
+| Command                           | Action                                    |
+| :-------------------------------- | :---------------------------------------- |
+| `docker-compose up -d`            | Start development environment             |
+| `docker-compose down`             | Stop development environment              |
+| `docker-compose logs -f`          | View live logs                           |
+| `docker build -t amplify:latest .` | Build production Docker image            |
+| `docker run -p 80:80 amplify:latest` | Run production container                |
+
 ### Want to learn more?
 
 Feel free to check out the [Astro documentation](https://docs.astro.build).
-# amplify

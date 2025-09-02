@@ -11,7 +11,14 @@ import Button from "@components/Button/Button.astro";
 ---
 
 <section id="contact" class="ml-auto max-w-2xl min-w-fit md:max-w-md">
-	<form id="contact-form" name="contact" class="flex flex-col gap-4">
+
+	<form 
+		action="https://usebasin.com/f/98e1539db42c"
+		method="POST"
+		id="contact-form"
+		name="contact"
+		class="flex flex-col gap-4"
+	>
 		<input type="hidden" name="form-name" value="contact" />
 		<div>
 			<div class="flex flex-col">
@@ -21,7 +28,7 @@ import Button from "@components/Button/Button.astro";
 					class="form__input"
 					name="fname"
 					id="contact-fname"
-					placeholder="first name"
+					placeholder="First name"
 					required
 				/>
 			</div>
@@ -34,7 +41,7 @@ import Button from "@components/Button/Button.astro";
 				name="email"
 				id="contact-email"
 				inputmode="email"
-				placeholder="preferred contact email"
+				placeholder="Email"
 				required
 			/>
 		</div>
@@ -46,20 +53,168 @@ import Button from "@components/Button/Button.astro";
 				name="phone"
 				id="contact-phone"
 				inputmode="tel"
-				placeholder="phone number"
+				placeholder="Phone number"
 				required
 			/>
 		</div>
+		<div>
+			<label for="project-budget" class="form__label sr-only mb-1">Project Budget</label>
+			<select class="form__input" name="budget" id="project-budget" required>
+				<option value="" disabled selected>Select your budget</option>
+				<option value="less-than-5000">Less than S$5000</option>
+				<option value="5000-10000">S$5000 - S$10,000</option>
+				<option value="10000-20000">S$10,000 - S$20,000</option>
+				<option value="more-than-20000">More than S$20,000</option>
+			</select>
+		</div>
+		
 		<div>
 			<label for="contact-services" class="form__label sr-only mb-1">Message</label>
 			<textarea
 				name="services"
 				class="form__input"
 				id="contact-services"
-				rows="4"
-				placeholder="Reason for contacting us"
+				rows="5"
+				placeholder="Your enquiry here"
 				required></textarea>
 		</div>
-		<Button variant="primary" type="submit" class="rounded-md before:rounded-md">Submit</Button>
+		<div>
+			<!-- honeypot -->
+			<label for="emai" class="sr-only">Real users skip this field</label>
+			<input id="emai" type="text" name="emai" class="sr-only" tabindex="-1" />
+		</div>
+
+		<!-- Cloudflare Turnstile -->
+		<!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAAA655yCS_Lg1buRH>"></div> -->
+		
+		<Button variant="primary" type="submit" class="rounded-md before:rounded-md">
+			<!-- your loading SVG here with id="form-loading" -->
+			<svg
+				id="form-loading"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="icon icon-tabler icons-tabler-outline icon-tabler-loader-2 hidden size-5 animate-spin"
+			>
+				<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+				<path d="M12 3a9 9 0 1 0 9 9"></path>
+			</svg>
+			Submit</Button
+		>
+		
 	</form>
+
+	<dialog
+		id="form-good-feedback"
+		class="invisible fixed bottom-4 z-50 mx-auto flex rounded-lg bg-green-200 p-0 text-green-800 opacity-0 transition duration-300"
+	>
+		<div class="p-4 text-center">
+			<p>Message sent successfully. We will get back to you.</p>
+		</div>
+	</dialog>
+
+	<!-- message send fail feedback -->
+	<dialog
+		id="form-bad-feedback"
+		class="invisible fixed bottom-4 z-50 mx-auto flex rounded-lg bg-red-200 p-0 text-red-800 opacity-0 transition duration-300"
+	>
+		<div class="p-4 text-center">
+			<p>Something went wrong. Please try again or contact me by email.</p>
+		</div>
+	</dialog>
+
+
+	<script>
+		// handle the form submission
+		var xhr = new XMLHttpRequest();
+
+		// only one contact form supported per page
+		const form = document.getElementById("contact-form") as HTMLFormElement;
+		const formLoadingIndicator = document.getElementById("form-loading");
+		const formGoodFeedback = document.getElementById("form-good-feedback");
+		const formBadFeedback = document.getElementById("form-bad-feedback");
+
+		const handleFormSubmission = (event) => {
+			// prevent page from reloading
+			event.preventDefault();
+
+			// show loading indicator
+			formLoadingIndicator?.classList.remove("hidden");
+
+			// get form data
+			const formData = new FormData(form);
+
+			// create POST request to the form action attribute
+			xhr.open("POST", form.action, true);
+
+			// make sure we receive json back
+			xhr.setRequestHeader("Accept", "application/json");
+
+			// SEND IT!
+			xhr.send(formData);
+
+			// once we get a response...
+			xhr.onload = function () {
+				formLoadingIndicator?.classList.add("hidden");
+				const response = JSON.parse(xhr.response);
+
+				if (xhr.status === 200) {
+					// The request was successful
+					console.log("Form submitted successfully.");
+					// reset form on successful email send
+					form?.reset();
+
+					if (formGoodFeedback) {
+						formGoodFeedback.classList.remove("invisible");
+						formGoodFeedback.classList.add("opacity-100");
+
+						// reset form feedback after a few seconds
+						setTimeout(() => {
+							formGoodFeedback.classList.remove("opacity-100");
+
+							setTimeout(() => {
+								formGoodFeedback.classList.add("invisible");
+							}, 300);
+						}, 5000);
+					}
+				} else {
+					const message = "Form submission failed with error: " + response.error;
+					console.log(message);
+					// The request failed
+					if (formBadFeedback) {
+						formBadFeedback.classList.remove("invisible");
+						formBadFeedback.classList.add("opacity-100");
+
+						// reset form feedback after a few seconds
+						setTimeout(() => {
+							formBadFeedback.classList.remove("opacity-100");
+
+							setTimeout(() => {
+								formBadFeedback.classList.add("invisible");
+							}, 300);
+						}, 7000);
+					}
+				}
+			};
+		};
+
+		form?.addEventListener("submit", handleFormSubmission, true);
+	</script>
+
+<script type="text/javascript">
+	function configureAhoy() {
+	  ahoy.configure({
+		visitsUrl: "https://usebasin.com/ahoy/visits",
+		eventsUrl: "https://usebasin.com/ahoy/events",
+		page: "98e1539db42c" /* Use your form id here */
+	  });
+	  ahoy.trackView();
+	  ahoy.trackSubmits();
+	}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/ahoy.js@0.3.9/dist/ahoy.min.js" async defer onload="configureAhoy()"></script>
 </section>
