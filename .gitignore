@@ -1,6 +1,9 @@
 # build output
 dist/
 
+#basin api
+ContactForm.astro
+
 # generated types
 .astro/
 
