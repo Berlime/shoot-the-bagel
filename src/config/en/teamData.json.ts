@@ -4,6 +4,7 @@ import Baha from "@images/teams/baha.webp";
 import Kamil from "@images/teams/kamil.webp";
 import Razi from "@images/teams/razi.webp";
 import Zuhair from "@images/teams/Zuhair.webp";
+import Jasveena from "@images/teams/jasveena.webp";
 
 export const teamData: teamMember[] = [
 	{
@@ -38,13 +39,13 @@ export const teamData: teamMember[] = [
 		bio: `Expert in servers, networking, & computer repairs, I bring hands on experience & problem solving skills to every project. I thrive on exploring new challenges while keeping pace with the ever evolving IT landscape.
     `,
 	},
-	// {
-	// 	image: Jasveena,
-	// 	name: "Jasveena R Prabhagaran",
-	// 	title: "Senior Lead Editor",
-	// 	bio: `I businesses & students bring their ideas to life through clear, polished writing—whether it’s refining a thesis, crafting a business plan, or shaping a company profile—and after working with over 300 clients, I still love seeing every project shine.
-    // `,j
-	// },
+	{
+		image: Jasveena,
+		name: "Jasveena R Prabhagaran",
+		title: "Lead Editor/Copywriter",
+		bio: `With over 8 years of experience, I refine website content, documentation structures, ghost writing & business documents. I shape compelling narratives & communicate complex ideas with clarity & impact.
+    `,
+	},
 ];
 
 export default teamData;
