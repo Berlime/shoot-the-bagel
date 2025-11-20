@@ -8,6 +8,7 @@
  * Every {Data} key must exist in the below object
  */
 import faqDataEn from "./en/faqData.json";
+import ms365FaqDataEn from "./en/ms365FaqData.json";
 import navDataEn from "./en/navData.json";
 import siteDataEn from "./en/siteData.json";
 import teamDataEn from "./en/teamData.json";
@@ -30,6 +31,7 @@ export const dataTranslations = {
 		siteData: siteDataEn,
 		navData: navDataEn,
 		faqData: faqDataEn,
+		ms365FaqData: ms365FaqDataEn,
 		teamData: teamDataEn,
 		testimonialData: testimonialDataEn,
 	},

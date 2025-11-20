@@ -13,37 +13,41 @@ import FeatureCard from "@components/FeatureCard/FeatureCardSmall2.astro";
 import { Icon } from "astro-icon/components";
 
 interface FeatureData {
+	icon: string;
 	title: string;
 	text: string;
 }
 
 const featureData: FeatureData[] = [
 	{
-		title: "Connect all our contacts",
-		text: `Sync with your calendar apps and contacts. Google, Outlook, ProtonMail, and more.`,
+		icon: "tabler/shield-check",
+		title: "Official Microsoft 365 Partner",
+		text: `As an authorized Microsoft 365 partner. Avoid common pitfalls of settings and configurations.`,
 	},
 	{
-		title: "Dashboards for all businesses",
-		text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam delectus
-            rerum, reiciendis quisquam cum sunt.`,
+		icon: "tabler/diamonds",
+		title: "Low Minimum Order Quantity",
+		text: `Start with just minimum 3 licenses, making enterprise-grade tools affordable for small businesses.`,
 	},
 	{
-		title: "Synced to the cloud",
-		text: `Your data is accessible from everywhere, syncing across all your devices.`,
+		icon: "tabler/wand",
+		title: "Expert Setup & Guidance",
+		text: `We handle everything from initial setup to seamless migration from your existing systems, ensuring zero downtime for your team.`,
 	},
 	{
-		title: "Your business intelligence, simplified",
-		text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam delectus
-            rerum.`,
+		icon: "tabler/chart-histogram",
+		title: "Perfect for Small Businesses",
+		text: `Avoid subscribing to multiple other softwares, Microsoft 365 for businesses is very different from a normal Microsoft products you have used.`,
 	},
 	{
-		title: "Real-time insights at your fingertips",
-		text: `Data syncs across your team instantly. Real-time access, with 99.9% uptime.`,
+		icon: "tabler/message-chatbot",
+		title: "Dedicated Support Included",
+		text: `Enjoy ongoing support, training, and assistance from our Microsoft-certified team to maximize your Microsoft 365 investment.`,
 	},
 	{
-		title: "Connects to popular apps",
-		text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit totam delectus
-            rerum, reiciendis quisquam cum sunt.`,
+		icon: "tabler/lock-square",
+		title: "Enterprise Security Built-In",
+		text: `Your data is protected with Microsoft's enterprise-grade security, automatic backups, and 99.9% uptime guarantee.`,
 	},
 ];
 ---
@@ -51,7 +55,10 @@ const featureData: FeatureData[] = [
 <section id="feature-cards-small-2" class="overflow-hidden py-16 md:py-20">
 	<div class="site-container relative">
 		<div class="mr-auto mb-16 md:max-w-4xl">
-			<h2 class="h2 inline" id="trigger-cards-small-2" data-aos="fade-right">Feature Snapshot</h2>
+			<h2 class="h2 inline" id="trigger-cards-small-2" data-aos="fade-right">Discounts Available</h2>
+			<p class="description text-pretty text-lg md:text-m">
+				Seamless digitalisation journey—organize and store all your business files in one secure place with a smart, structured system built for lasting growth. Finally, your information architecture is taken care of, no more finding files in random folders.
+			</p>
 		</div>
 		<div
 			class="grid gap-16 sm:grid-cols-2 lg:grid-cols-3"
@@ -59,7 +66,7 @@ const featureData: FeatureData[] = [
 			data-aos-delay=".3"
 			data-aos-trigger="#trigger-cards-small-2"
 		>
-			{featureData.map((feature, idx) => <FeatureCard title={feature.title} text={feature.text} />)}
+			{featureData.map((feature, idx) => <FeatureCard title={feature.title} text={feature.text} icon={feature.icon} />)}
 		</div>
 	</div>
 </section>

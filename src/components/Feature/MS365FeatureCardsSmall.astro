@@ -1,0 +1,103 @@
+---
+/**
+ * * These are small cards with icons, titles, and text. With title first
+ * This looks best with an even number of cards. They are smaller to
+ * use with more cards in the same section. 4 or 6 cards is probably ideal
+ *
+ * ! I copy all icons into the src/icons folder and recommend you do the same
+ * ! If the icon is at src/icons/tabler/paint.svg then you put in "tabler/paint"
+ */
+
+import Badge from "@components/Badge/Badge.astro";
+import FeatureCard from "@components/FeatureCard/FeatureCardSmall.astro";
+import { Icon } from "astro-icon/components";
+import Button from "@components/Button/Button.astro";
+
+interface FeatureData {
+	icon: string;
+	title: string;
+	text: string;
+}
+
+const featureData: FeatureData[] = [
+	{
+		icon: "tabler/phone",
+		title: "Unlimited Video Calls with Teams",
+		text: `Host unlimited video calls with Microsoft Teams. No time restrictions, connect with your team anytime, anywhere.`,
+	},
+	{
+		icon: "tabler/mail",
+		title: "Professional E-mail Inbox",
+		text: `Get a professional e-mail inbox with your own domain. Build trust and credibility with clients and partners.`,
+	},
+	{
+		icon: "tabler/api-app",
+		title: "Multiple E-mails per License",
+		text: `Create multiple professional e-mail addresses with a single license. Manage your entire team efficiently and cost-effectively.`,
+	},
+	{
+		icon: "tabler/layout-grid",
+		title: "Modern Document Portal",
+		text: `Access your documents through a professional portal instead of browsing in File Explorer. Enhanced organization and collaboration.`,
+	},
+	{
+		icon: "tabler/chart-histogram",
+		title: "Elevate Business Experience",
+		text: `Transform how you manage business information with intuitive tools designed to improve productivity and user experience.`,
+	},
+	{
+		icon: "tabler/cloud",
+		title: "Cloud Storage & Collaboration",
+		text: `Store, share, and collaborate on files seamlessly in the cloud. Access your work from any device, anytime.`,
+	},
+];
+
+---
+
+<section id="ms365-feature-cards-small" class="py-16 md:py-20">
+	<div class="site-container relative">
+		<div class="mx-auto mb-16 text-center md:max-w-2xl" data-aos="fade-up">
+			<Badge>What's Included?</Badge>
+			<div class="flex justify-center">
+				<h2 class="h2 mb-4">Everything you need in Microsoft 365</h2>
+			</div>
+			<p class="description text-pretty text-lg md:text-xl">
+				Subscribe to Microsoft 365 and get access to essential business tools that streamline your workflow and elevate your productivity.
+			</p>
+		</div>
+		<div
+			id="trigger-ms365-small-cards"
+			class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+			data-aos="fade-up"
+		>
+			{
+				featureData.map((feature, idx) => (
+					<FeatureCard title={feature.title} text={feature.text} icon={feature.icon} />
+				))
+			}
+		</div>
+		<div class="mt-8 flex flex-wrap justify-center gap-4">
+			<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center" hidden>
+				<Button
+					variant="primary"
+					href="/services/microsoft-365#pricing"
+					target="_self"
+					rel="noopener norefferer"
+					type="submit">Learn More</Button
+				>
+			</div>
+
+			<div data-aos="fade-up" data-aos-delay=".2" data-aos-trigger="#hero-center">
+				<Button
+					variant="secondary"
+					href="/contact"
+					target="_self"
+					arrow="right"
+					rel="noopener norefferer">Request Quote</Button
+				>
+			</div>
+		</div>
+
+	</div>
+</section>
+

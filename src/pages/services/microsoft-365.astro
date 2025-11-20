@@ -5,6 +5,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 // components
 import MS365HeroSideElectric from "@components/Hero/MS365HeroSideElectric.astro";
 import MS365FeatureCardsSmall2 from "@components/Feature/MS365FeatureCardsSmall2.astro";
+import MS365FeatureCardsSmall from "@components/Feature/MS365FeatureCardsSmall.astro";
+import FeatureIntegrations from "@components/Feature/FeatureIntegrations.astro";
+import MS365FaqAccordions from "@components/Faq/MS365FaqAccordions.astro";
 
 // utils
 import { getLocaleFromUrl } from "@js/localeUtils";
@@ -18,9 +21,10 @@ const siteData = getTranslatedData("siteData", currLocale);
 <BaseLayout title={siteData.title} description={siteData.description}>
 	<MS365HeroSideElectric />
 	<MS365FeatureCardsSmall2 />
+	<MS365FeatureCardsSmall />
 	<!-- <WebsitePricingTableWithAccordion /> -->
 	<!-- <FeatureIntegrations /> -->
 	<!-- <TestimonialsSwiperQuotes /> -->
 	<!-- <CtaBgImage /> -->
-	<!-- <FaqAccordions /> -->
+	<MS365FaqAccordions />
 </BaseLayout>
